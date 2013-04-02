@@ -1,0 +1,19 @@
+{
+    "name": "wp-json-api-client",
+    "description": "BackboneJS client for WordPress JSON API",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:voceconnect/wp-json-api-client.git"
+    },
+    "projectType": "backbone",
+    "baseDir": "app",
+    "envs": {
+        "local": {
+            "domain": "wp-json-api-client.dev"
+        }
+    },
+    "devDependencies": {
+        "grunt": "latest"
+    }
+}

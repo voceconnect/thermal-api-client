@@ -1,0 +1,28 @@
+{
+    "coffee" : {
+       "all": {
+            "files": {
+                "./webapp/assets/js/compiled.js": [ "./app/coffee/**/*.coffee"]
+            }
+        }
+
+    },
+    "compass" : {
+        "all": {
+            "options": {
+                "sassDir": "./app/sass",
+                "cssDir": "./webapp/assets/css"
+            }
+        }
+    },
+    "img" : {
+        "all": {
+             "src": "./app/images",
+             "dest": "./webapp/assets/img"
+        }
+    },
+    "watch": {
+            "files": ["./app/**"],
+            "tasks": "compile"
+    }
+}
