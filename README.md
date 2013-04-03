@@ -41,5 +41,18 @@ There is a custom `peon-config.jst` which is properly configured for this applic
 There are also custom tasks in the /tasks directory for the build.
 Run `peon build` from the root of the project to produce functional standalone and WP implementations of this application.
 
+## Testing
+
+_reference: http://www.sitepoint.com/unit-testing-backbone-js-applications _
+
+1. Install required node modules
+```
+npm install jquery jsdom underscore backbone mocha chai sinon sinon-chai testem -g
+```
+
+2. Run `testem` from the tests/ directory
+
+3. Open the URL provided. As long it the browser is open, you can rerun tests in that environment.
+
 
 ## Changelog
