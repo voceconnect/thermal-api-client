@@ -1,1 +1,1 @@
-# enqueue the JS
+# enqueue the JS and CSS

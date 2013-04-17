@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-  grunt.registerTask("compile", [
+  grunt.registerTask("make", [
     'coffeelint'
     'coffee'
     'compass'

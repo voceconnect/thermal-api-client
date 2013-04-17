@@ -2,9 +2,10 @@ module.exports = (grunt) ->
   grunt.registerTask('asset-copy', ()->
     done = @async()
     cmds = [
-      "cp -R vendor webapp/vendor"
-      "cp -R vendor wp-theme/vendor"
-      "cp -R webapp/assets wp-theme/assets"
+      "cp -R vendor/js _build/"
+      "cp -R vendor/images _build/"
+      "cp -R vendor/css _build/"
+      "cp index.html _build/"
     ].join(" && ")
     require('child_process').exec(cmds, (err, stdout, stderr)->
       if err then grunt.fatal(stderr)
@@ -12,5 +13,4 @@ module.exports = (grunt) ->
       grunt.log.ok('\nAssets Copied')
       done()
     )
-
   )
