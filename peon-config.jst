@@ -2,7 +2,13 @@
     "coffee" : {
        "all": {
             "files": {
-                "./_build/js/app.js": [ "./app/coffee/**/*.coffee"]
+                "./_build/js/wisp.specs.js": [
+                "./app/coffee/wisp.coffee",
+                "./app/coffee/router.coffee",
+                "./app/coffee/models/*.coffee",
+                "./app/coffee/collections/*.coffee",
+                "./app/coffee/views/*.coffee"
+                ]
             }
         }
 
@@ -15,9 +21,65 @@
             }
         }
     },
+    "jst": {
+      "all": {
+        "options": {
+            "namespace" : "WisP.Templates"
+        },
+        "files": {
+          "./_build/js/templates.js": ["./app/templates/**/*.html"]
+        }
+      }
+    },
+    "minified" : {
+        "all": {
+            "src": [
+                "./_build/js/**/*.js"
+            ],
+            "dest": "./_build/js/"
+        }
+    },
+    "concat": {
+        "options": {
+          "separator": ";"
+        },
+        "all": {
+          "src" : [
+              "./_build/js/jquery.min.js",
+              "./_build/js/lodash.min.js",
+              "./_build/js/backbone.min.js",
+              "./_build/js/bootstrap.min.js",
+              "./_build/js/wisp.specs.js",
+              "./_build/js/templates.js"
+          ],
+          "dest" : "./_build/js/wisp.js"
+        }
+    },
+    "htmlmin" :{
+        "all": {
+            "options": {
+                "removeComments": "true",
+                "collapseWhitespace": "true",
+                "removeCommentsFromCDATA": "true",
+                "removeCDATASectionsFromCDATA": "true",
+                "collapseBooleanAttributes": "false",
+                "removeAttributeQuotes": "false",
+                "removeRedundantAttributes": "true"
+            },
+            "files": [
+                {
+                    "expand": "true",
+                    "cwd": "./",
+                    "src": [
+                        "./_build/index.html"
+                    ]
+                }
+            ]
+        }
+    },
     "img" : {
         "all": {
-             "src": "./app/images",
+             "src": "./app/img",
              "dest": "./_build/img"
         }
     },

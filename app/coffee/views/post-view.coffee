@@ -1,0 +1,1 @@
+WisP.PostView = Backbone.View.extend

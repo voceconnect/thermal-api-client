@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WisP</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- favicon -->
+    <link rel="icon" href="img/apple-icons/apple-touch-icon-57x57.png"/>
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- app styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/wisp.css">
+
+</head>
+<body>
+<!-- header start -->
+<header>
+    <!-- app nav start -->
+    <nav></nav>
+    <!-- app nav end -->
+</header>
+<!-- header end -->
+<!-- pre app content start -->
+<div id="pre"></div>
+
+<!-- pre app content end -->
+<!-- app main start -->
+<div id="app">
+    <p class="loading">The application is loading...</p>
+</div>
+<!-- app main end -->
+<!-- footer start -->
+<footer id="footer">
+
+</footer>
+<!-- footer end -->
+
+<!-- Application -->
+<script src="js/wisp.js"></script>
+<!-- init and accessory scripts -->
+<script>
+    function updateAppCache(event) {
+        window.applicationCache.swapCache();
+    }
+    window.applicationCache.addEventListener('updateready',updateAppCache, false);
+    $(document).ready(function () {
+
+    });
+</script>
+</body>
+</html>

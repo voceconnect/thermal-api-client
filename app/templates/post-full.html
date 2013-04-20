@@ -1,0 +1,8 @@
+<div class="post-full" id="<%= ID %>">
+    <% if(media.featured_image){ %>
+    <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+    <% } %>
+    <h3><%= title %></h3>
+
+    <p><%= content %></p>
+</div>

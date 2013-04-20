@@ -14,6 +14,10 @@
         }
     },
     "devDependencies": {
-        "grunt": "latest"
+        "grunt": "latest",
+        "lodash": "~1.0.0",
+        "grunt-lib-contrib": "~0.5.1",
+        "uglify-js" : "~2.2.2",
+        "colors": "~0.6.0-1"
     }
 }

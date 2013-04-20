@@ -2,9 +2,12 @@ module.exports = (grunt) ->
   grunt.registerTask('asset-copy', ()->
     done = @async()
     cmds = [
-      "cp -R vendor/js _build/"
-      "cp -R vendor/images _build/"
-      "cp -R vendor/css _build/"
+      "rm -rf _build"
+      "mkdir _build"
+      "cp -r vendor/js _build/"
+      "cp -r vendor/img _build/"
+      "cp -r app/img _build/"
+      "cp -r vendor/css _build/"
       "cp index.html _build/"
     ].join(" && ")
     require('child_process').exec(cmds, (err, stdout, stderr)->

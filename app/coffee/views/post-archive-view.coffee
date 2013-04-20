@@ -1,0 +1,1 @@
+WisP.PostArchiveView = Backbone.View.extend
