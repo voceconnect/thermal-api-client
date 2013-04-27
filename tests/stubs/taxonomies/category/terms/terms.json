@@ -1,0 +1,51 @@
+{
+    "found": 3,
+    "terms": [
+        {
+            "ID": 5,
+            "term_id_str": "5",
+            "term_taxonomy_id": 5,
+            "term_taxonomy_id_str": "5",
+            "parent": 1,
+            "parent_str": "1",
+            "name": "Local News",
+            "slug": "local-news",
+            "taxonomy": "category",
+            "description": "News reports from around Polk County",
+            "post_count": 25,
+            "post_count_padded": 33,
+            "meta": {
+            }
+        },
+        {
+            "ID": 8,
+            "term_id_str": "8",
+            "term_taxonomy_id": 8,
+            "term_taxonomy_id_str": "8",
+            "parent": 1,
+            "parent_str": "1",
+            "name": "Weather",
+            "slug": "weather",
+            "taxonomy": "category",
+            "description": "Weather reports",
+            "post_count": 25,
+            "post_count_padded": 33,
+            "meta": {}
+        },
+        {
+            "ID": 4,
+            "term_id_str": "4",
+            "term_taxonomy_id": 4,
+            "term_taxonomy_id_str": "4",
+            "parent": 1,
+            "parent_str": "1",
+            "name": "Politics",
+            "slug": "politics",
+            "taxonomy": "category",
+            "description": "Political News",
+            "post_count": 25,
+            "post_count_padded": 33,
+            "meta": {}
+        }
+    ]
+}
