@@ -44,10 +44,6 @@
 <script src="js/wisp.js"></script>
 <!-- init and accessory scripts -->
 <script>
-    function updateAppCache(event) {
-        window.applicationCache.swapCache();
-    }
-    window.applicationCache.addEventListener('updateready',updateAppCache, false);
     $(document).ready(function () {
         WisP.start();
     });
