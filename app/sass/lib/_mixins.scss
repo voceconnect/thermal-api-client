@@ -110,8 +110,8 @@
   background-color: transparent;
   border: 0;
 }
-@mixin text-shadow($opacity){
-    text-shadow: rgba(#000, $opacity) 0 1px 0;
+@mixin text-shadow($color, $opacity: .4){
+    text-shadow: rgba($color, $opacity) 0 1px 0;
 }
 @mixin ribbon($text: 'New', $top: 0, $left: 0){
 	position: absolute;
@@ -125,7 +125,7 @@
 	font-size: 1em;
 	padding: 0 16px 0 7px;
 	border-left: 1px solid #b36406;
-	@include text-shadow(.4);
+	@include text-shadow(#000, .4);
 	content: '#{$text}';
 	top: $top;
 	left: $left;
