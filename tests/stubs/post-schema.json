@@ -1,0 +1,155 @@
+{
+    "title": "Post Object",
+    "description": "A representation of a single post object",
+    "type": "object",
+    "id": "#post",
+    "properties": {
+        "author": {
+            "description": "The user set as the author of the post.",
+            "type": {
+                "$ref": "#user"
+            },
+            "required": true
+        },
+        "comment_count": {
+            "description": "The number of comments for this post.",
+            "type": "integer",
+            "minimum": 0,
+            "required": true
+        },
+        "comment_status": {
+            "description": "The current status determining whether the post is accepting comments.",
+            "enum": ["open", "closed"],
+            "required": true
+        },
+        "content_filtered": {
+            "description": "The content of the post after it has been run through the set 'the_content' filters.",
+            "type": "string",
+            "required": true
+        },
+        "content": {
+            "description": "The raw content of the post as it's stored in the database.",
+            "type": "string",
+            "required": true
+        },
+        "date": {
+            "description": "The post's creation time in iso 8601 format.",
+            "type": "string",
+            "format": "date-time",
+            "required": true
+        },
+        "excerpt_filtered": {
+            "description": "The excerpt of the post after it has been run through the 'the_excerpt' filters.",
+            "type": "string",
+            "required": true
+        },
+        "excerpt": {
+            "description": "The raw excerpt as it is stored in the database.",
+            "type": "string",
+            "required": true
+        },
+        "id_str": {
+            "description": "The ID of the post represented as a string.",
+            "type": "string",
+            "required": true
+        },
+        "id": {
+            "description": "The ID of the post",
+            "type": "integer",
+            "minimum": 1,
+            "required": true
+        },
+        "media": {
+            "type": "array",
+            "required": false,
+            "items": {
+                "type": {
+                    "$ref": "#mediaItem"
+                }
+            }
+        },
+        "meta": {
+            "description": "Additional data for the Post object.  Handling must be provided by other plugins to expand the provided meta beyond core properties.",
+            "type": "object",
+            "required": false,
+            "default": {},
+            "additionalProperties": {
+                "featuredImage": {
+                    "description": "The ID of the image being referenced as the featured image.  The referenced image should be present in the media property.",
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
+        "mime_type": {
+            "description": "The mime type of the represented object",
+            "type": "string",
+            "required": true,
+            "default": "text/html"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time",
+            "required": true
+        },
+        "name": {
+            "description": "The name (slug) for the post, used in URLs.",
+            "type": "string",
+            "required": true
+        },
+        "parent_str": {
+            "description": "The ID of the post's parent as a string, if it has one.",
+            "type": "string",
+            "required": false
+        },
+        "parent": {
+            "description": "The ID of the post's parent as a string, if it has one.",
+            "type": "integer",
+            "required": false
+        },
+        "permalink": {
+            "description": "The full permalink URL to the post.",
+            "type": "string",
+            "formate": "uri",
+            "required": true
+        },
+        "status": {
+            "description": "The status of the post.",
+            "type": {
+                "enum": ["publish", "draft", "pending", "future", "trash"]
+            },
+            "required": true
+        },
+        "taxonomies": {
+            "description": "Key/Value pairs of taxonomies that exist for the given post where the Key is the name of the taxonomy.",
+            "type": "object",
+            "required": false,
+            "default": {},
+            "additionalProperties": {
+                "category": {
+                    "type": "array",
+                    "items": {
+                        "type": {
+                            "$ref": "#term"
+                        }
+                    },
+                    "required": false
+                },
+                "post_tag": {
+                    "type": "array",
+                    "items": {
+                        "type": {
+                            "$ref": "#term"
+                        }
+                    },
+                    "required": false
+                }
+            }
+        },
+        "title": {
+            "description": "The title of the Post.",
+            "type": "string",
+            "required": true
+        }
+    }
+}
