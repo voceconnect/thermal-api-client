@@ -83,7 +83,6 @@ describe('WisP', function () {
         it('Should add models from remote', function () {
             var result;
             posts = new WisP.Posts();
-            length = posts.models.length;
             getPosts();
 
             waitsFor(function () {
@@ -91,10 +90,8 @@ describe('WisP', function () {
             }, 'gets posts', 3000);
 
             runs(function () {
-                expect(posts.models.length).toBe(length + 1);
-                length = length + 1;
+                expect(posts.models.length).toBe(3);
             });
-
 
             function getPosts() {
                 posts.fetch({

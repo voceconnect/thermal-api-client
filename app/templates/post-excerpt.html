@@ -1,7 +1,7 @@
 <div class="span4 thermal-item">
     <% if(media.featured_image){ %>
     <div class="thermal-img">
-        <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+        <img src="#"/>
     </div>
     <% } %>
     <div class="thermal-text">
@@ -9,7 +9,7 @@
         <p><%= excerpt %></p>
     </div>
     <div class="thermal-meta">
-        <img src="<%= author.avatar.url %>" alt="" class="img-circle pull-left" />
+        <img src="#" alt="" class="img-circle pull-left" />
         <p><span><%= date %></span><a href=""><%= author.display_name %></a></p>
     </div>
 </div>
