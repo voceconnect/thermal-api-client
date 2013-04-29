@@ -12,14 +12,21 @@ body {
 	margin-bottom: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
 	border: 1px solid $grayLight;
+	position: relative;
+	&.new-item {
+		&:after {
+			@include ribbon('New', 143px, -1px);
+		}
+	}
 }
 #{$name}-img {
 	border-bottom: 4px solid $grayLighter;
+	position: relative;
 }
 #{$name}-text {
 	@include box-sizing(border-box);
 	padding: 1em 6.25%;
-	h5 {
+	h4 {
 		text-transform: uppercase;
 	}
 	p {

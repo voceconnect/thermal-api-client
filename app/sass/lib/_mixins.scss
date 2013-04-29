@@ -110,8 +110,27 @@
   background-color: transparent;
   border: 0;
 }
-
-
+@mixin text-shadow($opacity){
+    text-shadow: rgba(#000, $opacity) 0 1px 0;
+}
+@mixin ribbon($text: 'New', $top: 0, $left: 0){
+	position: absolute;
+	display: inline-block;
+	background: image_url('bg-ribbon.png') no-repeat top right;
+	height: 27px;
+	line-height: 27px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1em;
+	padding: 0 16px 0 7px;
+	border-left: 1px solid #b36406;
+	@include text-shadow(.4);
+	content: '#{$text}';
+	top: $top;
+	left: $left;
+}
+	
 // FONTS
 // --------------------------------------------------
 
