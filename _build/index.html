@@ -1,7 +1,3 @@
-<!DOCTYPE html><html lang=en><head><title>WisP</title><meta charset=utf-8><meta name=viewport content="width=device-width, user-scalable=no"><link rel=icon href="img/apple-icons/apple-touch-icon-57x57.png"><meta name=apple-mobile-web-app-capable content=yes><link rel=stylesheet href="css/bootstrap.min.css"><link rel=stylesheet href="css/bootstrap-responsive.min.css"><link rel=stylesheet href="css/wisp.css"></head><body><header><nav></nav></header><div id=pre></div><div id=app><p class=loading>The application is loading...</p></div><footer id=footer></footer><script src="js/wisp.js"></script><script>function updateAppCache(event) {
-        window.applicationCache.swapCache();
-    }
-    window.applicationCache.addEventListener('updateready',updateAppCache, false);
-    $(document).ready(function () {
-
+<!DOCTYPE html><html lang=en><head><title>WisP</title><meta charset=utf-8><meta name=viewport content="width=device-width, user-scalable=no"><link rel=icon href="img/apple-icons/apple-touch-icon-57x57.png"><meta name=apple-mobile-web-app-capable content=yes><link rel=stylesheet href="css/bootstrap.min.css"><link rel=stylesheet href="css/bootstrap-responsive.min.css"><link rel=stylesheet href="css/wisp.css"></head><body><header><nav></nav></header><div id=pre></div><div id=app><p class=loading>The application is loading...</p></div><footer id=footer></footer><script src="js/wisp.js"></script><script>$(document).ready(function () {
+        WisP.start();
     });</script></body></html>
