@@ -4,7 +4,7 @@ WisP.Router = new (Backbone.Router.extend
     @route("posts(/:category)(/)", 'showPosts')
 
   showPosts: (category)->
-    WisP.Controller(category)
+    WisP.Controller.showPosts(category)
 
   showError: ()->
     console.log 'showError'

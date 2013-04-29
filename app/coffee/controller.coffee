@@ -10,7 +10,7 @@ WisP.Controller =
     postsView = new WisP.PostArchiveView(collection : WisP.currentPosts)
     WisP.currentPosts.fetch()
     postsView.listenTo(WisP.currentPosts, 'add', postsView.renderOne)
-    WisP.config.html.main.html(postsView.el)
+    WisP.config.html.main.append(postsView.el)
 
   showPost: (id)->
     WisP.currentPost = new WisP.Post(id: id)
