@@ -1,3 +1,26 @@
+@import "lib/bootstrap";
+@import "lib/responsive";
 body {
   background-color: #eeeeee;
+}
+#{$name}-loop {
+	
+}
+#{$name}-item {
+	max-width: 300px;
+	background: #fff;
+	margin-bottom: 25px;
+	@include box-shadow(0 0 5px rgba(#000, .2));
+}
+#{$name}-img {
+	
+}
+#{$name}-text {
+	
+}
+#{$name}-meta {
+	background: $grayLighter;
+	p {
+		overflow: hidden;
+	}
 }

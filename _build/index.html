@@ -1,3 +1,30 @@
-<!DOCTYPE html><html lang=en><head><title>WisP</title><meta charset=utf-8><meta name=viewport content="width=device-width, user-scalable=no"><link rel=icon href="img/apple-icons/apple-touch-icon-57x57.png"><meta name=apple-mobile-web-app-capable content=yes><link rel=stylesheet href="css/bootstrap.min.css"><link rel=stylesheet href="css/bootstrap-responsive.min.css"><link rel=stylesheet href="css/wisp.css"></head><body><header><nav></nav></header><div id=pre></div><div id=app><p class=loading>The application is loading...</p></div><footer id=footer></footer><script src="js/wisp.js"></script><script>$(document).ready(function () {
+<!DOCTYPE html><html lang=en><head><title>WisP</title><meta charset=utf-8><meta name=viewport content="width=device-width"><link rel=icon href="img/apple-icons/apple-touch-icon-57x57.png"><meta name=apple-mobile-web-app-capable content=yes><link rel=stylesheet href="css/wisp.css"></head><body><header><nav></nav></header><div id=pre></div><div id=app><p class=loading>The application is loading...</p><div class=container><div class="row thermal-loop"><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Dry Weather Costly to Cattle Ranchers</a></h5><p>The grasses that are the main food supply for grazing cattle are shorter than usual this year in the Sacramento Valley. This creates a costly scenario for cattle ranchers.</p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Yuba, Sutter Counties Have Some of California’s Worst Roads</a></h5><p>The grasses that are the main food supply for grazing cattle are shorter than usual this year in the Sacramento Valley. This creates a costly scenario for cattle ranchers.</p><p><a href="" class="btn btn-large btn-success">Read Full Post</a></p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Conclave to Elect New Pope Set to Begin</a></h5><p>The work to choose a successor to retired Benedict XVI begins in earnest Tuesday, as the cardinals charged with the task prepare to be locked away in a secret election, or conclave, in Vatican City.</p><p>Charged with the task prepare to be locked away in a secret election.</p><p><a href="" class="btn btn-large btn-success">Read Full Post</a></p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Dry Weather Costly to Cattle Ranchers</a></h5><p>The grasses that are the main food supply for grazing cattle are shorter than usual this year in the Sacramento Valley. This creates a costly scenario for cattle ranchers.</p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Yuba, Sutter Counties Have Some of California’s Worst Roads</a></h5><p>The grasses that are the main food supply for grazing cattle are shorter than usual this year in the Sacramento Valley. This creates a costly scenario for cattle ranchers.</p><p><a href="" class="btn btn-large btn-success">Read Full Post</a></p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div><div class="span4 thermal-item"><div class=thermal-img><img src="http://placehold.it/300x189"></div><div class=thermal-text><h5><a href="">Conclave to Elect New Pope Set to Begin</a></h5><p>The work to choose a successor to retired Benedict XVI begins in earnest Tuesday, as the cardinals charged with the task prepare to be locked away in a secret election, or conclave, in Vatican City.</p><p>Charged with the task prepare to be locked away in a secret election.</p><p><a href="" class="btn btn-large btn-success">Read Full Post</a></p></div><div class=thermal-meta><img src="http://placehold.it/48x48" alt="" class="img-rounded pull-left"><p><span>3 hours ago</span><a href="">Cecilio Padilla</a></p></div></div></div></div></div><footer id=footer></footer><script src="js/wisp.js"></script><script>$(document).ready(function () {
         WisP.start();
-    });</script></body></html>
+		init_masonry();
+     });
+	function init_masonry(){
+	    var $container = $('.thermal-loop');
+
+	    var gutter = 20;
+	    var min_width = 300;
+	    $container.imagesLoaded( function(){
+	        $container.masonry({
+	            itemSelector : '.thermal-item',
+	            gutterWidth: gutter,
+	            isAnimated: true,
+	              columnWidth: function( containerWidth ) {
+	                var num_of_boxes = (containerWidth/min_width | 0);
+
+	                var box_width = (((containerWidth - (num_of_boxes-1)*gutter)/num_of_boxes) | 0) ;
+
+	                if (containerWidth < min_width) {
+	                    box_width = containerWidth;
+	                }
+
+	                $('.thermal-item').width(box_width);
+
+	                return box_width;
+	              }
+	        });
+	    });
+	}</script></body></html>
