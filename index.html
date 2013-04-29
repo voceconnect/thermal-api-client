@@ -45,7 +45,8 @@
 		        <li><a href="#">Something</a></li>
 		        <li><a href="#">Something</a></li>
 		    </ul>
-		</div>		<div class="row thermal-loop">
+		</div>		
+		<div class="row thermal-loop">
 			<div class="span4 thermal-item new-item">
 				<div class="thermal-img">
 					<img src="http://placehold.it/300x189">
@@ -154,6 +155,18 @@
         WisP.start();
 		init_masonry();
 		$('.dropdown-toggle').dropdown();
+		$(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scroll-to-top').fadeIn();
+            } else {
+                $('.scroll-to-top').fadeOut();
+            }
+        }); 
+
+        $('.scroll-to-top').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
      });
 	function init_masonry(){
 	    var $container = $('.thermal-loop');

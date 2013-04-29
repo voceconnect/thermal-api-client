@@ -9,9 +9,13 @@ body {
 }
 .btn-group {
 	margin-bottom: 15px;
+	.btn {
+		font-family: Helvetica Neue, Helvetica, sans-serif;
+	}
 }
 @import "cards";
 .scroll-to-top {
+	display: none;
 	border: 1px solid #fff;
 	@include box-shadow(0 0 4px 0 rgba(#000, .4), 0 0 1px 0 #dadada);
 	text-transform: uppercase;
