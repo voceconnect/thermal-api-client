@@ -10,7 +10,7 @@ describe('WisP', function () {
             expect(this.post.get("id")).toBe(0);
         });
         it('Post should set given id', function () {
-            post = new WisP.Post({id:1});
+            post = new WisP.Post({id: 1});
             expect(post.get("id")).toBe(1);
         });
         it('Url method should use baseUrl', function () {
@@ -18,29 +18,29 @@ describe('WisP', function () {
         });
         it('Fetch should set remote data', function () {
             var result;
-            post = new WisP.Post({id:100});
+            post = new WisP.Post({id: 100});
             getPost();
 
-            waitsFor(function(){
+            waitsFor(function () {
                 return result === true;
             }, "get remote model data", 3000);
 
-            runs(function(){
+            runs(function () {
                 expect(post.get('title')).toBe('Lorem Ipsum Dolor!');
             });
-            
-            function getPost(){
+
+            function getPost() {
                 post.fetch({
-                    success : function(){
-                        result = true; 
+                    success: function () {
+                        result = true;
                     },
-                    error : function(){
+                    error: function () {
                         result = false;
                     }
                 });
             }
 
-        });                
+        });
     });
 
     describe('Post View', function () {
@@ -79,29 +79,29 @@ describe('WisP', function () {
         it('Should add option category', function () {
             posts = new WisP.Posts([], {category: 5});
             expect(posts.url).toBe('stubs/posts/?per_page=3&paged=1&cat=5');
-        });        
+        });
         it('Should add models from remote', function () {
             var result;
             posts = new WisP.Posts();
             length = posts.models.length;
             getPosts();
 
-            waitsFor(function(){
+            waitsFor(function () {
                 return result === true;
             }, 'gets posts', 3000);
 
-            runs(function(){
-                expect(posts.models.length).toBe( length + 1  );
+            runs(function () {
+                expect(posts.models.length).toBe(length + 1);
                 length = length + 1;
             });
 
 
-            function getPosts(){
+            function getPosts() {
                 posts.fetch({
-                    success: function(){
+                    success: function () {
                         result = true;
                     },
-                    error: function(){
+                    error: function () {
                         result = false;
                     }
                 });
@@ -118,7 +118,7 @@ describe('WisP', function () {
         });
         it('Adding a model should render html', function () {
             html = this.postsView.renderOne(new WisP.Post());
-            expect($(html).find('h3').text()).toBe('Default Post Title');
+            expect($(html).find('h4 a').text()).toBe('Default Post Title');
         });
         it('Should render from remote', function () {
             var result;
@@ -126,49 +126,49 @@ describe('WisP', function () {
             postsView = new WisP.PostArchiveView({collection: posts});
             length = $(postsView.el).find('h3').length;
             getPosts();
-            waitsFor(function(){
+            waitsFor(function () {
                 return result === true;
             }, "get posts", 3000);
 
-            runs(function(){
+            runs(function () {
                 //expect($(postsView.el).find('h3').length).toBe(3);
-            }); 
+            });
 
-            function getPosts(){
+            function getPosts() {
                 posts.fetch({
-                    success: function(){
+                    success: function () {
                         result = true;
-                    }, 
-                    error: function(){
+                    },
+                    error: function () {
                         result = false;
                     }
                 })
             }
 
-        });        
+        });
     });
 
-    describe('Controller', function(){
-        beforeEach(function(){
-            
+    describe('Controller', function () {
+        beforeEach(function () {
+
         });
-        it('showPosts should create collection', function(){
+        it('showPosts should create collection', function () {
             WisP.Controller.showPosts();
             expect(typeof WisP.currentPosts).toBe('object');
         });
 
-        it('showPosts should create collection with category', function(){
+        it('showPosts should create collection with category', function () {
             WisP.Controller.showPosts('100');
             url = WisP.currentPosts.url;
-            expect(url.substr(url.indexOf('cat'),7)).toBe('cat=100');
+            expect(url.substr(url.indexOf('cat'), 7)).toBe('cat=100');
         });
 
-        it('showPost should get post from ID', function(){
+        it('showPost should get post from ID', function () {
             WisP.Controller.showPost(100);
             expect(WisP.currentPost.get('id')).toBe(100);
         });
 
-        it('showPost should set empty if ID not set', function(){
+        it('showPost should set empty if ID not set', function () {
             WisP.Controller.showPost();
             expect(WisP.currentPost.get('id')).toBe(0);
         });

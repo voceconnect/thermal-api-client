@@ -1,22 +1,15 @@
-<div class="post-excerpt" id="<%= id %>">
-    <span class="new=-post">New</span>
+<div class="span4 thermal-item">
     <% if(media.featured_image){ %>
-        <span class="featured-image">
-            <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
-        </span>
+    <div class="thermal-img">
+        <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+    </div>
     <% } %>
-    <h3><%= title %></h3>
-
-    <p><%= excerpt %></p>
-    <a class="button" href="#/posts/show/<%= id %>">Read Full Post</a>
-
-    <div class="bottom">
-        <% if(author.avatar){ %>
-        <span class="author-image">
-            <img src="<%= author.avatar.url %>"/>
-        </span>
-        <% } %>
-        <small><%= date %></small>
-        <h4><%= author.display_name %></h4>
+    <div class="thermal-text">
+        <h4><a href="#"><%= title %></a></h4>
+        <p><%= excerpt %></p>
+    </div>
+    <div class="thermal-meta">
+        <img src="<%= author.avatar.url %>" alt="" class="img-circle pull-left" />
+        <p><span><%= date %></span><a href=""><%= author.display_name %></a></p>
     </div>
 </div>

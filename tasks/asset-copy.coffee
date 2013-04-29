@@ -7,7 +7,6 @@ module.exports = (grunt) ->
       "cp -r vendor/js _build/"
       "cp -r vendor/img _build/"
       "cp -r app/img _build/"
-      "cp -r vendor/css _build/"
       "cp index.html _build/"
     ].join(" && ")
     require('child_process').exec(cmds, (err, stdout, stderr)->
