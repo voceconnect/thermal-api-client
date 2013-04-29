@@ -123,6 +123,7 @@
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 1em;
+	font-family: $fancyFont;
 	padding: 0 16px 0 7px;
 	border-left: 1px solid #b36406;
 	@include text-shadow(#000, .4);

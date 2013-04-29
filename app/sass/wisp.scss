@@ -3,6 +3,10 @@
 body {
 
 }
+.btn {
+	font-family: $fancyFont;
+	@include text-shadow(#000, .4);
+}
 .btn-group {
 	margin-bottom: 15px;
 }
@@ -19,6 +23,7 @@ body {
 	h4 {
 		padding: 0;
 		margin: 0;
+		font-family: $fancyFont;
 		a {
 			@include gradient-vertical(#fff, #dadada);
 			width: 102px;

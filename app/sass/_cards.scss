@@ -26,6 +26,7 @@
 	padding: 0 6.25% 1em 6.25%;
 	h4 {
 		text-transform: uppercase;
+		font-family: $fancyFont;
 	}
 	p {
 		font-size: 0.9285714286em;
@@ -42,11 +43,13 @@
 		font-size: 1.1428571429em;
 		line-height: 1.25;
 		text-transform: uppercase;
+		font-family: $fancyFont;
 		overflow: hidden;
 		padding-top: .5em;
 		span {
 			font-size: 0.8125em;
 			text-transform: none;
+			font-family: Helvetica Neue, Helvetica, sans-serif;
 			display: block;
 		}
 		a {
