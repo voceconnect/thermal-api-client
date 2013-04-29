@@ -1,4 +1,4 @@
-<div class="post-excerpt" id="<%= ID %>">
+<div class="post-excerpt" id="<%= id %>">
     <span class="new=-post">New</span>
     <% if(media.featured_image){ %>
         <span class="featured-image">
@@ -8,15 +8,15 @@
     <h3><%= title %></h3>
 
     <p><%= excerpt %></p>
-    <a class="button" href="#/posts/show/<%= ID %>">Read Full Post</a>
+    <a class="button" href="#/posts/show/<%= id %>">Read Full Post</a>
 
     <div class="bottom">
-        <% if(post.author.avatar){ %>
+        <% if(author.avatar){ %>
         <span class="author-image">
             <img src="<%= author.avatar.url %>"/>
         </span>
         <% } %>
-        <small><%= Date.hoursAgo(date) %></small>
+        <small><%= date %></small>
         <h4><%= author.display_name %></h4>
     </div>
 </div>

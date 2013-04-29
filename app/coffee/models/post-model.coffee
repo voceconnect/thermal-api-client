@@ -1,6 +1,7 @@
 WisP.Post = Backbone.Model.extend
 
   defaults:
+    id: 0
     author:
       id: 0
       display_name: ""
@@ -12,12 +13,12 @@ WisP.Post = Backbone.Model.extend
         height: 0
     date: ""
     permalink: ""
-    title: ""
+    title: "Default Post Title"
     content: ""
     media: ""
+    excerpt: ""
 
-  initialize: ( id ) ->
-    @set(id: id)
+  initialize: ( atts, options ) ->
 
-  url: () ->
-    baseUrl + "posts" + @get(id)
+  urlRoot: () =>
+    "#{WisP.config.baseUrl}/posts/"
