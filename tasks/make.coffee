@@ -8,6 +8,5 @@ module.exports = (grunt) ->
     'minified'
     'concat'
     'htmlmin'
-    'img'
     'clean'
   ])
