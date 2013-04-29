@@ -16,4 +16,5 @@ WisP.Controller =
     WisP.currentPost = new WisP.Post(id: id)
     postView = new WisP.PostView(model:WisP.currentPost)
     WisP.currentPost.fetch()
+    postView.listenTo(WisP.currentPost, 'change', postView.render)
     WisP.config.html.popup.html(postView.el)

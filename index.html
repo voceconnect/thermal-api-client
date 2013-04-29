@@ -39,13 +39,14 @@
 
 </footer>
 <!-- footer end -->
-
+<div id="popup"></div>
 <!-- Application -->
 <script src="js/wisp.js"></script>
 <!-- init and accessory scripts -->
 <script>
     $(document).ready(function () {
-        WisP.start();
+        WisP.config.baseUrl = '/tests/stubs'
+        WisP.Router.start();
     });
 </script>
 </body>

@@ -1,4 +1,4 @@
-WisP.Router = new Backbone.Router.extend
+WisP.Router = new (Backbone.Router.extend
 
   initialize: ()->
     @route("posts(/:category)(/)", 'showPosts')
@@ -11,3 +11,4 @@ WisP.Router = new Backbone.Router.extend
 
   start: ()->
     Backbone.history.start()
+)

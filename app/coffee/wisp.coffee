@@ -6,6 +6,3 @@ window.WisP =
       categorySelect: $('#category-dropdown')
       main: $('#main')
       popup: $('#popup')
-    
-  start: ()->
-    this.Router.start()
