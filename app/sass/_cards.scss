@@ -15,12 +15,15 @@
 	}
 }
 #{$name}-img {
-	border-bottom: 4px solid $grayLighter;
 	position: relative;
+	img {
+		border-bottom: 4px solid $grayLighter;
+	}
+	margin-bottom: 1em;
 }
 #{$name}-text {
 	@include box-sizing(border-box);
-	padding: 1em 6.25%;
+	padding: 0 6.25% 1em 6.25%;
 	h4 {
 		text-transform: uppercase;
 	}

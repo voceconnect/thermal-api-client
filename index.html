@@ -32,7 +32,19 @@
     <p class="loading">The application is loading...</p>
 	<!-- Hard coding this for now -->
 	<div class="container">
-		<div class="row thermal-loop">
+		<div class="btn-group">
+		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+		        Categories &nbsp;<span class="caret"></span>
+		    </a>
+		    <ul class="dropdown-menu">
+		        <li><a href="#">Something</a></li>
+		        <li><a href="#">Something</a></li>
+		        <li><a href="#">Something</a></li>
+		        <li><a href="#">Something</a></li>
+		        <li><a href="#">Something</a></li>
+		        <li><a href="#">Something</a></li>
+		    </ul>
+		</div>		<div class="row thermal-loop">
 			<div class="span4 thermal-item new-item">
 				<div class="thermal-img">
 					<img src="http://placehold.it/300x189">
@@ -140,6 +152,7 @@
     $(document).ready(function () {
         WisP.start();
 		init_masonry();
+		$('.dropdown-toggle').dropdown();
      });
 	function init_masonry(){
 	    var $container = $('.thermal-loop');
