@@ -17,11 +17,29 @@ describe('WisP', function () {
             expect(this.post.url()).toBe('stubs/posts/0');
         });
         it('Fetch should set remote data', function () {
+            var result;
             post = new WisP.Post({id:100});
-            post.listenTo(post, 'change', function(){
+            getPost();
+
+            waitsFor(function(){
+                return result === true;
+            }, "get remote model data", 3000);
+
+            runs(function(){
                 expect(post.get('title')).toBe('Lorem Ipsum Dolor!');
             });
-            post.fetch();
+            
+            function getPost(){
+                post.fetch({
+                    success : function(){
+                        result = true; 
+                    },
+                    error : function(){
+                        result = false;
+                    }
+                });
+            }
+
         });                
     });
 
@@ -63,13 +81,33 @@ describe('WisP', function () {
             expect(posts.url).toBe('stubs/posts/?per_page=3&paged=1&cat=5');
         });        
         it('Should add models from remote', function () {
+            var result;
             posts = new WisP.Posts();
             length = posts.models.length;
-            posts.fetch();
-            posts.listenTo(posts, 'add', function(){
+            getPosts();
+
+            waitsFor(function(){
+                return result === true;
+            }, 'gets posts', 3000);
+
+            runs(function(){
                 expect(posts.models.length).toBe( length + 1  );
                 length = length + 1;
             });
+
+
+            function getPosts(){
+                posts.fetch({
+                    success: function(){
+                        result = true;
+                    },
+                    error: function(){
+                        result = false;
+                    }
+                });
+
+            }
+
         });
     });
 
@@ -82,24 +120,57 @@ describe('WisP', function () {
             html = this.postsView.renderOne(new WisP.Post());
             expect($(html).find('h3').text()).toBe('Default Post Title');
         });
-        // it('Should render from remote', function () {
-        //     posts = new WisP.Posts({paged: 2});
-        //     postsView = new WisP.PostArchiveView({collection: posts});
-        //     length = $(postsView.el).find('h3').length;
-        //     posts.listenTo('add', function(){
-        //         expect($(postsView.el).find('h3').length).toBe(3);
-        //     });
-        //     posts.fetch();
-        // });        
+        it('Should render from remote', function () {
+            var result;
+            posts = new WisP.Posts({paged: 2});
+            postsView = new WisP.PostArchiveView({collection: posts});
+            length = $(postsView.el).find('h3').length;
+            getPosts();
+            waitsFor(function(){
+                return result === true;
+            }, "get posts", 3000);
+
+            runs(function(){
+                //expect($(postsView.el).find('h3').length).toBe(3);
+            }); 
+
+            function getPosts(){
+                posts.fetch({
+                    success: function(){
+                        result = true;
+                    }, 
+                    error: function(){
+                        result = false;
+                    }
+                })
+            }
+
+        });        
     });
 
-    describe('Router', function(){
+    describe('Controller', function(){
         beforeEach(function(){
-            this.router = new WisP.Router();
+            
         });
-        it('Show posts should create collection', function(){
-            this.router.showPosts();
-            expect(typeof this.router.posts).toBe('object');
+        it('showPosts should create collection', function(){
+            WisP.Controller.showPosts();
+            expect(typeof WisP.currentPosts).toBe('object');
+        });
+
+        it('showPosts should create collection with category', function(){
+            WisP.Controller.showPosts('100');
+            url = WisP.currentPosts.url;
+            expect(url.substr(url.indexOf('cat'),7)).toBe('cat=100');
+        });
+
+        it('showPost should get post from ID', function(){
+            WisP.Controller.showPost(100);
+            expect(WisP.currentPost.get('id')).toBe(100);
+        });
+
+        it('showPost should set empty if ID not set', function(){
+            WisP.Controller.showPost();
+            expect(WisP.currentPost.get('id')).toBe(0);
         });
     });
 
