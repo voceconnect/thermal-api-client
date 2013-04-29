@@ -6,21 +6,30 @@ body {
 @import "cards";
 .scroll-to-top {
 	border: 1px solid #fff;
-	@include box-sizing(border-box);
-	@include gradient-vertical(#fff, #dadada);
 	@include box-shadow(0 0 4px 0 rgba(#000, .4), 0 0 1px 0 #dadada);
-	padding: 5px 15px;
 	text-transform: uppercase;
 	text-align: center;
 	color: $grayDark;
 	position: fixed;
 	right: 0;
-	width: 102px;
 	top: 80%;
 	h4 {
-		background: image_url('up-arrow.png') no-repeat top center;
-		padding-top: 30px;
-		@include text-shadow(#fff, .8);
+		padding: 0;
+		margin: 0;
+		a {
+			@include gradient-vertical(#fff, #dadada);
+			width: 102px;
+			@include box-sizing(border-box);
+			padding: 35px 15px 10px 15px;
+			display: block;
+			color: $grayDark;
+			background: image_url('up-arrow.png') no-repeat center 5px;
+			@include text-shadow(#fff, .8);
+			&:hover {
+				text-decoration: none;
+				background-color: #dadada;
+			}
+		}
 	}
 		
 }
