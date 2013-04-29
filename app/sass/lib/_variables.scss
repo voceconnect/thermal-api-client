@@ -11,9 +11,9 @@ $name: '.thermal';
 // -------------------------
 $black:                 #000 !default;
 $grayDarker:            #222 !default;
-$grayDark:              #333 !default;
+$grayDark:              #414141 !default;
 $gray:                  #555 !default;
-$grayLight:             #999 !default;
+$grayLight:             #c0c0c0 !default;
 $grayLighter:           #e0e0e0 !default;
 $white:                 #fff !default;
 
@@ -38,7 +38,7 @@ $textColor:             $grayDark !default;
 
 // Links
 // -------------------------
-$linkColor:             #08c !default;
+$linkColor:             #076ca7 !default;
 $linkColorHover:        darken($linkColor, 15%) !default;
 
 

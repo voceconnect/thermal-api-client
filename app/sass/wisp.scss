@@ -1,26 +1,59 @@
 @import "lib/bootstrap";
 @import "lib/responsive";
 body {
-  background-color: #eeeeee;
+
 }
 #{$name}-loop {
-	
+	font-size: 100%;
 }
 #{$name}-item {
 	max-width: 300px;
 	background: #fff;
 	margin-bottom: 25px;
-	@include box-shadow(0 0 5px rgba(#000, .2));
+	@include box-shadow(0 0 3px rgba(#000, .2));
+	border: 1px solid $grayLight;
 }
 #{$name}-img {
-	
+	border-bottom: 4px solid $grayLighter;
 }
 #{$name}-text {
-	
+	@include box-sizing(border-box);
+	padding: 1em 6.25%;
+	h5 {
+		text-transform: uppercase;
+	}
+	p {
+		font-size: 0.9285714286em;
+		line-height: 1.3846153846;
+	}
+	.btn {
+		@include box-shadow(0 0 0 4px $grayLight);
+		margin-top: 25px;
+	}
 }
 #{$name}-meta {
 	background: $grayLighter;
 	p {
+		font-size: 1.1428571429em;
+		line-height: 1.25;
+		text-transform: uppercase;
 		overflow: hidden;
+		padding-top: .5em;
+		span {
+			font-size: 0.8125em;
+			text-transform: none;
+			display: block;
+		}
+		a {
+			color: $grayDark;
+		}
+	}
+	@include clearfix();
+	@include box-sizing(border-box);
+	padding: .5em 5%;
+	img {
+		margin-right: .5em;
+		border: 3px solid #fff;
+		@include box-shadow(0 1px 0 rgba(#000, .4));
 	}
 }
