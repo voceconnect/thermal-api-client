@@ -239,6 +239,11 @@ describe('WisP', function () {
             media = $.extend(true, {}, postJsonData.media);        
             media[0].sizes[0].url = "";
             expect(WisP.getMediaByID(123456, media)).toBe(false);
-        });                                 
+        });
+        it('Method should return false if size url is empty', function () {
+            media = $.extend(true, {}, postJsonData.media);        
+            delete media[0].altText;
+            expect(WisP.getMediaByID(123456, media).altText).toBe("");
+        });                                            
     });
 });
