@@ -7,6 +7,7 @@ WisP.Posts = Backbone.Collection.extend
     baseUrl = WisP.config.baseUrl
     @url =  "#{baseUrl}/posts/?per_page=#{@per_page}&paged=#{@paged}"
     if options? and options.category?
+      @category = options.category
       @url = @url+'&cat='+options.category
 
   parse: (response)->

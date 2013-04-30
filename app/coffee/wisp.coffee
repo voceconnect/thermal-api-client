@@ -15,9 +15,12 @@ window.WisP =
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(@).scrollTop() + $(window).height() > $(document).height() - 100
-        if WisP.loadingPosts is false
+        if WisP.loadingPosts is false and
+        WisP.currentCollection.found > WisP.currentPosts.length
           # determine opts
-          opts = {}
+          opts =
+            category : WisP.currentCollection.category
+            paged : parseInt(WisP.currentCollection.paged, 10) + 1
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
       if $(@).scrollTop() > 100
