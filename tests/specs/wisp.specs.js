@@ -161,12 +161,12 @@ describe('WisP', function () {
         });
         it('showPosts should create collection', function () {
             WisP.Controller.showPosts();
-            expect(typeof WisP.currentPosts).toBe('object');
+            expect(typeof WisP.currentCollection).toBe('object');
         });
 
         it('showPosts should create collection with category', function () {
             WisP.Controller.showPosts('100');
-            url = WisP.currentPosts.url;
+            url = WisP.currentCollection.url;
             expect(url.substr(url.indexOf('cat'), 7)).toBe('cat=100');
         });
 
@@ -213,11 +213,11 @@ describe('WisP', function () {
         });
 
         it('Method should return image matching featured id', function () {
-            media = postJsonData.media;        
+            media = postJsonData.media;
             expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
         });
         it('Method should return false if id not found', function () {
-            media = postJsonData.media;        
+            media = postJsonData.media;
             expect(WisP.getFeaturedImage(123499, media)).toBe(false);
         });
     });

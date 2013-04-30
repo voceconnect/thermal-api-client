@@ -7,6 +7,9 @@ window.WisP =
       main: $('#main')
       popup: $('#popup')
   loadingPosts : false
+  currentPost : {}
+  currentPosts : []
+  currentCollection : {}
 
   init:()->
     $scrollToTop = $('.scroll-to-top')

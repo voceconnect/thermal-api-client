@@ -9,12 +9,13 @@ WisP.Controller =
     WisP.config.html.main.append(@morePosts(opts))
 
   morePosts: (opts)->
-    WisP.currentPosts = new WisP.Posts([], opts)
-    postsView = new WisP.PostArchiveView(collection : WisP.currentPosts)
-    WisP.currentPosts.fetch(success: () ->
+    WisP.currentPosts.push()
+    WisP.currentCollection = new WisP.Posts([], opts)
+    postsView = new WisP.PostArchiveView(collection : WisP.currentCollection)
+    WisP.currentCollection.fetch(success: () ->
       WisP.loadingPosts = false
     )
-    postsView.listenTo(WisP.currentPosts, 'add', postsView.renderOne)
+    postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
   showPost: (id)->
