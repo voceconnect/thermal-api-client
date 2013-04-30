@@ -29,6 +29,10 @@ window.WisP =
     )
     $('.dropdown-toggle').dropdown()
     WisP.masonry()
+    WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
+      e.preventDefault()
+      WisP.config.html.popup.modal('toggle')
+    )
     WisP.Router.start()
 
   masonry : () ->
