@@ -195,6 +195,22 @@ describe('WisP', function () {
             WisP.Controller.showPost(101);
             expect(WisP.currentPost.get('title')).toBe('foo');
         });
+
+        it('getPrevPost should get the previous Post', function () {
+            WisP.currentPosts = [
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
+            ];
+            expect(WisP.getPrevPost(101).get('id')).toBe(100);
+        });
+        it('getPrevPost should return same post if last', function () {
+            WisP.currentPost = new WisP.Post({id:100});
+            WisP.currentPosts = [
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
+            ];
+            expect(WisP.getPrevPost(100).get('id')).toBe(100);
+        });
     });
 
     describe('Date.prototype', function () {

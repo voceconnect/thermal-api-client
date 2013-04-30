@@ -46,6 +46,18 @@ window.WisP =
       e.preventDefault()
       WisP.config.html.popup.modal('hide')
     )
+    WisP.config.html.popup.on('click', '.post-paging a', (e)->
+      e.preventDefault()
+      post = WisP.currentPost
+      elID = $(@).attr('id')
+      if elID is 'prev-post'
+        post = WisP.getPrevPost(id)
+      else if elID is 'next-post'
+        post = WisP.getNextPost(id)
+      id = post.get('id')
+      WisP.Controller.showPost(id)
+    )
+
     WisP.Router.start()
 
   getMediaByID : (id, images) ->
@@ -65,6 +77,23 @@ window.WisP =
       if post.get('id') is id then r.push(post)
     r
 
+  getPrevPost: (id)->
+    id = parseInt(id, 10)
+    rPost = WisP.currentPost
+    for k,post of WisP.currentPosts
+      if post.get('id') is id
+        idx = k - 1
+        rPost = WisP.currentPosts[idx]
+    rPost
+
+  getNextPost: (id)->
+    id = parseInt(id, 10)
+    rPost = WisP.currentPost
+    for k,post of WisP.currentPosts
+      if post.get('id') is id
+        idx = k + 1
+        rPost = WisP.currentPosts[idx]
+    rPost
 
 ###
 Is this date "new" within the last day
