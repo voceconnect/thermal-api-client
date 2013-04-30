@@ -69,6 +69,10 @@ window.WisP =
           return q[0]
     false
 
+  getPostByID: (id)->
+    _.where(WisP.currentPosts, {id: id})
+
+
 ###
 Is this date "new" within the last day
 
@@ -85,7 +89,7 @@ Date.prototype.isNew = ()->
 ###
 Format date object like "x minutes ago, y days ago, etc"
 
-@moduel Date
+@module Date
 @method timeAgo
 ###
 Date.prototype.timeAgo = ()->

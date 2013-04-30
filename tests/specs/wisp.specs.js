@@ -170,6 +170,13 @@ describe('WisP', function () {
             expect(url.substr(url.indexOf('cat'), 7)).toBe('cat=100');
         });
 
+        it('morePosts should add posts to WisP.currentPosts', function () {
+            WisP.Controller.morePosts();
+            setTimeout(function(){
+                expect(WisP.currentPosts.length).toBe(3);
+            }, 300);
+        });
+
         it('showPost should get post from ID', function () {
             WisP.Controller.showPost(100);
             expect(WisP.currentPost.get('id')).toBe(100);
@@ -178,6 +185,15 @@ describe('WisP', function () {
         it('showPost should set empty if ID not set', function () {
             WisP.Controller.showPost();
             expect(WisP.currentPost.get('id')).toBe(0);
+        });
+
+        it('showPost should get from memory if ID exists', function () {
+            WisP.currentPosts = [
+                {id: 100},
+                {id:101}
+            ];
+            WisP.Controller.showPost(101);
+            expect(WisP.currentPost.get('title')).toBe('Default Post Title');
         });
     });
 
