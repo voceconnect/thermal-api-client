@@ -28,8 +28,8 @@ body {
 		padding: 0;
 		margin: 0;
 		font-family: $fancyFont;
+		@include gradient-vertical(#fff, #dadada);
 		a {
-			@include gradient-vertical(#fff, #dadada);
 			width: 102px;
 			@include box-sizing(border-box);
 			padding: 35px 15px 10px 15px;
