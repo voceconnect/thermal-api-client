@@ -6,13 +6,17 @@ window.WisP =
       categorySelect: $('#category-dropdown')
       main: $('#main')
       popup: $('#popup')
+  loadingPosts : false
 
   init:()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(@).scrollTop() + $(window).height() > $(document).height() - 100
-        console.log 'near bottom'
-        #morePOsts()
+        if WisP.loadingPosts is false
+          # determine opts
+          opts = {}
+          WisP.config.html.main.append(WisP.Controller.morePosts(opts))
+          WisP.loadingPosts = true
       if $(@).scrollTop() > 100
         $scrollToTop.fadeIn()
       else

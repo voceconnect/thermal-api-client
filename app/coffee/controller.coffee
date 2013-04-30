@@ -11,7 +11,9 @@ WisP.Controller =
   morePosts: (opts)->
     WisP.currentPosts = new WisP.Posts([], opts)
     postsView = new WisP.PostArchiveView(collection : WisP.currentPosts)
-    WisP.currentPosts.fetch()
+    WisP.currentPosts.fetch(success: () ->
+      WisP.loadingPosts = false
+    )
     postsView.listenTo(WisP.currentPosts, 'add', postsView.renderOne)
     postsView.el
 
