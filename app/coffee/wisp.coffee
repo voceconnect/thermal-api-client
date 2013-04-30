@@ -19,6 +19,8 @@ window.WisP =
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
+    $('.dropdown-toggle').dropdown()
+    WisP.masonry()
 
     WisP.Router.start()
 
