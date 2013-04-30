@@ -1,5 +1,17 @@
+###
+Main App Controller
+
+@class WisP.Controller
+###
 WisP.Controller =
 
+  ###
+  Does a post query and displays the posts
+
+  @method showPosts
+  @param {Number} Category ID
+  @param {Number} Query page number
+  ###
   showPosts: (category, paged)->
     opts =
       category : null
@@ -8,6 +20,12 @@ WisP.Controller =
     if paged? then opts.paged = paged
     WisP.config.html.main.append(@morePosts(opts))
 
+  ###
+  Creates a new Post Collection and View then fetches new posts
+
+  @method morePosts
+  @param {Object} Options passed to Collection
+  ###
   morePosts: (opts)->
     WisP.currentPosts.push()
     WisP.currentCollection = new WisP.Posts([], opts)
@@ -18,6 +36,12 @@ WisP.Controller =
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
+  ###
+  Gets and displays a single post
+
+  @method showPost
+  @param {Number} Post ID
+  ###
   showPost: (id)->
     WisP.currentPost = new WisP.Post(id: id)
     postView = new WisP.PostView(model:WisP.currentPost)

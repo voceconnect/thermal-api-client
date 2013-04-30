@@ -1,3 +1,7 @@
+###
+Global App Object
+Holds the global config options
+###
 window.WisP =
   config:
     baseUrl: ""
@@ -11,6 +15,12 @@ window.WisP =
   currentPosts : []
   currentCollection : {}
 
+  ###
+  App initialize method
+  Kicks off the functionality
+
+  @method init
+  ###
   init:()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
@@ -43,6 +53,12 @@ window.WisP =
     )
     WisP.Router.start()
 
+  ###
+  Set up and instantiate the masonry object
+
+  @method masonry
+  @return {Object} Returns a jQuery object
+  ###
   masonry : () ->
     $container = $('.thermal-loop')
     gutter = 20
@@ -59,6 +75,15 @@ window.WisP =
         return box_width
       )
 
+  ###
+  Get a single image from an array given a specific ID
+  e.g. Get the featured image from a post media array
+  
+  @method getMediaByID
+  @param {Number} ID of the image to search for (needle)
+  @param {Array} The Array of media Objects to search (haystack)
+  @return {Mixed} Return an Object on success or FALSE on failure
+  ###
   getMediaByID : (id, images) ->
     q = _.where(images, {id: id})
     if q.length > 0
@@ -85,7 +110,7 @@ Date.prototype.isNew = ()->
 ###
 Format date object like "x minutes ago, y days ago, etc"
 
-@moduel Date
+@module Date
 @method timeAgo
 ###
 Date.prototype.timeAgo = ()->
