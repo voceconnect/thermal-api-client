@@ -1,3 +1,13 @@
+var postJsonData = {};
+$.ajax({
+    dataType: 'json',
+    url: 'stubs/posts/100/index.php',
+    async: false,
+    success: function (r) {
+        postJsonData = r;
+    }
+});
+
 describe('WisP', function () {
 
     WisP.config.baseUrl = "stubs";
@@ -171,4 +181,44 @@ describe('WisP', function () {
         });
     });
 
+    describe('Date.prototype', function () {
+        beforeEach(function () {
+        });
+
+        it('Date.timeAgo should format for hours', function(){
+            oneHourAgo = new Date();
+            oneHourAgo.setHours(oneHourAgo.getHours() - 1);
+            expect(oneHourAgo.timeAgo()).toBe('1 hour ago');
+        });
+
+        it('Date.timeAgo should format for just now', function(){
+            justNow = new Date();
+            expect(justNow.timeAgo()).toBe('just now');
+        });
+        it('Date.timeAgo should format for yesterday', function(){
+            oneDayAgo = new Date();
+            oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+            expect(oneDayAgo.timeAgo()).toBe('Yesterday');
+        });
+
+        it('Date.timeAgo should format for days', function(){
+            twoDayAgo = new Date();
+            twoDayAgo.setDate(twoDayAgo.getDate() - 2);
+            expect(twoDayAgo.timeAgo()).toBe('2 days ago');
+        });
+    });
+
+    describe('Get Featured Image', function () {
+        beforeEach( function () {
+        });
+
+        it('Method should return image matching featured id', function () {
+            media = postJsonData.media;        
+            expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
+        });
+        it('Method should return false if id not found', function () {
+            media = postJsonData.media;        
+            expect(WisP.getFeaturedImage(123499, media)).toBe(false);
+        });
+    });
 });

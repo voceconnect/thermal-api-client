@@ -7,10 +7,11 @@ WisP.Post = Backbone.Model.extend
       display_name: ""
       postsUrl: ""
       userUrl: ""
-      avatar:
+      avatar:[
         url: ""
         width: 0
         height: 0
+      ]
     date: ""
     permalink: ""
     title: "Default Post Title"
