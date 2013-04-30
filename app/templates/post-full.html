@@ -1,8 +1,37 @@
+<a href="#posts" class="modal-close">Close</a>
 <div class="post-full" id="<%= id %>">
-    <% if(media.featured_image){ %>
-    <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+    <div class="post-title">
+	    <h3><%= title %></h3>
+	</div>
+    <div class="thermal-meta">
+		<!--
+        <% if(author.avatar && author.avatar.length > 0){ %>
+        <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
+        <% } %>
+        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><a><%= author.display_name %></a></p>-->
+		<div class="row-fluid">
+			<div class="span5">
+				<img src="http://placehold.it/48x48" alt="" class="img-circle pull-left" />
+				<p><span>3 hours ago</span>Test Author</p>
+			</div>
+			<div class="span4">
+				<p><span>share post</span><a href="#">Facebook</a><small>|</small><a href="#">Twitter</a></p>
+			</div>
+			<div class="span3">
+				<p><span>view on</span><a href="#">wgntv.com</a></p>
+			</div>
+		</div>
+    </div>
+	<% if(media.featured_image){ %>
+	<div class="post-image">
+	    <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+	</div>
     <% } %>
-    <h3><%= title %></h3>
-
-    <p><%= content %></p>
+	<div class="post-content">
+	    <p><%= content %></p>
+	</div>
+	<div class="post-paging">
+		<a href="#" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
+		<a href="#" class="btn btn-success btn-large pull-right">Next<span class="triangle-right"></span></a>
+	</div>
 </div>
