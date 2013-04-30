@@ -1,4 +1,4 @@
-<div class="span4 thermal-item">
+<div class="span4 thermal-item <% if(new Date(date).isNew() === true) {%> new-item <% } %>">
     <% if(media && media.length > 0 && WisP.getFeaturedImage(meta.featuredImage, media)){ %>
     <div class="thermal-img">
         <img src="<%= WisP.getFeaturedImage(meta.featuredImage, media).sizes[0].url %>"/>
@@ -12,6 +12,6 @@
         <% if(author.avatar && author.avatar.length > 0){ %>
         <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
         <% } %>
-        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><a href="#"><%= author.display_name %></a></p>
+        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><a><%= author.display_name %></a></p>
     </div>
 </div>
