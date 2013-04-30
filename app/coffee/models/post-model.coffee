@@ -16,8 +16,10 @@ WisP.Post = Backbone.Model.extend
     permalink: ""
     title: "Default Post Title"
     content: ""
-    media: ""
+    media: {}
     excerpt: ""
+    meta:
+      featuredImage: ""
 
   initialize: ( atts, options ) ->
 
