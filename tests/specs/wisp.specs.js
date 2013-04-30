@@ -161,13 +161,20 @@ describe('WisP', function () {
         });
         it('showPosts should create collection', function () {
             WisP.Controller.showPosts();
-            expect(typeof WisP.currentPosts).toBe('object');
+            expect(typeof WisP.currentCollection).toBe('object');
         });
 
         it('showPosts should create collection with category', function () {
             WisP.Controller.showPosts('100');
-            url = WisP.currentPosts.url;
+            url = WisP.currentCollection.url;
             expect(url.substr(url.indexOf('cat'), 7)).toBe('cat=100');
+        });
+
+        it('morePosts should add posts to WisP.currentPosts', function () {
+            WisP.Controller.morePosts();
+            setTimeout(function(){
+                expect(WisP.currentPosts.length).toBe(3);
+            }, 300);
         });
 
         it('showPost should get post from ID', function () {
@@ -178,6 +185,15 @@ describe('WisP', function () {
         it('showPost should set empty if ID not set', function () {
             WisP.Controller.showPost();
             expect(WisP.currentPost.get('id')).toBe(0);
+        });
+
+        it('showPost should get from memory if ID exists', function () {
+            WisP.currentPosts = [
+                {id: 100},
+                {id:101}
+            ];
+            WisP.Controller.showPost(101);
+            expect(WisP.currentPost.get('title')).toBe('Default Post Title');
         });
     });
 
@@ -213,12 +229,37 @@ describe('WisP', function () {
         });
 
         it('Method should return image matching featured id', function () {
-            media = postJsonData.media;        
-            expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByID(123456, media).id).toBe(123456);
         });
         it('Method should return false if id not found', function () {
-            media = postJsonData.media;        
-            expect(WisP.getFeaturedImage(123499, media)).toBe(false);
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByID(123499, media)).toBe(false);
+        });
+        it('Method should return false if sizes is not set', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            delete media[0].sizes;
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
+        });
+        it('Method should return false if sizes is empty', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            media[0].sizes = [];
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
+        });
+        it('Method should return false if size url is not set', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            delete media[0].sizes[0].url;
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
+        });
+        it('Method should return false if size url is empty', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            media[0].sizes[0].url = "";
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
+        });
+        it('Alt text should return empty string if undefined', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            delete media[0].altText;
+            expect(WisP.getMediaByID(123456, media).altText).toBe("");
         });
     });
 });

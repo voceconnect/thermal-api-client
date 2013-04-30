@@ -1,20 +1,25 @@
 window.WisP =
   config:
-    baseUrl: ""
+    baseUrl: ''
     per_page: 3
     html :
       categorySelect: $('#category-dropdown')
       main: $('#main')
       popup: $('#popup')
   loadingPosts : false
+  currentPost : {}
+  currentPosts : []
+  currentCollection : {}
 
   init:()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(@).scrollTop() + $(window).height() > $(document).height() - 100
-        if WisP.loadingPosts is false
-          # determine opts
-          opts = {}
+        if WisP.loadingPosts is false and
+        WisP.currentCollection.found > WisP.currentPosts.length
+          opts =
+            category : WisP.currentCollection.category
+            paged : parseInt(WisP.currentCollection.paged, 10) + 1
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
       if $(@).scrollTop() > 100
@@ -28,38 +33,30 @@ window.WisP =
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
     $('.dropdown-toggle').dropdown()
-    WisP.masonry()
     WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
       e.preventDefault()
-      # get the post ID from the excerpt
-      id = 100
+      id = $(@).attr('href')
+        .substr($(@).attr('href')
+        .lastIndexOf('/'))
+        .replace('/', '')
       WisP.Controller.showPost(id)
       WisP.config.html.popup.modal('toggle')
     )
     WisP.Router.start()
 
-  masonry : () ->
-    $container = $('.thermal-loop')
-    gutter = 20
-    min_width = 300
-    $container.imagesLoaded(()->
-      $container.masonry(
-        itemSelector : '.thermal-item'
-        gutterWidth: gutter
-        isAnimated: true
-        columnWidth: ( cWidth ) ->
-          boxNum = (cWidth/min_width | 0)
-          box_width = (((cWidth - (boxNum-1)*gutter)/boxNum) | 0)
-          if cWidth < min_width then box_width = cWidth
-          $('.thermal-item').width(box_width)
-          return box_width
-        )
-    )
-
-  getFeaturedImage : (id, images) ->
+  getMediaByID : (id, images) ->
     q = _.where(images, {id: id})
-    if q.length > 0 then return q[0]
+    if q.length > 0
+      if not q[0].altText
+        q[0].altText = ""
+      if q[0].sizes and q[0].sizes.length > 0
+        if q[0].sizes[0].url
+          return q[0]
     false
+
+  getPostByID: (id)->
+    _.where(WisP.currentPosts, {id: id})
+
 
 ###
 Is this date "new" within the last day
@@ -77,7 +74,7 @@ Date.prototype.isNew = ()->
 ###
 Format date object like "x minutes ago, y days ago, etc"
 
-@moduel Date
+@module Date
 @method timeAgo
 ###
 Date.prototype.timeAgo = ()->
@@ -85,7 +82,21 @@ Date.prototype.timeAgo = ()->
   diff = (((new Date()).getTime() - date.getTime()) / 1000)
   day_diff = Math.floor(diff / 86400)
   if isNaN(day_diff) or day_diff < 0 then return
-  tAgo = (date.getMonth()+1) + ' ' + date.getDate() + ', ' + date.getFullYear()
+  months = [
+    'January'
+    'February'
+    'March'
+    'April'
+    'May'
+    'June'
+    'July'
+    'August'
+    'September'
+    'October'
+    'November'
+    'December'
+  ]
+  tAgo = "#{months[date.getMonth()]} #{date.getDate()}, #{date.getFullYear()}"
   if day_diff is 0
     if diff < 60 then tAgo = 'just now'
     else if diff < 120 then tAgo = '1 minute ago'

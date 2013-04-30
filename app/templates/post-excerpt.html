@@ -1,7 +1,8 @@
 <div class="span4 thermal-item <% if(new Date(date).isNew() === true) {%> new-item <% } %>">
-    <% if(media && media.length > 0 && WisP.getFeaturedImage(meta.featuredImage, media)){ %>
+    <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
+    <% if(media.length > 0 && featuredImage){ %>
     <div class="thermal-img">
-        <img src="<%= WisP.getFeaturedImage(meta.featuredImage, media).sizes[0].url %>"/>
+        <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
     </div>
     <% } %>
     <div class="thermal-text">
