@@ -51,11 +51,10 @@ window.WisP =
       post = WisP.currentPost
       elID = $(@).attr('id')
       if elID is 'prev-post'
-        post = WisP.getPrevPost(id)
+        post = WisP.getPrevPost(post.get('id'))
       else if elID is 'next-post'
-        post = WisP.getNextPost(id)
-      id = post.get('id')
-      WisP.Controller.showPost(id)
+        post = WisP.getNextPost(post.get('id'))
+      WisP.Controller.showPost(post.get('id'))
     )
 
     WisP.Router.start()
@@ -81,8 +80,8 @@ window.WisP =
     id = parseInt(id, 10)
     rPost = WisP.currentPost
     for k,post of WisP.currentPosts
-      if post.get('id') is id
-        idx = k - 1
+      idx = k - 1
+      if post.get('id') is id and WisP.currentPosts[idx]
         rPost = WisP.currentPosts[idx]
     rPost
 
@@ -90,8 +89,8 @@ window.WisP =
     id = parseInt(id, 10)
     rPost = WisP.currentPost
     for k,post of WisP.currentPosts
-      if post.get('id') is id
-        idx = k + 1
+      idx = k + 1
+      if post.get('id') is id and WisP.currentPosts[idx]
         rPost = WisP.currentPosts[idx]
     rPost
 
