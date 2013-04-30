@@ -1,3 +1,4 @@
+@import "compass/css3/";
 @import "lib/bootstrap";
 @import "lib/responsive";
 body {
@@ -23,7 +24,27 @@ body {
 		font-family: Helvetica Neue, Helvetica, sans-serif;
 	}
 }
+.triangle-left {
+	font-size: 0;
+	margin: 0 10px 0 0;
+	width: 0px;
+	height: 0px;
+	line-height: 1;
+	vertical-align: middle;
+	border-style: solid;
+	border-width: 10px 10px 10px 0px;
+	border-color: transparent #fff transparent transparent;
+}
+.triangle-right {
+	margin: 0 0 0 10px;
+	@extend .triangle-left;
+	border-width: 10px 0 10px 10px;
+	border-color: transparent transparent transparent #fff;
+}
+
 @import "cards";
+@import "modal";
+@import "galleries";
 .scroll-to-top {
 	display: none;
 	border: 1px solid #fff;

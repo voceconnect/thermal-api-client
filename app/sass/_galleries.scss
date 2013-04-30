@@ -1,0 +1,31 @@
+.gallery {
+	position: relative;
+	margin-bottom: 1em;
+}
+.gal-img {
+	width: 300px;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.gal-name {
+	width: 300px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	@include box-sizing(border-box);
+	padding: .5em 4%;
+	min-height: 3.875em;
+	h5 {
+		font-weight: bold;
+		font-size: 0.7857142857em;
+		line-height: 1.3181818182;
+	}
+	a {
+		color: #fff;
+	}
+	//@include filter-gradient(#00000000, #cf000000, vertical); // IE6-9
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cf000000',GradientType=0 ); /* IE6-9 */
+	@include background-image(linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.81) 87%,rgba(0,0,0,1) 100%));
+}

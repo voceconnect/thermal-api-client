@@ -13,6 +13,6 @@
         <% if(author.avatar && author.avatar.length > 0){ %>
         <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
         <% } %>
-        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><a><%= author.display_name %></a></p>
+        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
     </div>
 </div>

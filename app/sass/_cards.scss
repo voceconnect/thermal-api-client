@@ -53,7 +53,12 @@
 			display: block;
 		}
 		a {
-			color: $grayDark;
+			color: $blue;
+			font-size: 0.8125em;
+		}
+		small {
+			font: normal .8125em Helvetica Neue, Helvetica;
+			padding: 0 .25em;
 		}
 	}
 	@include clearfix();
