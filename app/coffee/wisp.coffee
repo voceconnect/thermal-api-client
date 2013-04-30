@@ -42,7 +42,10 @@ window.WisP =
 
   getFeaturedImage : (id, images) ->
     q = _.where(images, {id: id})
-    if q.length > 0 then return q[0]
+    if q.length > 0
+      if q[0].sizes
+        if q[0].sizes[0].url
+          return q[0]
     false
 
 ###
