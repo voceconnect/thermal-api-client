@@ -1,3 +1,13 @@
+var postJsonData = {};
+$.ajax({
+    dataType: 'json',
+    url: 'stubs/posts/100/index.php',
+    async: false,
+    success: function (r) {
+        postJsonData = r;
+    }
+});
+
 describe('WisP', function () {
 
     WisP.config.baseUrl = "stubs";
@@ -195,6 +205,20 @@ describe('WisP', function () {
             twoDayAgo = new Date();
             twoDayAgo.setDate(twoDayAgo.getDate() - 2);
             expect(twoDayAgo.timeAgo()).toBe('2 days ago');
+        });
+    });
+
+    describe('Get Featured Image', function () {
+        beforeEach( function () {
+        });
+
+        it('Method should return image matching featured id', function () {
+            media = postJsonData.media;        
+            expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
+        });
+        it('Method should return false if id not found', function () {
+            media = postJsonData.media;        
+            expect(WisP.getFeaturedImage(123499, media)).toBe(false);
         });
     });
 });
