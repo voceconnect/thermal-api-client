@@ -1,6 +1,6 @@
 window.WisP =
   config:
-    baseUrl: ""
+    baseUrl: ''
     per_page: 3
     html :
       categorySelect: $('#category-dropdown')
@@ -17,7 +17,6 @@ window.WisP =
       if $(@).scrollTop() + $(window).height() > $(document).height() - 100
         if WisP.loadingPosts is false and
         WisP.currentCollection.found > WisP.currentPosts.length
-          # determine opts
           opts =
             category : WisP.currentCollection.category
             paged : parseInt(WisP.currentCollection.paged, 10) + 1
@@ -34,7 +33,6 @@ window.WisP =
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
     $('.dropdown-toggle').dropdown()
-    WisP.masonry()
     WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
       e.preventDefault()
       id = $(@).attr('href')
@@ -45,22 +43,6 @@ window.WisP =
       WisP.config.html.popup.modal('toggle')
     )
     WisP.Router.start()
-
-  masonry : () ->
-    $container = $('.thermal-loop')
-    gutter = 20
-    min_width = 300
-    $container.masonry(
-      itemSelector : '.thermal-item'
-      gutterWidth: gutter
-      isAnimated: true
-      columnWidth: ( cWidth ) ->
-        boxNum = (cWidth/min_width | 0)
-        box_width = (((cWidth - (boxNum-1)*gutter)/boxNum) | 0)
-        if cWidth < min_width then box_width = cWidth
-        $('.thermal-item').width(box_width)
-        return box_width
-      )
 
   getMediaByID : (id, images) ->
     q = _.where(images, {id: id})

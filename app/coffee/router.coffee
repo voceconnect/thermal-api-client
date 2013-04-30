@@ -1,6 +1,7 @@
 WisP.Router = new (Backbone.Router.extend
 
   initialize: ()->
+    @route("(/:page)(/)", 'showPosts')
     @route("posts(/:page)(/)", 'showPosts')
     @route("posts/category/:category(/:paged)(/)", 'showPostsByCategory')
     @on('route', @transition)
