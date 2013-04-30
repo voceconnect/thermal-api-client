@@ -1,5 +1,5 @@
 <div class="span4 thermal-item">
-    <% var featuredImage = WisP.getFeaturedImage(meta.featuredImage, media) %>
+    <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
     <% if(media.length > 0 && featuredImage){ %>
     <div class="thermal-img">
         <img src="<%= featuredImage.sizes[0].url %>"/>

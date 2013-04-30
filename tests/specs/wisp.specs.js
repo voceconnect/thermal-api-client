@@ -214,31 +214,31 @@ describe('WisP', function () {
 
         it('Method should return image matching featured id', function () {
             media = $.extend(true, {}, postJsonData.media);        
-            expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
+            expect(WisP.getMediaByID(123456, media).id).toBe(123456);
         });
         it('Method should return false if id not found', function () {
             media = $.extend(true, {}, postJsonData.media);        
-            expect(WisP.getFeaturedImage(123499, media)).toBe(false);
+            expect(WisP.getMediaByID(123499, media)).toBe(false);
         });
         it('Method should return false if sizes is not set', function () {
             media = $.extend(true, {}, postJsonData.media);        
             delete media[0].sizes;
-            expect(WisP.getFeaturedImage(123456, media)).toBe(false);
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
         });
         it('Method should return false if sizes is empty', function () {
             media = $.extend(true, {}, postJsonData.media);        
             media[0].sizes = [];
-            expect(WisP.getFeaturedImage(123456, media)).toBe(false);
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
         });
         it('Method should return false if size url is not set', function () {
             media = $.extend(true, {}, postJsonData.media);        
             delete media[0].sizes[0].url;
-            expect(WisP.getFeaturedImage(123456, media)).toBe(false);
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
         });
         it('Method should return false if size url is empty', function () {
             media = $.extend(true, {}, postJsonData.media);        
             media[0].sizes[0].url = "";
-            expect(WisP.getFeaturedImage(123456, media)).toBe(false);
+            expect(WisP.getMediaByID(123456, media)).toBe(false);
         });                                 
     });
 });
