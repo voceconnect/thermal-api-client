@@ -21,7 +21,7 @@ $white:                 #fff !default;
 
 // Accent colors
 // -------------------------
-$blue:                  #049cdb !default;
+$blue:                  #076ca7 !default;
 $blueDark:              #0064cd !default;
 $green:                 #46a546 !default;
 $red:                   #9d261d !default;
@@ -39,7 +39,7 @@ $textColor:             $grayDark !default;
 
 // Links
 // -------------------------
-$linkColor:             #076ca7 !default;
+$linkColor:             $blue !default;
 $linkColorHover:        darken($linkColor, 15%) !default;
 
 

@@ -6,6 +6,16 @@ body {
 .btn {
 	font-family: $fancyFont;
 	@include text-shadow(#000, .4);
+	&.dropdown-toggle {
+		background: none;
+		border: none;
+		@include box-shadow(none);
+		text-transform: uppercase;
+		color: $blue;
+		&:focus {
+			outline: none;
+		}
+	}
 }
 .btn-group {
 	margin-bottom: 15px;
