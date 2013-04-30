@@ -10,7 +10,10 @@ window.WisP =
   init:()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
-      if $(this).scrollTop() > 100
+      if $(@).scrollTop() + $(window).height() > $(document).height() - 100
+        console.log 'near bottom'
+        #morePOsts()
+      if $(@).scrollTop() > 100
         $scrollToTop.fadeIn()
       else
         $scrollToTop.fadeOut()
@@ -22,7 +25,6 @@ window.WisP =
     )
     $('.dropdown-toggle').dropdown()
     WisP.masonry()
-
     WisP.Router.start()
 
   masonry : () ->

@@ -6,11 +6,14 @@ WisP.Controller =
       paged : 1
     if category? then opts.category = category
     if paged? then opts.paged = paged
+    WisP.config.html.main.append(@morePosts(opts))
+
+  morePosts: (opts)->
     WisP.currentPosts = new WisP.Posts([], opts)
     postsView = new WisP.PostArchiveView(collection : WisP.currentPosts)
     WisP.currentPosts.fetch()
     postsView.listenTo(WisP.currentPosts, 'add', postsView.renderOne)
-    WisP.config.html.main.append(postsView.el)
+    postsView.el
 
   showPost: (id)->
     WisP.currentPost = new WisP.Post(id: id)
