@@ -55,7 +55,11 @@ window.WisP =
     false
 
   getPostByID: (id)->
-    _.where(WisP.currentPosts, {id: id})
+    id = parseInt(id, 10)
+    r = []
+    for post in WisP.currentPosts
+      if post.get('id') is id then r.push(post)
+    r
 
 
 ###

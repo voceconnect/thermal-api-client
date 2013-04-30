@@ -189,11 +189,11 @@ describe('WisP', function () {
 
         it('showPost should get from memory if ID exists', function () {
             WisP.currentPosts = [
-                {id: 100},
-                {id:101}
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
             ];
             WisP.Controller.showPost(101);
-            expect(WisP.currentPost.get('title')).toBe('Default Post Title');
+            expect(WisP.currentPost.get('title')).toBe('foo');
         });
     });
 
