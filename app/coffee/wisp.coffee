@@ -7,6 +7,21 @@ window.WisP =
       main: $('#main')
       popup: $('#popup')
 
+  init:()->
+    $(window).scroll(()->
+      if $(this).scrollTop() > 100
+        $('.scroll-to-top').fadeIn()
+      else
+        $('.scroll-to-top').fadeOut()
+    )
+
+    $('.scroll-to-top').click((e)->
+      e.preventDefault()
+      $("html, body").animate({ scrollTop: 0 }, 600)
+    )
+
+    WisP.Router.start()
+
   masonry : () ->
     $container = $('.thermal-loop')
     gutter = 20
