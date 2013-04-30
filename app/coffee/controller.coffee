@@ -28,3 +28,6 @@ WisP.Controller =
     WisP.currentPost.fetch()
     postView.listenTo(WisP.currentPost, 'change', postView.render)
     WisP.config.html.popup.html(postView.el)
+
+  showError: ()->
+    WisP.config.html.main.append(WisP.Templates['404.html'])

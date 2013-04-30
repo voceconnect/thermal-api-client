@@ -1,4 +1,6 @@
 WisP.Router = new (Backbone.Router.extend
+  routes:
+    "*path" : "showError"
 
   initialize: ()->
     @route("(/:page)(/)", 'showPosts')
@@ -19,7 +21,7 @@ WisP.Router = new (Backbone.Router.extend
 
   showError: ()->
     WisP.config.html.main.empty()
-    console.log 'showError'
+    WisP.Controller.showError()
 
   start: ()->
     Backbone.history.start()
