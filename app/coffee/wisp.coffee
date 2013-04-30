@@ -29,6 +29,13 @@ window.WisP =
     )
     $('.dropdown-toggle').dropdown()
     WisP.masonry()
+    WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
+      e.preventDefault()
+      # get the post ID from the excerpt
+      id = 100
+      WisP.Controller.showPost(id)
+      WisP.config.html.popup.modal('toggle')
+    )
     WisP.Router.start()
 
   masonry : () ->
