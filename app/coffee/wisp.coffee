@@ -50,8 +50,8 @@ Date.prototype.timeAgo = ()->
   date = new Date(this)
   diff = (((new Date()).getTime() - date.getTime()) / 1000)
   day_diff = Math.floor(diff / 86400)
-  if isNaN(day_diff) or day_diff < 0 or day_diff >= 31 then return
-  tAgo = ''
+  if isNaN(day_diff) or day_diff < 0 then return
+  tAgo = (date.getMonth()+1) + ' ' + date.getDate() + ', ' + date.getFullYear()
   if day_diff is 0
     if diff < 60 then tAgo = 'just now'
     else if diff < 120 then tAgo = '1 minute ago'
