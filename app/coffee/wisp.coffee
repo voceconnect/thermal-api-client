@@ -40,6 +40,11 @@ window.WisP =
         )
     )
 
+  getFeaturedImage : (id, images) ->
+    q = _.where(images, {id: id})
+    if q.length > 0 then return q[0]
+    false
+
 ###
 Format date object like "x minutes ago, y days ago, etc"
 
