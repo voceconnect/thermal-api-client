@@ -31,8 +31,10 @@ window.WisP =
     WisP.masonry()
     WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
       e.preventDefault()
-      # get the post ID from the excerpt
-      id = 100
+      id = $(@).attr('href')
+        .substr($(@).attr('href')
+        .lastIndexOf('/'))
+        .replace('/', '')
       WisP.Controller.showPost(id)
       WisP.config.html.popup.modal('toggle')
     )
@@ -42,19 +44,17 @@ window.WisP =
     $container = $('.thermal-loop')
     gutter = 20
     min_width = 300
-    $container.imagesLoaded(()->
-      $container.masonry(
-        itemSelector : '.thermal-item'
-        gutterWidth: gutter
-        isAnimated: true
-        columnWidth: ( cWidth ) ->
-          boxNum = (cWidth/min_width | 0)
-          box_width = (((cWidth - (boxNum-1)*gutter)/boxNum) | 0)
-          if cWidth < min_width then box_width = cWidth
-          $('.thermal-item').width(box_width)
-          return box_width
-        )
-    )
+    $container.masonry(
+      itemSelector : '.thermal-item'
+      gutterWidth: gutter
+      isAnimated: true
+      columnWidth: ( cWidth ) ->
+        boxNum = (cWidth/min_width | 0)
+        box_width = (((cWidth - (boxNum-1)*gutter)/boxNum) | 0)
+        if cWidth < min_width then box_width = cWidth
+        $('.thermal-item').width(box_width)
+        return box_width
+      )
 
   getFeaturedImage : (id, images) ->
     q = _.where(images, {id: id})
