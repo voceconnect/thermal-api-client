@@ -6,7 +6,8 @@
 	background: #fff;
 	margin-bottom: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
-	border: 1px solid $grayLight;
+	border-top: 1px solid $grayLight;
+	border-bottom: 1px solid $grayLight;
 	position: relative;
 	&.new-item {
 		&:after {
@@ -16,14 +17,18 @@
 }
 #{$name}-img {
 	position: relative;
-	img {
-		border-bottom: 4px solid $grayLighter;
-	}
+	overflow: hidden;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	border-bottom: 4px solid $grayLighter;
 	margin-bottom: 1em;
+	float: left;
 }
 #{$name}-text {
 	@include box-sizing(border-box);
 	padding: 0 6.25% 1em 6.25%;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
 	h4 {
 		text-transform: uppercase;
 		font-family: $fancyFont;
@@ -39,6 +44,8 @@
 }
 #{$name}-meta {
 	background: $grayLighter;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
 	p {
 		font-size: 1.1428571429em;
 		line-height: 1.25;
