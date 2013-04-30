@@ -8,14 +8,15 @@ window.WisP =
       popup: $('#popup')
 
   init:()->
+    $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(this).scrollTop() > 100
-        $('.scroll-to-top').fadeIn()
+        $scrollToTop.fadeIn()
       else
-        $('.scroll-to-top').fadeOut()
+        $scrollToTop.fadeOut()
     )
 
-    $('.scroll-to-top').click((e)->
+    $scrollToTop.click((e)->
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
