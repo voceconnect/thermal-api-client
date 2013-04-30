@@ -39,3 +39,16 @@ window.WisP =
           return box_width
         )
     )
+
+###
+Is this date "new" within the last day
+
+@module Date
+@method isNew
+@return Boolean
+###
+Date.prototype.isNew = ()->
+  d = new Date(this)
+  now = new Date()
+  if (now.getTime() - d.getTime()) <= 86400000 then return true
+  false
