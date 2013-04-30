@@ -171,4 +171,30 @@ describe('WisP', function () {
         });
     });
 
+    describe('Date.prototype', function () {
+        beforeEach(function () {
+        });
+
+        it('Date.timeAgo should format for hours', function(){
+            oneHourAgo = new Date();
+            oneHourAgo.setHours(oneHourAgo.getHours() - 1);
+            expect(oneHourAgo.timeAgo()).toBe('1 hour ago');
+        });
+
+        it('Date.timeAgo should format for just now', function(){
+            justNow = new Date();
+            expect(justNow.timeAgo()).toBe('just now');
+        });
+        it('Date.timeAgo should format for yesterday', function(){
+            oneDayAgo = new Date();
+            oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+            expect(oneDayAgo.timeAgo()).toBe('Yesterday');
+        });
+
+        it('Date.timeAgo should format for days', function(){
+            twoDayAgo = new Date();
+            twoDayAgo.setDate(twoDayAgo.getDate() - 2);
+            expect(twoDayAgo.timeAgo()).toBe('2 days ago');
+        });
+    });
 });
