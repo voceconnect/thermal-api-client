@@ -6,6 +6,7 @@ WisP.Router = new (Backbone.Router.extend
     @route("(/:page)(/)", 'showPosts')
     @route("posts(/:page)(/)", 'showPosts')
     @route("posts/category/:category(/:paged)(/)", 'showPostsByCategory')
+    @route("posts/show/:id(/)", 'showPost')
     @on('route', @transition)
 
   transition: (route, args)->
@@ -18,6 +19,10 @@ WisP.Router = new (Backbone.Router.extend
   showPostsByCategory: (category, paged)->
     WisP.config.html.main.empty()
     WisP.Controller.showPosts(category, paged)
+
+  showPost: (id)->
+    WisP.config.html.main.empty()
+    WisP.Controller.showPost(id, false)
 
   showError: ()->
     WisP.config.html.main.empty()
