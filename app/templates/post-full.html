@@ -30,7 +30,7 @@
 			</div>
 		</div>
   </div>
-  <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
+  <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
   <% if(media.length > 0 && featuredImage){ %>
 	<div class="post-image">
 	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
