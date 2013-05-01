@@ -1,8 +1,7 @@
 @import "compass/css3/";
-@import "lib/bootstrap";
-@import "lib/responsive";
-
 .wisp {
+	@import "lib/bootstrap";
+	@import "lib/responsive";
 	.btn {
 		font-family: $fancyFont;
 		@include text-shadow(#000, .4);
