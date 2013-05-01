@@ -1,5 +1,13 @@
 WisP.Controller =
 
+  showCategoriesMenu: (opts)->
+    WisP.categories = new WisP.Terms [], opts
+    categoryMenuView = new WisP.CategoryMenuView
+      collection: WisP.categories
+      el: WisP.config.html.categorySelect
+
+    WisP.categories.fetch()
+
   showPosts: (category, paged)->
     opts =
       category : null

@@ -58,7 +58,7 @@ window.WisP =
       if postID is post.get('id') then return
       WisP.Controller.showPost(post.get('id'))
     )
-
+    WisP.Controller.showCategoriesMenu()
     WisP.Router.start()
 
   getMediaByID : (id, images) ->
