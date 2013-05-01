@@ -13,5 +13,4 @@ WisP.CategoryMenuItemView = Backbone.View.extend
     @
 
   select: ->
-    categorySelect = WisP.config.html.categorySelect
-    @.trigger "selectedCategory", [@model, this]
+    @$el.trigger "selectedCategory", [@model]

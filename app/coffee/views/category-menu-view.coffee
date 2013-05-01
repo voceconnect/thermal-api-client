@@ -1,14 +1,13 @@
 WisP.CategoryMenuView = Backbone.View.extend
 
   events:
-    'selected:category' : 'selectedCategory'
+    'selectedCategory' : 'selectedCategory'
 
   initialize: (opts) ->
-    _.bindAll @, "selected"
     @$label = @$el.find '.dropdown-toggle'
     @$menu = @$el.find '.dropdown-menu'
     @childTagName = if opts? and
-      opts.tagName? then opts.tagName else "li"
+      opts.childTagName? then opts.childTagName else "li"
     @selected = null
     @listenTo @collection, 'add', @renderOne
 
@@ -18,6 +17,6 @@ WisP.CategoryMenuView = Backbone.View.extend
       tagName: @childTagName
     @$menu.append menuItem.render().$el
 
-  selected: (model)->
-    @selected = @model
-    @label.text @model.name
+  selectedCategory: (event, model)->
+    @selected = model
+    @$label.find('.text').text model.get 'name'
