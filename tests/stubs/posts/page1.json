@@ -22,9 +22,9 @@
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"
@@ -80,9 +80,9 @@
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/g/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"
@@ -138,9 +138,9 @@
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"
