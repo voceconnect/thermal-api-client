@@ -2,7 +2,7 @@
     "found": 3,
     "terms": [
         {
-            "ID": 5,
+            "id": 5,
             "term_id_str": "5",
             "term_taxonomy_id": 5,
             "term_taxonomy_id_str": "5",
@@ -18,7 +18,7 @@
             }
         },
         {
-            "ID": 8,
+            "id": 8,
             "term_id_str": "8",
             "term_taxonomy_id": 8,
             "term_taxonomy_id_str": "8",
@@ -33,7 +33,7 @@
             "meta": {}
         },
         {
-            "ID": 4,
+            "id": 4,
             "term_id_str": "4",
             "term_taxonomy_id": 4,
             "term_taxonomy_id_str": "4",

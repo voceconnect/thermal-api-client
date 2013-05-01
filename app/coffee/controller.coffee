@@ -1,5 +1,13 @@
 WisP.Controller =
 
+  showCategoriesMenu: (opts)->
+    WisP.categories = new WisP.Terms [], opts
+    categoryMenuView = new WisP.CategoryMenuView
+      collection: WisP.categories
+      el: WisP.config.html.categorySelect
+
+    WisP.categories.fetch()
+
   showPosts: (category, paged)->
     opts =
       category : null
@@ -13,18 +21,27 @@ WisP.Controller =
     postsView = new WisP.PostArchiveView(collection : WisP.currentCollection)
     WisP.currentCollection.fetch(success: () ->
       for m in WisP.currentCollection.models
-        WisP.currentPosts.push($.extend(true, {}, m))
+        if WisP.getPostByID(m.get('id')).length is 0
+          WisP.currentPosts.push($.extend(true, {}, m))
       WisP.loadingPosts = false
     )
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
-  showPost: (id)->
+  showPost: (id, popup = true)->
     if WisP.getPostByID(id).length > 0
-      WisP.currentPost = new WisP.Post(WisP.getPostByID(id)[0])
+      WisP.currentPost = WisP.getPostByID(id)[0]
+      postView = new WisP.PostView(model:WisP.currentPost)
+      postView.render()
     else
       WisP.currentPost = new WisP.Post(id: id)
-    postView = new WisP.PostView(model:WisP.currentPost)
-    WisP.currentPost.fetch()
+      WisP.currentPost.fetch()
+      postView = new WisP.PostView(model:WisP.currentPost)
     postView.listenTo(WisP.currentPost, 'change', postView.render)
-    WisP.config.html.popup.html(postView.el)
+    if popup is true
+      WisP.config.html.popup.html(postView.el)
+    else
+      WisP.config.html.main.html(postView.el)
+
+  showError: ()->
+    WisP.config.html.main.append(WisP.Templates['404.html'])

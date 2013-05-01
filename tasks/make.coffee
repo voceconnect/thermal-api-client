@@ -5,7 +5,6 @@ module.exports = (grunt) ->
     'coffee'
     'compass'
     'jst'
-    'minified'
     'concat'
     'htmlmin'
     'clean'

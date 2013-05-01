@@ -42,6 +42,23 @@ window.WisP =
       WisP.Controller.showPost(id)
       WisP.config.html.popup.modal('toggle')
     )
+    WisP.config.html.popup.on('click', '.modal-close', (e)->
+      e.preventDefault()
+      WisP.config.html.popup.modal('hide')
+    )
+    WisP.config.html.popup.on('click', '.post-paging a', (e)->
+      e.preventDefault()
+      post = WisP.currentPost
+      postID = post.get('id')
+      elID = $(@).attr('id')
+      if elID is 'prev-post'
+        post = WisP.stepPost(postID, true)
+      else if elID is 'next-post'
+        post = WisP.stepPost(postID)
+      if postID is post.get('id') then return
+      WisP.Controller.showPost(post.get('id'))
+    )
+    WisP.Controller.showCategoriesMenu()
     WisP.Router.start()
 
   getMediaByID : (id, images) ->
@@ -55,8 +72,21 @@ window.WisP =
     false
 
   getPostByID: (id)->
-    _.where(WisP.currentPosts, {id: id})
+    id = parseInt(id, 10)
+    r = []
+    for post in WisP.currentPosts
+      if post.get('id') is id then r.push(post)
+    r
 
+  stepPost: (id, prev = false)->
+    id = parseInt(id, 10)
+    rPost = WisP.currentPost
+    for k,post of WisP.currentPosts
+      idx = (parseInt(k, 10) + 1)
+      if prev is true then idx = (parseInt(k, 10) - 1)
+      if post.get('id') is id and WisP.currentPosts[idx]
+        rPost = WisP.currentPosts[idx]
+    rPost
 
 ###
 Is this date "new" within the last day
