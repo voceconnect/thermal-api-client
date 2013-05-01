@@ -69,7 +69,6 @@ window.WisP =
       WisP.Controller.showPost(post.get('id'))
     )
     WisP.Controller.showCategoriesMenu()
-    WisP.Router.start()
 
   ###
   Get a single image from an array given a specific ID

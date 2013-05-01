@@ -6,6 +6,7 @@ module.exports = (grunt) ->
     'compass'
     'jst'
     'concat'
+    'minified'
     'htmlmin'
     'clean'
   ])
