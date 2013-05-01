@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Embed Sample</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>I'm an embed sample site</h1>
+
+<div id="embed_in_me"></div>
+
+</body>
+<script src='/_build/js/wisp.js'></script>
+<script>
+    var wispEmbed = new WisP.Embed({elSelector: '#embed_in_me', baseUrl : 'http://wisp.dev/tests/stubs'});
+</script>
+</html>
