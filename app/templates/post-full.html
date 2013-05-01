@@ -15,7 +15,10 @@
 				<p><span>share post</span><a href="#">Facebook</a><small>|</small><a href="#">Twitter</a></p>
 			</div>
 			<div class="span3">
-				<p><span>view on</span><a href="#">wgntv.com</a></p>
+        <% var prettyURL = WisP.getPrettyURL(permalink) %>
+        <% if(prettyURL){ %>
+				<p><span>view on</span><a href="<%= permalink %>"><%= prettyURL %></a></p>
+        <% } %>
 			</div>
 		</div>
   </div>

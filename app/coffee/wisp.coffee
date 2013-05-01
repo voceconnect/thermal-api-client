@@ -44,7 +44,7 @@ window.WisP =
     )
     WisP.Router.start()
 
-  getMediaByID : (id, images) ->
+  getMediaByID: (id, images)->
     q = _.where(images, {id: id})
     if q.length > 0
       if not q[0].altText
@@ -57,6 +57,12 @@ window.WisP =
   getPostByID: (id)->
     _.where(WisP.currentPosts, {id: id})
 
+  getPrettyURL: (url)->
+    regex = /((https?:\/\/)(www\.)?)(\S*?)(\/)/ig
+    result = regex.exec(url)
+    if result and result[4]
+      return result[4]
+    false
 
 ###
 Is this date "new" within the last day
