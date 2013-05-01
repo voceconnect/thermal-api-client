@@ -64,8 +64,8 @@ window.WisP =
   getMediaByID : (id, images) ->
     q = _.where(images, {id: id})
     if q.length > 0
-      if not q[0].altText
-        q[0].altText = ""
+      if not q[0].alt_text
+        q[0].alt_text = ""
       if q[0].sizes and q[0].sizes.length > 0
         if q[0].sizes[0].url
           return q[0]
