@@ -1,80 +1,79 @@
 @import "compass/css3/";
-@import "lib/bootstrap";
-@import "lib/responsive";
-body {
-
-}
-.btn {
-	font-family: $fancyFont;
-	@include text-shadow(#000, .4);
-	&.dropdown-toggle {
-		background: none;
-		border: none;
-		@include box-shadow(none);
-		text-transform: uppercase;
-		color: $blue;
-		&:focus {
-			outline: none;
-		}
-	}
-}
-.btn-group {
-	margin-bottom: 15px;
+.wisp {
+	@import "lib/bootstrap";
+	@import "lib/responsive";
 	.btn {
-		font-family: Helvetica Neue, Helvetica, sans-serif;
-	}
-}
-.triangle-left {
-	font-size: 0;
-	margin: 0 10px 0 0;
-	width: 0px;
-	height: 0px;
-	line-height: 1;
-	vertical-align: middle;
-	border-style: solid;
-	border-width: 10px 10px 10px 0px;
-	border-color: transparent #fff transparent transparent;
-}
-.triangle-right {
-	margin: 0 0 0 10px;
-	@extend .triangle-left;
-	border-width: 10px 0 10px 10px;
-	border-color: transparent transparent transparent #fff;
-}
-
-@import "cards";
-@import "modal";
-@import "galleries";
-.scroll-to-top {
-	display: none;
-	border: 1px solid #fff;
-	@include box-shadow(0 0 4px 0 rgba(#000, .4), 0 0 1px 0 #dadada);
-	text-transform: uppercase;
-	text-align: center;
-	color: $grayDark;
-	position: fixed;
-	right: 0;
-	top: 80%;
-	h4 {
-		padding: 0;
-		margin: 0;
 		font-family: $fancyFont;
-		@include gradient-vertical(#fff, #dadada);
-		a {
-			width: 102px;
-			@include box-sizing(border-box);
-			padding: 35px 15px 10px 15px;
-			display: block;
-			color: $grayDark;
-			background: image_url('up-arrow.png') no-repeat center 5px;
-			@include text-shadow(#fff, .8);
-			&:hover {
-				text-decoration: none;
-				background-color: #dadada;
+		@include text-shadow(#000, .4);
+		&.dropdown-toggle {
+			background: none;
+			border: none;
+			@include box-shadow(none);
+			text-transform: uppercase;
+			color: $blue;
+			&:focus {
+				outline: none;
 			}
 		}
 	}
+	.btn-group {
+		margin-bottom: 15px;
+		.btn {
+			font-family: Helvetica Neue, Helvetica, sans-serif;
+		}
+	}
+	.triangle-left {
+		font-size: 0;
+		margin: 0 10px 0 0;
+		width: 0px;
+		height: 0px;
+		line-height: 1;
+		vertical-align: middle;
+		border-style: solid;
+		border-width: 10px 10px 10px 0px;
+		border-color: transparent #fff transparent transparent;
+	}
+	.triangle-right {
+		margin: 0 0 0 10px;
+		@extend .triangle-left;
+		border-width: 10px 0 10px 10px;
+		border-color: transparent transparent transparent #fff;
+	}
+
+	@import "cards";
+	@import "modal";
+	@import "galleries";
+	.scroll-to-top {
+		display: none;
+		border: 1px solid #fff;
+		@include box-shadow(0 0 4px 0 rgba(#000, .4), 0 0 1px 0 #dadada);
+		text-transform: uppercase;
+		text-align: center;
+		color: $grayDark;
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		h4 {
+			padding: 0;
+			margin: 0;
+			font-family: $fancyFont;
+			@include gradient-vertical(#fff, #dadada);
+			a {
+				width: 102px;
+				@include box-sizing(border-box);
+				padding: 35px 15px 10px 15px;
+				display: block;
+				color: $grayDark;
+				background: image_url('up-arrow.png') no-repeat center 5px;
+				@include text-shadow(#fff, .8);
+				&:hover {
+					text-decoration: none;
+					background-color: #dadada;
+				}
+			}
+		}
 		
+	}
 }
 
 .img-circle {

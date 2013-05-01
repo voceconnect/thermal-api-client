@@ -1,5 +1,5 @@
 WisP.PostArchiveView = Backbone.View.extend
-
+  tagName: 'span'
   initialize: () ->
     @collection = WisP.Posts
 

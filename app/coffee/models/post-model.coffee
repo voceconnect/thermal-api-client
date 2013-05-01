@@ -19,7 +19,7 @@ WisP.Post = Backbone.Model.extend
     media: {}
     excerpt: ""
     meta:
-      featuredImage: ""
+      featured_image: ""
 
   initialize: ( atts, options ) ->
 

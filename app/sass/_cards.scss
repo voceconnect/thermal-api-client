@@ -1,29 +1,48 @@
 #{$name}-loop {
 	font-size: 100%;
+	@include transition(column-count .5s);
+	@include column-count(4);
+	@include column-gap(20px);
+	@include breakpoint(desktop){ @include column-count(3) }
+	@include breakpoint(tablet){ @include column-count(2) }
+	@include breakpoint(kindle){ @include column-count(2) }
+	@include breakpoint(phone){ text-align: center; @include column-count(1) }
 }
-#{$name}-item {
+#{$name}-item {  
+	width: 100%;
+	vertical-align: top;
 	max-width: 300px;
+	display: inline-block;
 	background: #fff;
 	margin-bottom: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
-	border: 1px solid $grayLight;
+	border-top: 1px solid $grayLight;
+	border-bottom: 1px solid $grayLight;
 	position: relative;
 	&.new-item {
 		&:after {
 			@include ribbon('New', 143px, -1px);
 		}
 	}
+	@include breakpoint(phone){ margin: 0 auto 15px auto; text-align: left;}
 }
 #{$name}-img {
+	@include box-sizing(border-box);
+	text-align: center;
 	position: relative;
+	overflow: hidden;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	border-bottom: 4px solid $grayLighter;
 	img {
-		border-bottom: 4px solid $grayLighter;
+		margin: 0 auto;
 	}
-	margin-bottom: 1em;
 }
 #{$name}-text {
 	@include box-sizing(border-box);
-	padding: 0 6.25% 1em 6.25%;
+	padding: .5em 6.25% 1em 6.25%;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
 	h4 {
 		text-transform: uppercase;
 		font-family: $fancyFont;
@@ -39,6 +58,11 @@
 }
 #{$name}-meta {
 	background: $grayLighter;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	@include clearfix();
+	@include box-sizing(border-box);
+	padding: .5em 5%;
 	p {
 		font-size: 1.1428571429em;
 		line-height: 1.25;
@@ -61,9 +85,6 @@
 			padding: 0 .25em;
 		}
 	}
-	@include clearfix();
-	@include box-sizing(border-box);
-	padding: .5em 5%;
 	img {
 		margin-right: .5em;
 		border: 3px solid #fff;

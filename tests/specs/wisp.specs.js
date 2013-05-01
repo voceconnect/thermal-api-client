@@ -53,6 +53,14 @@ describe('WisP', function () {
         });
     });
 
+
+    describe('Media Model', function () {
+        beforeEach(function () {
+            this.media = new WisP.Media();
+        });
+
+    });
+
     describe('Post View', function () {
         beforeEach(function () {
             this.postView = new WisP.PostView();
@@ -189,11 +197,36 @@ describe('WisP', function () {
 
         it('showPost should get from memory if ID exists', function () {
             WisP.currentPosts = [
-                {id: 100},
-                {id:101}
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
             ];
             WisP.Controller.showPost(101);
-            expect(WisP.currentPost.get('title')).toBe('Default Post Title');
+            expect(WisP.currentPost.get('title')).toBe('foo');
+        });
+
+        it('stepPost should get the next Post', function () {
+            WisP.currentPosts = [
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
+            ];
+            expect(WisP.stepPost(100).get('id')).toBe(101);
+        });
+
+        it('stepPost should get the previous Post', function () {
+            WisP.currentPosts = [
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
+            ];
+            expect(WisP.stepPost(101, true).get('id')).toBe(100);
+        });
+
+        it('stepPost should return same post if last', function () {
+            WisP.currentPost = new WisP.Post({id:100});
+            WisP.currentPosts = [
+                new WisP.Post({id:100}),
+                new WisP.Post({id:101, title:'foo'})
+            ];
+            expect(WisP.stepPost(100, true).get('id')).toBe(100);
         });
     });
 
@@ -258,8 +291,98 @@ describe('WisP', function () {
         });
         it('Alt text should return empty string if undefined', function () {
             media = $.extend(true, {}, postJsonData.media);
-            delete media[0].altText;
-            expect(WisP.getMediaByID(123456, media).altText).toBe("");
+            delete media[0].alt_text;
+            expect(WisP.getMediaByID(123456, media).alt_text).toBe("");
+        });
+
+    });
+
+    describe('Term Model', function () {
+        beforeEach(function () {
+            this.term = new WisP.Term();
+        });
+        it('Term default should be set', function () {
+            expect(this.term.get('id')).toBe(0);
+        });
+        it('Term should set given id', function () {
+            term = new WisP.Term({id: 1});
+            expect(term.get('id')).toBe(1);
+        });
+    });
+
+    describe('Terms Collection', function () {
+        beforeEach(function () {
+            this.terms = new WisP.Terms([], {taxonomy: 'category'});
+        });
+
+        it('Adding model should add to collection', function () {
+            this.terms.add([new WisP.Term]);
+            expect(this.terms.models.length).toBe(1);
+        });
+        it('The url should use variables', function () {
+            terms = new WisP.Terms([], {taxonomy: 'category'});
+            expect(terms.url).toBe('stubs/taxonomies/category/terms/');
+        });
+        it('Should add models from remote', function () {
+            var result;
+            terms = new WisP.Terms();
+            getTerms();
+
+            waitsFor(function () {
+                return result === true;
+            }, 'gets terms', 3000);
+
+            runs(function () {
+                expect(terms.models.length).toBe(3);
+            });
+
+            function getTerms() {
+                terms.fetch({
+                    success: function () {
+                        result = true;
+                    },
+                    error: function () {
+                        result = false;
+                    }
+                });
+
+            }
+
+        });
+    });
+
+    describe('Category Menu View', function () {
+        beforeEach(function () {
+            this.terms = new WisP.Terms({taxonomy: 'category'});
+            this.$el = $('<div><div class="dropdown-toggle"></div><div class="dropdown-menu"></div></div>');
+            this.categoryMenuView = new WisP.CategoryMenuView({collection: this.terms, el: this.$el});
+        });
+        it('Adding a model should render html', function () {
+            html = this.categoryMenuView.renderOne(new WisP.Term({id: 1, name:'Test Taxonomy Name'}));
+            expect($(html).find('li a').text()).toBe('Test Taxonomy Name');
+        });
+        it('Should render from remote', function () {
+            var result,
+            _this = this;
+            getCats();
+            waitsFor(function () {
+                return result === true;
+            }, "get cats", 3000);
+
+            runs(function () {
+                expect($(_this.categoryMenuView.el).find('li').length).toBe(3);
+            });
+
+            function getCats() {
+                _this.terms.fetch({
+                    success: function () {
+                        result = true;
+                    },
+                    error: function () {
+                        result = false;
+                    }
+                })
+            }
         });
     });
 

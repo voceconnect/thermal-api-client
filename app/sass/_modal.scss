@@ -3,6 +3,14 @@
 	padding: 0;
 	background: none;
 	max-width: 700px;
+	@include breakpoint(phone){
+		&.fade.in {
+			top: 0;
+			height: 100%;
+			overflow: hidden;
+			overflow-y: scroll;
+		}
+	}
 }
 .modal-close {
 	display: block;
@@ -13,6 +21,11 @@
 	padding-right: 16px !important;
 	margin-right: -16px !important;
 	float: left;
+	@include breakpoint(phone){
+		margin-right: 0 !important;
+		padding-right: 0 !important;
+		margin-bottom: -2px;
+	}
 }
 .post-full {
 	clear: both;
