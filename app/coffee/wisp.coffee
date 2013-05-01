@@ -49,11 +49,13 @@ window.WisP =
     WisP.config.html.popup.on('click', '.post-paging a', (e)->
       e.preventDefault()
       post = WisP.currentPost
+      postID = post.get('id')
       elID = $(@).attr('id')
       if elID is 'prev-post'
-        post = WisP.getPrevPost(post.get('id'))
+        post = WisP.stepPost(postID, true)
       else if elID is 'next-post'
-        post = WisP.getNextPost(post.get('id'))
+        post = WisP.stepPost(postID)
+      if postID is post.get('id') then return
       WisP.Controller.showPost(post.get('id'))
     )
 
@@ -76,20 +78,12 @@ window.WisP =
       if post.get('id') is id then r.push(post)
     r
 
-  getPrevPost: (id)->
+  stepPost: (id, prev = false)->
     id = parseInt(id, 10)
     rPost = WisP.currentPost
     for k,post of WisP.currentPosts
-      idx = k - 1
-      if post.get('id') is id and WisP.currentPosts[idx]
-        rPost = WisP.currentPosts[idx]
-    rPost
-
-  getNextPost: (id)->
-    id = parseInt(id, 10)
-    rPost = WisP.currentPost
-    for k,post of WisP.currentPosts
-      idx = k + 1
+      idx = (parseInt(k, 10) + 1)
+      if prev is true then idx = (parseInt(k, 10) - 1)
       if post.get('id') is id and WisP.currentPosts[idx]
         rPost = WisP.currentPosts[idx]
     rPost
