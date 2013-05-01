@@ -17,7 +17,10 @@ WisP.Embed = class
         main: @settings.$el.find('#main')
         popup: @settings.$el.find('#popup')
       WisP.init()
-      eval("WisP.Controller.#{@settings.method}")
+      try
+        eval("WisP.Controller.#{@settings.method}")
+      catch e
+        console.log e
       WisP.Controller.showCategoriesMenu()
     )
 
