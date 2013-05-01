@@ -1,4 +1,4 @@
-<div class="span4 thermal-item <% if(new Date(date).isNew() === true) {%> new-item <% } %>">
+<div class="thermal-item <% if(new Date(date).isNew() === true) {%> new-item <% } %>">
     <% var featured_image = WisP.getMediaByID(meta.featured_image, media) %>
     <% if(media.length > 0 && featured_image){ %>
     <div class="thermal-img">
