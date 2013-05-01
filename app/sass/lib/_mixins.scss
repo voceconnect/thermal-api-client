@@ -714,3 +714,21 @@
 @mixin grid-input-span($columns, $gridColumnWidth, $gridGutterWidth) {
   width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 14;
 }
+@mixin breakpoint($point) {
+	@if $point == large {
+		@media (min-width: 1200px) { @content; }
+	}
+  @else if $point == desktop {
+    @media (min-width: 980px) and (max-width: 1199px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 768px) and (max-width: 979px) { @content; }
+  }
+	@else if $point == kindle {
+		@media (min-width: 600px) and (max-width: 767px) { @content; }
+	}
+  @else if $point == phone {
+    @media (max-width: 599px)  { @content; }
+  }
+}
+
