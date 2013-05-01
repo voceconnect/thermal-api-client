@@ -70,3 +70,23 @@
 		}
 	}
 }
+.share-buttons{
+	small, .facebook, .twitter{
+		float: left;
+		height: 25px;
+		line-height: 25px;
+		margin-top: 3px;
+	}
+	.facebook {
+		max-width: 75px;
+		iframe {
+			max-width: 75px;
+		}
+	}
+	.twitter {
+		max-width: 80px;
+		iframe{
+			max-width: 80px;
+		}
+	}
+}

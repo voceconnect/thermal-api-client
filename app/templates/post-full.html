@@ -11,15 +11,19 @@
         <% } %>
 				<p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
 			</div>
-			<div class="span4">
+			<div class="span4 share-buttons">
 				<p>
           <span>share post</span>
-          <iframe src="//www.facebook.com/plugins/like.php?href=<%= encodeURIComponent(permalink) %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
-          </iframe>
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=<%= encodeURIComponent(permalink) %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
+            </iframe>
+          </span>
           <small>|</small>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= permalink %>" data-text="<% title %>">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-          </script>
+          <span class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= permalink %>" data-text="<% title %>">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            </script>
+          </span>
         </p>
 			</div>
 			<div class="span3">
