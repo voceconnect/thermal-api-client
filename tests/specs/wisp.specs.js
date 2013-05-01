@@ -385,4 +385,18 @@ describe('WisP', function () {
             }
         });
     });
+
+    describe('Get Pretty URL', function () {
+        beforeEach( function () {
+        });
+
+        it('Method should return root domain', function () {
+            url = 'http://www.example.com/post/something';
+            expect(WisP.getPrettyURL(url)).toBe('example.com');
+        });
+        it('Method should return false', function () {
+            url = '';
+            expect(WisP.getPrettyURL(url)).toBe(false);
+        });
+    });
 });

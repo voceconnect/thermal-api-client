@@ -107,6 +107,13 @@ window.WisP =
         rPost = WisP.currentPosts[idx]
     rPost
 
+  getPrettyURL: (url)->
+    regex = /((https?:\/\/)(www\.)?)(\S*?)(\/)/ig
+    result = regex.exec(url)
+    if result and result[4]
+      return result[4]
+    false
+
 ###
 Is this date "new" within the last day
 
