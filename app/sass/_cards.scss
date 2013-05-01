@@ -24,7 +24,7 @@
 			@include ribbon('New', 143px, -1px);
 		}
 	}
-	@include breakpoint(phone){ margin: 0 auto 15px auto; }
+	@include breakpoint(phone){ margin: 0 auto 15px auto; text-align: left;}
 }
 #{$name}-img {
 	@include box-sizing(border-box);
