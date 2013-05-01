@@ -6,12 +6,11 @@ Main App Controller
 WisP.Controller =
 
   showCategoriesMenu: (opts)->
-    WisP.categories = new WisP.Terms [], opts
+    WisP.categories = new WisP.Terms([], opts)
+    WisP.categories.fetch()
     categoryMenuView = new WisP.CategoryMenuView
       collection: WisP.categories
       el: WisP.config.html.categorySelect
-
-    WisP.categories.fetch()
 
   ###
   Does a post query and displays the posts
@@ -66,7 +65,6 @@ WisP.Controller =
       WisP.config.html.popup.html(postView.el)
     else
       WisP.config.html.main.html(postView.el)
-
 
   showError: ()->
     WisP.config.html.main.append(WisP.Templates['404.html'])

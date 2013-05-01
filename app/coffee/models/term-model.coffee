@@ -12,4 +12,4 @@ WisP.Term = Backbone.Model.extend
   initialize: ( atts, options ) ->
 
   urlRoot: () =>
-    "#{WisP.config.baseUrl}/taxonomy/#{this.taxonomy}/terms/"
+    "#{WisP.config.baseUrl}/taxonomies/#{this.taxonomy}/terms/"
