@@ -13,10 +13,12 @@ WisP.Router = new (Backbone.Router.extend
     $('.loading').hide()
 
   showPosts: (paged)->
+    WisP.currentPosts = []
     WisP.config.html.main.empty()
     WisP.Controller.showPosts(null, paged)
 
   showPostsByCategory: (category, paged)->
+    WisP.currentPosts = []
     WisP.config.html.main.empty()
     WisP.Controller.showPosts(category, paged)
 

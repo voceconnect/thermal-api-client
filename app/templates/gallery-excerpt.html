@@ -1,0 +1,13 @@
+<div class="span6 gallery">
+    <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
+    <% if(media.length > 0 && featuredImage){ %>
+    <div class="gal-img">
+        <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
+    </div>
+    <% } %>
+    <div class="gal-name">
+        <h5>
+            <a href="#"><%= title %></a>
+        </h5>
+    </div>
+</div>
