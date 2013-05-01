@@ -6,7 +6,7 @@
   <div class="thermal-meta">
 		<div class="row-fluid">
 			<div class="span5">
-        <% if(author.avatar && author.avatar.length > 0){ %>
+        <% if(author.avatar && author.avatar.length > 0 && author.avatar[0].url){ %>
 				<img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
         <% } %>
 				<p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
