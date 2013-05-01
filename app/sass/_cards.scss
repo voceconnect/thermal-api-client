@@ -27,6 +27,7 @@
 	@include breakpoint(phone){ margin: 0 auto 15px auto; }
 }
 #{$name}-img {
+	@include box-sizing(border-box);
 	position: relative;
 	overflow: hidden;
 	border-left: 1px solid $grayLight;
@@ -55,6 +56,9 @@
 	background: $grayLighter;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
+	@include clearfix();
+	@include box-sizing(border-box);
+	padding: .5em 5%;
 	p {
 		font-size: 1.1428571429em;
 		line-height: 1.25;
@@ -77,9 +81,6 @@
 			padding: 0 .25em;
 		}
 	}
-	@include clearfix();
-	@include box-sizing(border-box);
-	padding: .5em 5%;
 	img {
 		margin-right: .5em;
 		border: 3px solid #fff;

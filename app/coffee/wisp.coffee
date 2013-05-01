@@ -1,3 +1,7 @@
+###
+Global App Object
+Holds the global config options
+###
 window.WisP =
   config:
     baseUrl: ''
@@ -11,6 +15,12 @@ window.WisP =
   currentPosts : []
   currentCollection : {}
 
+  ###
+  App initialize method
+  Kicks off the functionality
+
+  @method init
+  ###
   init:()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
@@ -61,11 +71,20 @@ window.WisP =
     WisP.Controller.showCategoriesMenu()
     WisP.Router.start()
 
+  ###
+  Get a single image from an array given a specific ID
+  e.g. Get the featured image from a post media array
+
+  @method getMediaByID
+  @param {Number} ID of the image to search for (needle)
+  @param {Array} The Array of media Objects to search (haystack)
+  @return {Mixed} Return an Object on success or FALSE on failure
+  ###
   getMediaByID : (id, images) ->
     q = _.where(images, {id: id})
     if q.length > 0
-      if not q[0].altText
-        q[0].altText = ""
+      if not q[0].alt_text
+        q[0].alt_text = ""
       if q[0].sizes and q[0].sizes.length > 0
         if q[0].sizes[0].url
           return q[0]

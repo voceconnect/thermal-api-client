@@ -22,7 +22,7 @@
             "author": {},
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [
@@ -71,7 +71,7 @@
             "author": {},
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [
@@ -120,7 +120,7 @@
             "author": {},
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [

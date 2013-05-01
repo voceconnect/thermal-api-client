@@ -53,6 +53,14 @@ describe('WisP', function () {
         });
     });
 
+
+    describe('Media Model', function () {
+        beforeEach(function () {
+            this.media = new WisP.Media();
+        });
+
+    });
+
     describe('Post View', function () {
         beforeEach(function () {
             this.postView = new WisP.PostView();
@@ -283,8 +291,8 @@ describe('WisP', function () {
         });
         it('Alt text should return empty string if undefined', function () {
             media = $.extend(true, {}, postJsonData.media);
-            delete media[0].altText;
-            expect(WisP.getMediaByID(123456, media).altText).toBe("");
+            delete media[0].alt_text;
+            expect(WisP.getMediaByID(123456, media).alt_text).toBe("");
         });
 
     });

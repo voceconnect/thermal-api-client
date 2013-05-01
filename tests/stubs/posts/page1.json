@@ -31,7 +31,7 @@
                 },
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [
@@ -89,7 +89,7 @@
                 },
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [
@@ -147,7 +147,7 @@
                 },
             "mime_type": "",
             "meta": {
-                "featuredImage": 123456
+                "featured_image": 123456
             },
             "taxonomies": {
                 "category": [
