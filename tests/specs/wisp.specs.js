@@ -53,6 +53,14 @@ describe('WisP', function () {
         });
     });
 
+
+    describe('Media Model', function () {
+        beforeEach(function () {
+            this.media = new WisP.Media();
+        });
+
+    });
+
     describe('Post View', function () {
         beforeEach(function () {
             this.postView = new WisP.PostView();
