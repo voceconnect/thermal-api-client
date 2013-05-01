@@ -6,7 +6,7 @@
 	background: #fff;
 	margin-bottom: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
-	border: 1px solid $grayLight;
+	outline: 1px solid $grayLight;
 	position: relative;
 	&.new-item {
 		&:after {
