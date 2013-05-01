@@ -1,8 +1,8 @@
 WisP.Terms = Backbone.Collection.extend
-  
-  initialize: (models, options) ->
+
+  initialize: (models, opts) ->
     @model = WisP.Term
-    @taxonomy = if options? and options.taxonomy? then options.taxonomy else "category"
+    @taxonomy = if opts? and opts.taxonomy? then opts.taxonomy else "category"
     baseUrl = WisP.config.baseUrl
     @url = "#{baseUrl}/taxonomies/#{@taxonomy}/terms/"
 

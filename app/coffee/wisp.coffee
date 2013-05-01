@@ -36,6 +36,8 @@ window.WisP =
       WisP.Controller.showPost(id)
       WisP.config.html.popup.modal('toggle')
     )
+
+    WisP.Controller.showCategoriesMenu()
     WisP.Router.start()
 
   masonry : () ->

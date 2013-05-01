@@ -213,12 +213,101 @@ describe('WisP', function () {
         });
 
         it('Method should return image matching featured id', function () {
-            media = postJsonData.media;        
+            media = postJsonData.media;
             expect(WisP.getFeaturedImage(123456, media).id).toBe(123456);
         });
         it('Method should return false if id not found', function () {
-            media = postJsonData.media;        
+            media = postJsonData.media;
             expect(WisP.getFeaturedImage(123499, media)).toBe(false);
+        });
+    });
+
+    describe('Term Model', function () {
+        beforeEach(function () {
+            this.term = new WisP.Term();
+        });
+        it('Term default should be set', function () {
+            expect(this.term.get('id')).toBe(0);
+        });
+        it('Term should set given id', function () {
+            term = new WisP.Term({id: 1});
+            expect(term.get('id')).toBe(1);
+        });
+    });
+
+    describe('Terms Collection', function () {
+        beforeEach(function () {
+            this.terms = new WisP.Terms([], {taxonomy: 'category'});
+        });
+
+        it('Adding model should add to collection', function () {
+            this.terms.add([new WisP.Term]);
+            expect(this.terms.models.length).toBe(1);
+        });
+        it('The url should use variables', function () {
+            terms = new WisP.Terms([], {taxonomy: 'category'});
+            expect(terms.url).toBe('stubs/taxonomies/category/terms/');
+        });
+        it('Should add models from remote', function () {
+            var result;
+            terms = new WisP.Terms();
+            getTerms();
+
+            waitsFor(function () {
+                return result === true;
+            }, 'gets terms', 3000);
+
+            runs(function () {
+                expect(terms.models.length).toBe(3);
+            });
+
+            function getTerms() {
+                terms.fetch({
+                    success: function () {
+                        result = true;
+                    },
+                    error: function () {
+                        result = false;
+                    }
+                });
+
+            }
+
+        });
+    });
+
+    describe('Category Menu View', function () {
+        beforeEach(function () {
+            this.terms = new WisP.Terms(taxonomy: 'category'});
+            this.$el = $('<div><div class="dropdown-toggle"></div><div class="dropdown-menu"></div></div>');
+            this.categoryMenuView = new WisP.CategoryMenuView({collection: this.terms, el: this.$el});
+        });
+        it('Adding a model should render html', function () {
+            html = this.categoryMenuView.renderOne(new WisP.Term({id: 1, name:'Test Taxonomy Name'}));
+            expect($(html).find('li a').text()).toBe('Test Taxonomy Name');
+        });
+        it('Should render from remote', function () {
+            var result,
+            _this = this;
+            getCats();
+            waitsFor(function () {
+                return result === true;
+            }, "get cats", 3000);
+
+            runs(function () {
+                expect($(_this.categoryMenuView.el).find('li').length).toBe(3);
+            });
+
+            function getCats() {
+                _this.terms.fetch({
+                    success: function () {
+                        result = true;
+                    },
+                    error: function () {
+                        result = false;
+                    }
+                })
+            }
         });
     });
 });
