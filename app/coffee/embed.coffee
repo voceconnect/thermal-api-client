@@ -24,7 +24,7 @@ WisP.Embed = class
     htmlEls = """
     <div id="category-dropdown"></div>
     <div id="main"></div>
-    <div id="popup"></div>
+    <div id="popup" class="modal hide fade"></div>
     """
     @settings.$el.append($(htmlEls))
 
