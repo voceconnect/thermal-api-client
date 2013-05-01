@@ -10,8 +10,12 @@
 <div id="embed_in_me"></div>
 
 </body>
-<script src='/_build/js/wisp.js'></script>
+<script id='wispLib' src='/_build/js/wisp.js'></script>
 <script>
-    var wispEmbed = new WisP.Embed({elSelector: '#embed_in_me', baseUrl : 'http://wisp.dev/tests/stubs'});
+    var wispOptions = {
+        elSelector: '#embed_in_me',
+        apiUrl : 'http://wisp.dev/tests/stubs',
+        method: 'showPosts'};
+    var wispEmbed = new WisP.Embed(wispOptions);
 </script>
 </html>

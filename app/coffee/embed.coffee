@@ -2,7 +2,8 @@ WisP.Embed = class
 
   settings:
     elSelector: '#wisp-embed'
-    baseUrl: ''
+    apiUrl: ''
+    method : 'showPosts'
 
   constructor: (opts) ->
     @settings = $.extend(@settings, opts)
@@ -10,12 +11,13 @@ WisP.Embed = class
       @settings.$el = $(@settings.elSelector)
       @embedHTMLels()
       @embedStyles()
-      WisP.config.baseUrl = @settings.baseUrl
+      WisP.config.baseUrl = @settings.apiUrl
       WisP.config.html =
         categorySelect: @settings.$el.find('#category-dropdown')
         main: @settings.$el.find('#main')
         popup: @settings.$el.find('#popup')
       WisP.init()
+      eval("WisP.Controller.#{@settings.method}()")
     )
 
   embedHTMLels: ()->
@@ -27,5 +29,10 @@ WisP.Embed = class
     @settings.$el.append($(htmlEls))
 
   embedStyles: ()->
-    styleEl = "<link type='text/css' rel='stylesheet' href='css/wisp.css>"
-    @settings.$el.append($(styleEl))
+    wispLibURL = $('#wispLib').attr('src').split('/js/wisp.js')
+    if wispLibURL and wispLibURL[0]
+      styleEl = """
+                <link type='text/css' rel='stylesheet'
+                href='#{wispLibURL[0]}/css/wisp.css'>
+                """
+      @settings.$el.append($(styleEl))
