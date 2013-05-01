@@ -41,9 +41,19 @@
                     "name": "thumbnail",
                     "width": 100,
                     "height": 80,
-                    "url": "http://example.com/wp-content/uploads/2012/02/foobar-100x80.jpg"
+                    "url": "http://lorempixel.com/300/200/"
                 }
             ]
         }
-    ]
+    ],
+    "author": {
+            "avatar": [
+                {
+                    "url":"http://lorempixel.com/48/48/people/",
+                    "width":48,
+                    "height":48
+                }
+            ],
+            "display_name": "Test Author"
+        }    
 }

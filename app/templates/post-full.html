@@ -1,18 +1,15 @@
 <a href="#" class="modal-close">Close</a>
 <div class="post-full" id="<%= id %>">
-    <div class="post-title">
+  <div class="post-title">
 	    <h3><%= title %></h3>
 	</div>
-    <div class="thermal-meta">
-		<!--
-        <% if(author.avatar && author.avatar.length > 0){ %>
-        <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
-        <% } %>
-        <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><a><%= author.display_name %></a></p>-->
+  <div class="thermal-meta">
 		<div class="row-fluid">
 			<div class="span5">
-				<img src="http://placehold.it/48x48" alt="" class="img-circle pull-left" />
-				<p><span>3 hours ago</span>Test Author</p>
+        <% if(author.avatar && author.avatar.length > 0){ %>
+				<img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
+        <% } %>
+				<p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
 			</div>
 			<div class="span4">
 				<p><span>share post</span><a href="#">Facebook</a><small>|</small><a href="#">Twitter</a></p>
@@ -21,12 +18,13 @@
 				<p><span>view on</span><a href="#">wgntv.com</a></p>
 			</div>
 		</div>
-    </div>
-	<% if(media.featured_image){ %>
+  </div>
+  <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
+  <% if(media.length > 0 && featuredImage){ %>
 	<div class="post-image">
-	    <img src="<%= media.featured_image.sizes['thumbnail'].url %>"/>
+	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
 	</div>
-    <% } %>
+  <% } %>
 	<div class="post-content">
 	    <p><%= content %></p>
 	</div>
