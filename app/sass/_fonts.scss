@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'ubuntubold';
+    src: fonts_url('ubuntu-bold-webfont.eot');
+    src: fonts_url('ubuntu-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         fonts_url('ubuntu-bold-webfont.woff') format('woff'),
+         fonts_url('ubuntu-bold-webfont.ttf') format('truetype'),
+         fonts_url('ubuntu-bold-webfont.svg#ubuntubold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
