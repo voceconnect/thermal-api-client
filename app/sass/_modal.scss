@@ -3,7 +3,7 @@
 	padding: 0;
 	background: none;
 	max-width: 700px;
-	height: 80%;
+	height: 85%;
 	&>div{
 		height: 100%;
 		overflow-y: scroll;
@@ -13,8 +13,8 @@
 	}
 	@include breakpoint(phone){
 		&.fade.in {
-			top: 45px !important;
-			height: 85%;
+			top: 5px !important;
+			height: 95%;
 		}
 	}
 }
@@ -30,9 +30,11 @@
 	margin-right: -16px !important;
 	float: left;
 	@include breakpoint(phone){
+		position: relative;
 		margin-right: 0 !important;
 		padding-right: 0 !important;
-		margin-top: -43px;
+		margin-top: 0;
+		margin-bottom: -2px;
 	}
 }
 .post-full {
