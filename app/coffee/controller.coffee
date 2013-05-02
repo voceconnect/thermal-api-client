@@ -64,7 +64,11 @@ WisP.Controller =
       WisP.currentPost.fetch()
     if popup is true
       WisP.config.html.popup.html(postView.el)
-      WisP.config.html.popup.modal('show')
+      hash = window.location.hash
+      WisP.config.urlBeforeModal = hash.replace('#', '')
+      WisP.config.html.popup.modal('show').on 'hide', (e)->
+        WisP.Router.navigate(WisP.config.urlBeforeModal, {replace: true})
+      WisP.Router.navigate('#posts/modal/' + id, {replace: true})
     else
       WisP.config.html.main.html(postView.el)
 
