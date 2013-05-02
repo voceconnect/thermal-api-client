@@ -31,7 +31,7 @@ WisP.Embed = class
     <div class="wisp">
     <div class="container">
     <div id="category-dropdown"></div>
-    <div class="row thermal-loop" id="main"></div>
+    <div class="thermal-loop" id="main"></div>
     <div id="popup" class="modal hide fade"></div>
     </div>
     </div>
