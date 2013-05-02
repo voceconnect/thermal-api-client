@@ -17,6 +17,34 @@
 			height: 97%;
 		}
 	}
+	.post-full {
+		.thermal-meta {
+			@include breakpoint(phone){
+				padding: .25em 2%; 
+				@include clearfix();
+				.span5 {
+					border-bottom: 1px solid $grayLight;
+					padding-bottom: .25em;
+				}
+				.span4 {
+					width: 55%;
+					float: left;
+				}
+				.span3 {
+					width: 40%;
+					float: right;
+				}
+			}
+			img {
+				display: none;
+			}
+			p {
+				padding-top: .25em;
+				margin-bottom: 0;
+				font-size: 1.0769230769em;
+			}
+		}
+	}
 }
 .modal-close {
 	display: block;
@@ -51,17 +79,14 @@
 		  .row-fluid .span3 {
 		  	float: left;
 		    width: 22.92818%;
-		    *width: 22.87499%;
 		  }
 		  .row-fluid .span4 {
 		  	float: left;
 		    width: 31.49171%;
-		    *width: 31.43852%;
 		  }
 		  .row-fluid .span5 {
 		  	float: left;
 		    width: 40.05525%;
-		    *width: 40.00206%;
 		  }			
 		}
 	}
@@ -69,8 +94,11 @@
 .post-title {
 	padding: 0 2.85% .5em 2.85%;
 	h3 {
+		margin-top: 0;
+		line-height: 1.25em;
 		font-size: 2em;
 		font-family: $fancyFont;
+		@include breakpoint(phone){line-height: 1; font-size: 1.75em;}
 	}
 }
 .post-content {
@@ -78,6 +106,12 @@
 	font-size: 0.9285714286em;
 	line-height: 1.2307692308;
 	position: relative;
+	p {
+		@include breakpoint(phone){
+			font-size: 1.25em;
+			line-height: 1.4;
+		}
+	}
 }
 .post-paging {
 	@include clearfix();
