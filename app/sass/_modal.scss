@@ -3,17 +3,30 @@
 	padding: 0;
 	background: none;
 	max-width: 700px;
+	&.fade.in{
+		top: 15%;
+	}
+	@include breakpoint(kindle){
+		&.fade.in{
+			top: 10% !important;
+		}
+	}	
+	@include breakpoint(tablet){
+		&.fade.in{
+			top: 10% !important;
+		}
+	}
 	@include breakpoint(phone){
 		&.fade.in {
-			top: 0;
+			top: 40px !important;
 			height: 100%;
-			overflow: hidden;
-			overflow-y: scroll;
 		}
 	}
 }
 .modal-close {
 	display: block;
+	position: absolute;
+	margin-top: -45px;
 	height: 45px;
 	width: 100%;
 	background: image_url('modal-close.png') no-repeat top right;
@@ -24,7 +37,7 @@
 	@include breakpoint(phone){
 		margin-right: 0 !important;
 		padding-right: 0 !important;
-		margin-bottom: -2px;
+		margin-top: -43px;
 	}
 }
 .post-full {
