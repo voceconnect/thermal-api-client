@@ -34,15 +34,17 @@
 			</div>
 		</div>
   </div>
-  <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
-  <% if(media.length > 0 && featuredImage){ %>
-	<div class="post-image">
-	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
-	</div>
-  <% } %>
-	<div class="post-content">
-	    <p><%= content %></p>
-	</div>
+  <div class="content-scroll">
+    <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
+    <% if(media.length > 0 && featuredImage){ %>
+  	<div class="post-image">
+  	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
+  	</div>
+    <% } %>
+  	<div class="post-content">
+  	    <p><%= content %></p>
+  	</div>
+  </div>
 	<div class="post-paging">
 		<a href="#" id="prev-post" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
 		<a href="#" id="next-post" class="btn btn-success btn-large pull-right">Next<span class="triangle-right"></span></a>
