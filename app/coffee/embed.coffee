@@ -28,9 +28,13 @@ WisP.Embed = class
 
   embedHTMLels: ()->
     htmlEls = """
+    <div class="wisp">
+    <div class="container">
     <div id="category-dropdown"></div>
-    <div id="main"></div>
+    <div class="row thermal-loop" id="main"></div>
     <div id="popup" class="modal hide fade"></div>
+    </div>
+    </div>
     """
     @settings.$el.append($(htmlEls))
 
