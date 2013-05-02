@@ -14,7 +14,7 @@
 	@include breakpoint(phone){
 		&.fade.in {
 			top: 5px !important;
-			height: 95%;
+			height: 97%;
 		}
 	}
 }
@@ -109,6 +109,7 @@
 	}
 	.facebook {
 		max-width: 75px;
+		margin-right: 5px;
 		iframe {
 			max-width: 75px;
 		}
