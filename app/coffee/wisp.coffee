@@ -116,7 +116,10 @@ window.WisP =
     false
 
 Backbone.sync = (method, model, options) =>
-  options.dataType = "jsonp"
+  matches = model.url.match(/(https?:\/\/)?[\w-]+(\.[\w-]+)+\.?/i)
+  if matches and
+  matches[0].replace(/http(s)?:\/\//, '') isnt window.location.host
+    options.dataType = "jsonp"
   WisP.proxiedSync(method, model, options)
 
 ###
