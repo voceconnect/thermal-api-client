@@ -294,7 +294,12 @@ describe('WisP', function () {
             delete media[0].alt_text;
             expect(WisP.getMediaByID(123456, media).alt_text).toBe("");
         });
-
+        it('Method should return false if no args are passed', function () {
+            expect(WisP.getMediaByID()).toBe(false);
+        });
+        it('Method should return false if invalid data types are passed', function () {
+            expect(WisP.getMediaByID('asdf', 1234)).toBe(false);
+        });        
     });
 
     describe('Term Model', function () {
@@ -390,14 +395,17 @@ describe('WisP', function () {
         beforeEach( function () {
         });
 
-        it('Method should return root domain', function () {
+        it('Method should return root domain for fully qualified url', function () {
             url = 'http://www.example.com/post/something';
             expect(WisP.getPrettyURL(url)).toBe('example.com');
-        });
-        it('Method should return false', function () {
+        });    
+        it('Method should return false if empty string', function () {
             url = '';
             expect(WisP.getPrettyURL(url)).toBe(false);
         });
+        it('Method should return false if no argument is passed', function () {
+            expect(WisP.getPrettyURL()).toBe(false);
+        });        
     });
 
     describe('Get Media By Width', function () {
@@ -414,6 +422,9 @@ describe('WisP', function () {
         it('Method should return false when passed invalid types', function () {
             expect(WisP.getMediaByWidth(150, '')).toBe(false);
         });           
+        it('Method should return false when not passed any args', function () {
+            expect(WisP.getMediaByWidth(150, '')).toBe(false);
+        });          
         it('Method should return false if no size is passed', function () {
             media = $.extend(true, {}, postJsonData.media);
             expect(WisP.getMediaByWidth(media[0].sizes.reverse())).toBe(false);
