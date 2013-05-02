@@ -3,17 +3,25 @@
 	padding: 0;
 	background: none;
 	max-width: 700px;
+	height: 85%;
+	&>div{
+		height: 100%;
+		overflow-y: scroll;
+	}
+	&.fade.in{
+		top: 10%;
+	}
 	@include breakpoint(phone){
 		&.fade.in {
-			top: 0;
-			height: 100%;
-			overflow: hidden;
-			overflow-y: scroll;
+			top: 5px !important;
+			height: 97%;
 		}
 	}
 }
 .modal-close {
 	display: block;
+	position: absolute;
+	margin-top: -45px;
 	height: 45px;
 	width: 100%;
 	background: image_url('modal-close.png') no-repeat top right;
@@ -22,18 +30,40 @@
 	margin-right: -16px !important;
 	float: left;
 	@include breakpoint(phone){
+		position: relative;
 		margin-right: 0 !important;
 		padding-right: 0 !important;
+		margin-top: 0;
 		margin-bottom: -2px;
 	}
 }
 .post-full {
 	clear: both;
+	overflow: hidden;
 	background: #fff;
 	padding-bottom: 2em;
 	#{$name}-meta {
 		border-bottom: 4px solid $grayLight;
 		padding: .5em 2.5%;
+	}
+	@include breakpoint(kindle){
+		#{$name}-meta {
+		  .row-fluid .span3 {
+		  	float: left;
+		    width: 22.92818%;
+		    *width: 22.87499%;
+		  }
+		  .row-fluid .span4 {
+		  	float: left;
+		    width: 31.49171%;
+		    *width: 31.43852%;
+		  }
+		  .row-fluid .span5 {
+		  	float: left;
+		    width: 40.05525%;
+		    *width: 40.00206%;
+		  }			
+		}
 	}
 }
 .post-title {
@@ -67,6 +97,27 @@
 		.triangle-right {
 			margin-right: -30px;
 			margin-left: 20px;
+		}
+	}
+}
+.share-buttons{
+	small, .facebook, .twitter{
+		float: left;
+		height: 25px;
+		line-height: 25px;
+		margin-top: 3px;
+	}
+	.facebook {
+		max-width: 75px;
+		margin-right: 5px;
+		iframe {
+			max-width: 75px;
+		}
+	}
+	.twitter {
+		max-width: 80px;
+		iframe{
+			max-width: 80px;
 		}
 	}
 }
