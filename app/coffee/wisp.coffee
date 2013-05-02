@@ -55,7 +55,6 @@ window.WisP =
         .lastIndexOf('/'))
         .replace('/', '')
       WisP.Controller.showPost(id)
-      WisP.config.html.popup.modal('toggle')
     )
     WisP.config.html.popup.on('click', '.modal-close', (e)->
       e.preventDefault()
