@@ -399,4 +399,36 @@ describe('WisP', function () {
             expect(WisP.getPrettyURL(url)).toBe(false);
         });
     });
+
+    describe('Get Media By Width', function () {
+        beforeEach( function () {
+        });
+
+        it('Method should return smallest size greater than requested value', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByWidth(media[0].sizes, 150).width).toBe(300);
+        });
+        it('Method should return false when passed empty array', function () {
+            expect(WisP.getMediaByWidth([], 150)).toBe(false);
+        });
+        it('Method should return false when passed invalid types', function () {
+            expect(WisP.getMediaByWidth(150, '')).toBe(false);
+        });           
+        it('Method should return false if no size is passed', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByWidth(media[0].sizes.reverse())).toBe(false);
+        });            
+        it('Method should return largest image if all sizes are less than requested', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByWidth(media[0].sizes, 9999).width).toBe(600);
+        });
+        it('Method should return exact size if found', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByWidth(media[0].sizes, 100).width).toBe(100);
+        });
+        it('Method should return closest image if sizes are reversed and closest is not the first found', function () {
+            media = $.extend(true, {}, postJsonData.media);
+            expect(WisP.getMediaByWidth(media[0].sizes.reverse(), 150).width).toBe(300);
+        });                                               
+    });
 });

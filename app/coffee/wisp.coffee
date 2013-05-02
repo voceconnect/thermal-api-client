@@ -113,6 +113,19 @@ window.WisP =
       return result[4]
     false
 
+  getMediaByWidth: (sizes, width)->
+    smallest = false
+    if sizes.length > 0 && width
+      _.each sizes, (media, key, list)->
+        if not smallest and media.width >= width
+          smallest = media
+        else if media.width < smallest.width and media.width >= width
+          smallest = media
+      if not smallest
+        smallest = _.max sizes, (size)->
+          return size.width
+    return smallest
+
 ###
 Is this date "new" within the last day
 
