@@ -2,11 +2,6 @@
 
 _A Backbone JS powered webapp for viewing WordPress posts_
 
-The app has two implementations.
-1. A standalone web application that can be run from anywhere.
-2. A WordPress theme that is loaded like any other (may be out of scope)
-
-
 ## Application Description
 
 The application has a namespace of `WisP`. All classes are bound to it.
@@ -17,32 +12,24 @@ e.g.
 ## Application Structure
 ```
  |-/app
- |---coffee
- |-----collections
- |-----models
- |-----views
- |---images
- |---sass
+ |---coffee # Classes and helper methods to power the app
+ |-----collections # Backbone collections
+ |-----models # Backbone models
+ |-----views # Backbone views
+ |---images # Custom application images
+ |---sass # Application styles
  |---templates # HTML template files using Underscore
- |-/docs
  |-/tasks # Peon tasks for custom build
  |-/tests # Unit tests via testem
- |-/vendor # Third Party assets (possibly load via package manager)
+ |-/vendor # Third Party assets
  |---css
  |---images
  |---js
- |-/_build
- |---css
- |---js
- |---img
+ |-/_build # Compiled application to be set as the web server's document root
+ |---css # Merging application and vendor styles
+ |---js # Concatenated JavaScript from application and vendor
+ |---img # Application and vendor images
  |---tpl # Minified HTML from /app/templates
- |---vendor # Copy of /vendor
- |-/wp-theme
- |---assets # Copy of compiled assests from the /app directory
- |---vendor # Copied vendor assets from project root
- |---functions.php # Enqueue the scripts and styles
- |---styles.css # Required for theme header
- |---index.php # Load the app here
  ```
 
 ## Build Process
@@ -54,6 +41,25 @@ Run `peon make` from the root of the project to produce functional standalone an
 ## Testing
 
 Open domain/tests/index.html to run the tests
+
+
+## Embedding
+
+The application can be run inside another site using the WisP.Embed class
+
+* Include the /js/wisp.js file into your site
+* Create a HTML element to contain the app
+* Instantiate a WisP.Embed object with your options
+```
+<script>
+    var wispOptions = {
+        elSelector: '#embed_in_me', // the HTML container element selector
+        apiUrl: 'http://domain.tld/wp_api/v1', // The Thermal API domain
+        perPage: 5 // How many posts to show per page
+        },
+    wispEmbed = new WisP.Embed(wispOptions);
+</script>
+```
 
 
 

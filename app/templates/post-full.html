@@ -11,8 +11,20 @@
         <% } %>
 				<p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
 			</div>
-			<div class="span4">
-				<p><span>share post</span><a href="#">Facebook</a><small>|</small><a href="#">Twitter</a></p>
+			<div class="span4 share-buttons">
+				<p>
+          <span>share post</span>
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=<%= encodeURIComponent(permalink) %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
+            </iframe>
+          </span>
+          <!-- <small>|</small> -->
+          <span class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= permalink %>" data-text="<%= title %>">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            </script>
+          </span>
+        </p>
 			</div>
 			<div class="span3">
         <% var prettyURL = WisP.getPrettyURL(permalink) %>
@@ -22,15 +34,17 @@
 			</div>
 		</div>
   </div>
-  <% var featuredImage = WisP.getMediaByID(meta.featuredImage, media) %>
-  <% if(media.length > 0 && featuredImage){ %>
-	<div class="post-image">
-	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
-	</div>
-  <% } %>
-	<div class="post-content">
-	    <p><%= content %></p>
-	</div>
+  <div class="content-scroll">
+    <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
+    <% if(media.length > 0 && featuredImage){ %>
+  	<div class="post-image">
+  	    <img alt="<%= featuredImage.altText %>" src="<%= featuredImage.sizes[0].url %>"/>
+  	</div>
+    <% } %>
+  	<div class="post-content">
+  	    <p><%= content %></p>
+  	</div>
+  </div>
 	<div class="post-paging">
 		<a href="#" id="prev-post" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
 		<a href="#" id="next-post" class="btn btn-success btn-large pull-right">Next<span class="triangle-right"></span></a>

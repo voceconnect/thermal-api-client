@@ -3,7 +3,8 @@ WisP.Embed = class
   settings:
     elSelector: '#wisp-embed'
     apiUrl: ''
-    method : 'showPosts'
+    perPage: 3
+    method : 'showPosts()'
 
   constructor: (opts) ->
     @settings = $.extend(@settings, opts)
@@ -12,20 +13,28 @@ WisP.Embed = class
       @embedHTMLels()
       @embedStyles()
       WisP.config.baseUrl = @settings.apiUrl
+      WisP.config.per_page = @settings.perPage
       WisP.config.html =
         categorySelect: @settings.$el.find('#category-dropdown')
         main: @settings.$el.find('#main')
         popup: @settings.$el.find('#popup')
       WisP.init()
-      eval("WisP.Controller.#{@settings.method}")
+      try
+        eval("WisP.Controller.#{@settings.method}")
+      catch e
+        console.log e
       WisP.Controller.showCategoriesMenu()
     )
 
   embedHTMLels: ()->
     htmlEls = """
+    <div class="wisp">
+    <div class="container">
     <div id="category-dropdown"></div>
-    <div id="main"></div>
+    <div class="thermal-loop" id="main"></div>
     <div id="popup" class="modal hide fade"></div>
+    </div>
+    </div>
     """
     @settings.$el.append($(htmlEls))
 

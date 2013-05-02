@@ -3,6 +3,8 @@ Global App Object
 Holds the global config options
 ###
 window.WisP =
+
+  proxiedSync: Backbone.sync
   config:
     baseUrl: ''
     per_page: 3
@@ -112,6 +114,10 @@ window.WisP =
     if result and result[4]
       return result[4]
     false
+
+Backbone.sync = (method, model, options) =>
+  options.dataType = "jsonp"
+  WisP.proxiedSync(method, model, options)
 
 ###
 Is this date "new" within the last day
