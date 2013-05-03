@@ -66,6 +66,13 @@ WisP.Controller =
       WisP.currentPost = new WisP.Post(id: id)
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.listenTo(WisP.currentPost, 'change', postView.render)
+      postView.listenTo WisP.currentPost, 'error', ()->
+        WisP.currentPost.set({
+          title: 'Error Fetching Post'
+          author:false
+          date:false
+          permalink:false
+        })
       WisP.currentPost.fetch()
     WisP.config.html.main.html(postView.el)
 
