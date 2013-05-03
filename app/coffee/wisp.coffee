@@ -11,7 +11,6 @@ window.WisP =
     html :
       categorySelect: $('#category-dropdown')
       main: $('#main')
-      popup: $('#wisp-popup')
   loadingPosts : false
   currentPost : {}
   currentPosts : []
@@ -86,6 +85,7 @@ window.WisP =
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
+      WisP.config.html.main.empty()
       WisP.Controller.showPosts(catID)
     )
 
