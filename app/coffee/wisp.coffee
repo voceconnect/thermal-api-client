@@ -11,7 +11,6 @@ window.WisP =
     html :
       categorySelect: $('#category-dropdown')
       main: $('#main')
-      popup: $('#wisp-popup')
   loadingPosts : false
   currentPost : {}
   currentPosts : []
