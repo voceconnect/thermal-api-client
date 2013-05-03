@@ -31,7 +31,32 @@
                 },
             "mime_type": "",
             "meta": {
-                "featured_image": 123456
+                "featured_image": 123456,
+                "gallery" : [
+                    {
+                        "ids" : [
+                            123,
+                            124,
+                            125
+                        ],
+                        "order" : "ASC",
+                        "orderby" : [
+                            "menu_order",
+                            "ID"
+                        ]
+                    },
+                    {
+                        "ids" : [
+                            126,
+                            127
+                        ],
+                        "order" : "ASC",
+                        "orderby" : [
+                            "menu_order",
+                            "ID"
+                        ]
+                    }
+                ]
             },
             "taxonomies": {
                 "category": [
@@ -44,16 +69,74 @@
             "media": [
                 {
                     "type": "string",
-                    "id": 123456,
+                    "id": 123,
                     "id_str": "123445",
                     "altText": "Lorem ipsum doler set amut.",
                     "mime_type": "image/jpg",
                     "sizes": [
                         {
-                            "name": "thumbnail",
-                            "width": 100,
-                            "height": 80,
-                            "url": "http://lorempixel.com/640/480/city"
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/1"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 124,
+                    "id_str": "124",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/2"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 125,
+                    "id_str": "125",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/3"
+                        }
+                    ],
+                    "type": "string",
+                    "id": 126,
+                    "id_str": "126",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/4"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 127,
+                    "id_str": "127",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/5"
                         }
                     ]
                 }
