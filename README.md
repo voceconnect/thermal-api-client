@@ -47,17 +47,19 @@ Open domain/tests/index.html to run the tests
 
 The application can be run inside another site using the WisP.Embed class
 
-* Include the /js/wisp.js file into your site
+* Include the `PATHTOWISP/js/wisp.js` file into your site
 * Create a HTML element to contain the app
 * Instantiate a WisP.Embed object with your options
 ```
 <script>
+jQuery(document).ready(function($){
     var wispOptions = {
         elSelector: '#embed_in_me', // the HTML container element selector
         apiUrl: 'http://domain.tld/wp_api/v1', // The Thermal API domain
         perPage: 5 // How many posts to show per page
         },
     wispEmbed = new WisP.Embed(wispOptions);
+});
 </script>
 ```
 
