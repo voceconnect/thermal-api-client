@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="wisp">
+<html lang="en" class="wisp-modal">
 <head>
     <title>WisP</title>
     <meta charset="utf-8"/>
@@ -28,7 +28,7 @@
 
 <!-- pre app content end -->
 <!-- app main start -->
-<div id="app">
+<div id="app" class="wisp">
     <p class="loading">The application is loading...</p>
 	<!-- Hard coding this for now -->
 	<div class="container">
@@ -61,7 +61,9 @@
 
 </footer>
 <!-- footer end -->
-<div id="popup" class="modal hide fade"></div>
+<div class="wisp">
+	<div id="popup" class="modal hide fade"></div>
+</div>
 <!-- Application -->
 <script src="js/wisp.js"></script>
 <!-- init and accessory scripts -->
