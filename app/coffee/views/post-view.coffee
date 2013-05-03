@@ -6,6 +6,7 @@ WisP.PostView = Backbone.View.extend
   render: () ->
     @parseGalleries() if @model.get('meta').gallery?
     @$el.html @template(@model.attributes)
+    $("html, body").animate({ scrollTop: 0 }, 600)
     @
 
   parseGalleries: () ->

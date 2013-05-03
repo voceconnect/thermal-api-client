@@ -59,7 +59,6 @@ window.WisP =
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
-      $("html, body").animate({ scrollTop: 0 }, 600)
       WisP.Controller.showPost(id)
     )
     WisP.config.html.main.on('click', '.show-posts', (e)->
