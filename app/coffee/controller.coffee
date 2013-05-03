@@ -42,6 +42,10 @@ WisP.Controller =
           WisP.currentPosts.push($.extend(true, {}, m))
       WisP.loadingPosts = false
     )
+    if opts.category
+      WisP.categories.on 'add', (model)->
+        if model.id is Number(opts.category)
+          WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
@@ -64,7 +68,11 @@ WisP.Controller =
       WisP.currentPost.fetch()
     if popup is true
       WisP.config.html.popup.html(postView.el)
-      WisP.config.html.popup.modal('show')
+      hash = window.location.hash
+      WisP.config.urlBeforeModal = hash.replace('#', '')
+      WisP.config.html.popup.modal('show').on 'hide', (e)->
+        WisP.Router.navigate(WisP.config.urlBeforeModal, {replace: true})
+      WisP.Router.navigate('#posts/modal/' + id, {replace: true})
     else
       WisP.config.html.main.html(postView.el)
 
