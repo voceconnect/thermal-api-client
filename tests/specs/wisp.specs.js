@@ -135,32 +135,6 @@ describe('WisP', function () {
             html = this.postsView.renderOne(new WisP.Post());
             expect($(html).find('h4 a').text()).toBe('Default Post Title');
         });
-        it('Should render from remote', function () {
-            var result;
-            posts = new WisP.Posts({paged: 2});
-            postsView = new WisP.PostArchiveView({collection: posts});
-            length = $(postsView.el).find('h3').length;
-            getPosts();
-            waitsFor(function () {
-                return result === true;
-            }, "get posts", 3000);
-
-            runs(function () {
-                //expect($(postsView.el).find('h3').length).toBe(3);
-            });
-
-            function getPosts() {
-                posts.fetch({
-                    success: function () {
-                        result = true;
-                    },
-                    error: function () {
-                        result = false;
-                    }
-                })
-            }
-
-        });
     });
 
     describe('Controller', function () {
@@ -299,7 +273,7 @@ describe('WisP', function () {
         });
         it('Method should return false if invalid data types are passed', function () {
             expect(WisP.getMediaByID('asdf', 1234)).toBe(false);
-        });        
+        });
     });
 
     describe('Term Model', function () {
@@ -398,14 +372,14 @@ describe('WisP', function () {
         it('Method should return root domain for fully qualified url', function () {
             url = 'http://www.example.com/post/something';
             expect(WisP.getPrettyURL(url)).toBe('example.com');
-        });    
+        });
         it('Method should return false if empty string', function () {
             url = '';
             expect(WisP.getPrettyURL(url)).toBe(false);
         });
         it('Method should return false if no argument is passed', function () {
             expect(WisP.getPrettyURL()).toBe(false);
-        });        
+        });
     });
 
     describe('Get Media By Width', function () {
@@ -421,14 +395,14 @@ describe('WisP', function () {
         });
         it('Method should return false when passed invalid types', function () {
             expect(WisP.getMediaByWidth(150, '')).toBe(false);
-        });           
+        });
         it('Method should return false when not passed any args', function () {
             expect(WisP.getMediaByWidth(150, '')).toBe(false);
-        });          
+        });
         it('Method should return false if no size is passed', function () {
             media = $.extend(true, {}, postJsonData.media);
             expect(WisP.getMediaByWidth(media[0].sizes.reverse())).toBe(false);
-        });            
+        });
         it('Method should return largest image if all sizes are less than requested', function () {
             media = $.extend(true, {}, postJsonData.media);
             expect(WisP.getMediaByWidth(media[0].sizes, 9999).width).toBe(600);
@@ -440,6 +414,6 @@ describe('WisP', function () {
         it('Method should return closest image if sizes are reversed and closest is not the first found', function () {
             media = $.extend(true, {}, postJsonData.media);
             expect(WisP.getMediaByWidth(media[0].sizes.reverse(), 150).width).toBe(300);
-        });                                               
+        });
     });
 });
