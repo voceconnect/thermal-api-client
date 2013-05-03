@@ -34,7 +34,8 @@ window.WisP =
       $lastItem = $('.thermal-loop').find('.thermal-item').last()
       itemTop = $lastItem.position().top
       scrollTop = $(window).scrollTop()
-      if itemTop >= scrollTop
+      if itemTop >= scrollTop or
+      (scrollTop + $(window).height()) > ($(document).height() - 100)
         if WisP.loadingPosts is false and
         WisP.currentCollection.found > WisP.currentPosts.length
           opts =
