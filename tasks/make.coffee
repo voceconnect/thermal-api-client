@@ -8,5 +8,5 @@ module.exports = (grunt) ->
     'concat'
     'minified'
     'htmlmin'
-    'clean'
+    #'clean'
   ])
