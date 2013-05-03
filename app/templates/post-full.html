@@ -3,6 +3,7 @@
   <div class="post-title">
 	    <h3><%= title %></h3>
 	</div>
+  <% if(author || date || permalink){ %>
   <div class="thermal-meta">
 		<div class="row-fluid">
 			<div class="span5">
@@ -34,6 +35,7 @@
 			</div>
 		</div>
   </div>
+  <% } %>
   <div class="content-scroll">
     <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
     <% if(media.length > 0 && featuredImage){ %>
@@ -45,8 +47,10 @@
   	    <p><%= content %></p>
   	</div>
   </div>
+  <% if(WisP.currentPosts.length > 1){ %>
 	<div class="post-paging">
 		<a href="#" id="prev-post" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
 		<a href="#" id="next-post" class="btn btn-success btn-large pull-right">Next<span class="triangle-right"></span></a>
 	</div>
+  <% } %>
 </div>
