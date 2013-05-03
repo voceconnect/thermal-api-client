@@ -48,6 +48,7 @@ WisP.Controller =
         if model.id is Number(opts.category)
           WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
+    WisP.config.html.main.masonry( 'reload' )
     postsView.el
 
   ###
