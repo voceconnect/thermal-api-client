@@ -24,6 +24,7 @@ WisP.Controller =
       category : null
       paged : 1
     if category? then opts.category = category
+    else WisP.config.html.categorySelect.find('span.text').text('Categories')
     if paged? then opts.paged = paged
     WisP.config.html.main.append(@morePosts(opts))
 
