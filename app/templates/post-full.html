@@ -3,7 +3,6 @@
   <div class="post-title">
 	    <h3><%= title %></h3>
 	</div>
-  <% if(author || date || permalink){ %>
   <div class="thermal-meta">
 		<div class="row-fluid">
 			<div class="span5">
@@ -35,18 +34,15 @@
 			</div>
 		</div>
   </div>
+  <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
+  <% if(media.length > 0 && featuredImage){ %>
+	<div class="post-image">
+	    <img alt="<%= featuredImage.altText %>" src="<%= WisP.getMediaByWidth(featuredImage.sizes, 320).url %>"/>
+	</div>
   <% } %>
-  <div class="content-scroll">
-    <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
-    <% if(media.length > 0 && featuredImage){ %>
-  	<div class="post-image">
-  	    <img alt="<%= featuredImage.altText %>" src="<%= WisP.getMediaByWidth(featuredImage.sizes, 320).url %>"/>
-  	</div>
-    <% } %>
-  	<div class="post-content">
-  	    <p><%= content %></p>
-  	</div>
-  </div>
+	<div class="post-content">
+	    <p><%= content %></p>
+	</div>
   <% if(WisP.currentPosts.length > 1){ %>
 	<div class="post-paging">
 		<a href="#" id="prev-post" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
