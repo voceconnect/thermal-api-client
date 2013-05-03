@@ -71,7 +71,7 @@ describe('WisP', function () {
         it('Render should create html with model data', function () {
             postView = new WisP.PostView({model: new WisP.Post});
             html = postView.render();
-            expect($(html).find('h3').text()).toBe('Default Post Title');
+            expect($(postView.el).find('h3').text()).toBe('Default Post Title');
         });
     });
 
