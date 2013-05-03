@@ -13,7 +13,7 @@ WisP.CategoryMenuView = Backbone.View.extend
 
   renderOne: (model) ->
     menuItem = new WisP.CategoryMenuItemView
-      model: model,
+      model: model
       tagName: @childTagName
     @$menu.append menuItem.render().$el
 

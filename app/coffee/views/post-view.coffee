@@ -22,7 +22,7 @@ WisP.PostView = Backbone.View.extend
 
       content = content.replace matches[0], galleryHTML
       matchIndex++
-    if content isnt @model.get('content')
+    if content isnt @model.get 'content'
       @model.set 'content', content
 
 
@@ -34,4 +34,6 @@ WisP.PostView = Backbone.View.extend
       mediaItem = new WisP.Media id: id
       gallery.add mediaItem
     , @
-    @galleryViews.push new WisP.GalleryView collection: gallery
+    @galleryViews.push new WisP.GalleryView
+      collection: gallery,
+      postMedia: this.model.get('media')

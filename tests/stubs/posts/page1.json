@@ -17,21 +17,46 @@
             "name": "loerm-ipsum-dolor",
             "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.",
             "excerpt_filtered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.</p>",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.\n<img src=\"http://example.com/wp-content/uploads/2012/03/foobar.jpg\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" />\n Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.\n\n[gallery ids=\"1,2,3,4\"]\n\nNullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis, libero facilisis ullamcorper faucibus, augue justo euismod diam, sed laoreet eros tortor at tellus. Nunc viverra suscipit turpis vel tristique. Integer mollis lobortis velit vitae tempor. Donec consequat nunc quis nunc semper malesuada. Vivamus justo tortor, convallis nec cursus sit amet, tincidunt vel eros. Nulla facilisi. Cras diam purus, adipiscing porta suscipit sed, mattis eget dui. Donec et elit non dolor vehicula luctus ac id sapien. Ut fermentum fringilla pulvinar. Quisque id laoreet leo. Sed a semper sem. Morbi vehicula volutpat nibh, vitae convallis quam scelerisque in. Morbi convallis, lorem quis blandit dignissim, magna mi fermentum urna, ac tempor erat tortor vitae nisi. Suspendisse pretium leo id leo eleifend in molestie risus placerat. Mauris tincidunt dolor non erat lacinia iaculis nec auctor elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis, libero facilisis ullamcorper faucibus, augue justo euismod diam, sed laoreet eros tortor at tellus. Nunc viverra suscipit turpis vel tristique. Integer mollis lobortis velit vitae tempor. Donec consequat nunc quis nunc semper malesuada. Vivamus justo tortor, convallis nec cursus sit amet, tincidunt vel eros. Nulla facilisi. Cras diam purus, adipiscing porta suscipit sed, mattis eget dui. Donec et elit non dolor vehicula luctus ac id sapien. Ut fermentum fringilla pulvinar. Quisque id laoreet leo. Sed a semper sem. Morbi vehicula volutpat nibh, vitae convallis quam scelerisque in. Morbi convallis, lorem quis blandit dignissim, magna mi fermentum urna, ac tempor erat tortor vitae nisi. Suspendisse pretium leo id leo eleifend in molestie risus placerat. Mauris tincidunt dolor non erat lacinia iaculis nec auctor elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis, libero facilisis ullamcorper faucibus, augue justo euismod diam, sed laoreet eros tortor at tellus. Nunc viverra suscipit turpis vel tristique. Integer mollis lobortis velit vitae tempor. Donec consequat nunc quis nunc semper malesuada. Vivamus justo tortor, convallis nec cursus sit amet, tincidunt vel eros. Nulla facilisi. Cras diam purus, adipiscing porta suscipit sed, mattis eget dui. Donec et elit non dolor vehicula luctus ac id sapien. Ut fermentum fringilla pulvinar. Quisque id laoreet leo. Sed a semper sem. Morbi vehicula volutpat nibh, vitae convallis quam scelerisque in. Morbi convallis, lorem quis blandit dignissim, magna mi fermentum urna, ac tempor erat tortor vitae nisi. Suspendisse pretium leo id leo eleifend in molestie risus placerat. Mauris tincidunt dolor non erat lacinia iaculis nec auctor elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.\n<img src=\"http://example.com/wp-content/uploads/2012/03/foobar.jpg\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" />\n Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.\n\n[gallery ids=\"1,2,3,4\"]\n\nNullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
             "content_filtered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.</p>\n<img src=\"http://example.com/wp-content/uploads/2012/03/foobar.jpg\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" />\n<p>Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.</p>\n\n<div class=\"gallery\" id=\"gallery-1234\"></div>\n\n<p>Nullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>",
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"
                 },
             "mime_type": "",
             "meta": {
-                "featured_image": 123456
+                "featured_image": 123456,
+                "gallery" : [
+                    {
+                        "ids" : [
+                            123,
+                            124,
+                            125
+                        ],
+                        "order" : "ASC",
+                        "orderby" : [
+                            "menu_order",
+                            "ID"
+                        ]
+                    },
+                    {
+                        "ids" : [
+                            126,
+                            127
+                        ],
+                        "order" : "ASC",
+                        "orderby" : [
+                            "menu_order",
+                            "ID"
+                        ]
+                    }
+                ]
             },
             "taxonomies": {
                 "category": [
@@ -44,16 +69,74 @@
             "media": [
                 {
                     "type": "string",
-                    "id": 123456,
+                    "id": 123,
                     "id_str": "123445",
                     "altText": "Lorem ipsum doler set amut.",
                     "mime_type": "image/jpg",
                     "sizes": [
                         {
-                            "name": "thumbnail",
-                            "width": 100,
-                            "height": 80,
-                            "url": "http://lorempixel.com/300/229/city"
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/1"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 124,
+                    "id_str": "124",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/2"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 125,
+                    "id_str": "125",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/3"
+                        }
+                    ],
+                    "type": "string",
+                    "id": 126,
+                    "id_str": "126",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/4"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 127,
+                    "id_str": "127",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/5"
                         }
                     ]
                 }
@@ -75,14 +158,14 @@
             "name": "loerm-ipsum-dolor",
             "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.",
             "excerpt_filtered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.</p>",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.\n<img src=\"http://example.com/wp-content/uploads/2012/03/foobar.jpg\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" />\n Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.\n\n[gallery ids=\"1,2,3,4\"]\n\nNullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.\n<p><img src=\"http://lorempixel.com/200/200/city\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" /></p>\n Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.\n\n[gallery ids=\"1,2,3,4\"]\n\nNullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
             "content_filtered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec consequatnibh. Quisque in consectetur ligula. Praesent pretium massa vitae neque adipiscing vita cursus nulla congue.</p>\n<img src=\"http://example.com/wp-content/uploads/2012/03/foobar.jpg\" class=\"alignleft  size-medium wp-image-17115\" alt=\"Lorem ipsum doler set amut.\" />\n<p>Cras aliquet ipsum non nisi accumsan tempor sollicitudin lacus interdum Donec in enim ut ligula dignissim tempor. Vivamus semper cursus mi, at molestie erat lobortiut. Pellentesque non mi vitae augue egestas vulputate et eu massa. Integer et sem orci. Suspendisse at augue in ipsum convallis semper.</p>\n\n<div class=\"gallery\" id=\"gallery-1234\"></div>\n\n<p>Nullam vitae libero eros, a fringilla erat. Suspendisse potenti. In dictum bibendum liberoquis facilisis risus malesuada ac. Nulla ullamcorper est ac lectus feugiat scelerisque.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>",
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/g/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"
@@ -129,7 +212,7 @@
             "comment_status": "open",
             "comment_count": 99,
             "menu_order": 99,
-            "title": "Title for 103",
+            "title": "Title for 102",
             "name": "loerm-ipsum-dolor",
             "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.",
             "excerpt_filtered": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed lacus eros. Integer elementum urna.</p>",
@@ -138,9 +221,9 @@
             "author": {
                     "avatar": [
                         {
-                            "url":"http://lorempixel.com/64/64/people/",
-                            "width":64,
-                            "height":64
+                            "url":"http://lorempixel.com/48/48/people/",
+                            "width":48,
+                            "height":48
                         }
                     ],
                     "display_name": "Test Author"

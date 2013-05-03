@@ -6,6 +6,7 @@ http_path = "/"
 css_dir = "_build/css"
 sass_dir = "app/sass"
 images_dir = "_build/img"
+fonts_dir = "_build/fonts"
 
 # disable asset cache buster
 asset_cache_buster do |http_path, real_path|

@@ -1,1 +1,4 @@
-<img src="http://placehold.it/100x100" />
+<% var galleryImage = WisP.getMediaByID(id, postMedia) %>
+<% if(galleryImage){ %>
+	    <img alt="<%= galleryImage.altText %>" src="<%= WisP.getMediaByWidth(galleryImage.sizes, 700).url %>"/>
+<% } %>

@@ -18,8 +18,14 @@ WisP.Router = new (Backbone.Router.extend
     @route("posts(/:page)(/)", 'showPosts')
     @route("posts/category/:category(/:paged)(/)", 'showPostsByCategory')
     @route("posts/show/:id(/)", 'showPost')
+    @route("posts/modal/:id(/)", 'showModal')
     @route("gallery/show/:id(/)", 'showGallery')
     @on('route', @transition)
+
+  showModal: (id)->
+    @showPosts()
+    @navigate('#posts/', {replace: true})
+    WisP.Controller.showPost(id)
 
   ###
   Hides the loading feedback during route event

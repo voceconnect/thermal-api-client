@@ -3,13 +3,15 @@ Global App Object
 Holds the global config options
 ###
 window.WisP =
+
+  proxiedSync: Backbone.sync
   config:
     baseUrl: ''
     per_page: 3
     html :
       categorySelect: $('#category-dropdown')
       main: $('#main')
-      popup: $('#popup')
+      popup: $('#wisp-popup')
   loadingPosts : false
   currentPost : {}
   currentPosts : []
@@ -22,9 +24,22 @@ window.WisP =
   @method init
   ###
   init:()->
+    @config.html.main.masonry(
+      itemSelector: '.thermal-item'
+      columnWidth: 300
+    )
+    @config.html.main.masonry( 'reload' )
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
-      if $(@).scrollTop() + $(window).height() > $(document).height() - 100
+      if $(@).scrollTop() > 100
+        $scrollToTop.fadeIn()
+      else
+        $scrollToTop.fadeOut()
+      $lastItem = $('.thermal-loop').find('.thermal-item').last()
+      if $lastItem.length > 0 then iTop = $lastItem.position().top else return
+      scrollTop = $(window).scrollTop()
+      if iTop >= scrollTop or
+      (scrollTop + $(window).height()) > ($(document).height() - 100)
         if WisP.loadingPosts is false and
         WisP.currentCollection.found > WisP.currentPosts.length
           opts =
@@ -32,31 +47,28 @@ window.WisP =
             paged : parseInt(WisP.currentCollection.paged, 10) + 1
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
-      if $(@).scrollTop() > 100
-        $scrollToTop.fadeIn()
-      else
-        $scrollToTop.fadeOut()
     )
 
     $scrollToTop.click((e)->
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
-    $('.dropdown-toggle').dropdown()
+    WisP.config.html.main.find('.dropdown-toggle').dropdown()
     WisP.config.html.main.on('click', '.thermal-item a.post-link', (e)->
       e.preventDefault()
       id = $(@).attr('href')
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
+      $("html, body").animate({ scrollTop: 0 }, 600)
       WisP.Controller.showPost(id)
-      WisP.config.html.popup.modal('toggle')
     )
-    WisP.config.html.popup.on('click', '.modal-close', (e)->
+    WisP.config.html.main.on('click', '.show-posts', (e)->
       e.preventDefault()
-      WisP.config.html.popup.modal('hide')
+      WisP.config.html.main.empty()
+      WisP.Controller.showPosts()
     )
-    WisP.config.html.popup.on('click', '.post-paging a', (e)->
+    WisP.config.html.main.on('click', '.post-paging a', (e)->
       e.preventDefault()
       post = WisP.currentPost
       postID = post.get('id')
@@ -68,8 +80,6 @@ window.WisP =
       if postID is post.get('id') then return
       WisP.Controller.showPost(post.get('id'))
     )
-    WisP.Controller.showCategoriesMenu()
-    WisP.Router.start()
 
   ###
   Get a single image from an array given a specific ID
@@ -107,54 +117,22 @@ window.WisP =
         rPost = WisP.currentPosts[idx]
     rPost
 
-###
-Is this date "new" within the last day
+  getPrettyURL: (url)->
+    regex = /((https?:\/\/)(www\.)?)(\S*?)(\/)/ig
+    result = regex.exec(url)
+    if result and result[4]
+      return result[4]
+    false
 
-@module Date
-@method isNew
-@return Boolean
-###
-Date.prototype.isNew = ()->
-  d = new Date(this)
-  now = new Date()
-  if (now.getTime() - d.getTime()) <= 86400000 then return true
-  false
-
-###
-Format date object like "x minutes ago, y days ago, etc"
-
-@module Date
-@method timeAgo
-###
-Date.prototype.timeAgo = ()->
-  date = new Date(this)
-  diff = (((new Date()).getTime() - date.getTime()) / 1000)
-  day_diff = Math.floor(diff / 86400)
-  if isNaN(day_diff) or day_diff < 0 then return
-  months = [
-    'January'
-    'February'
-    'March'
-    'April'
-    'May'
-    'June'
-    'July'
-    'August'
-    'September'
-    'October'
-    'November'
-    'December'
-  ]
-  tAgo = "#{months[date.getMonth()]} #{date.getDate()}, #{date.getFullYear()}"
-  if day_diff is 0
-    if diff < 60 then tAgo = 'just now'
-    else if diff < 120 then tAgo = '1 minute ago'
-    else if diff < 3600 then tAgo = Math.floor( diff / 60 ) + " minutes ago"
-    else if diff < 7200 then tAgo = '1 hour ago'
-    else if diff < 86400 then tAgo = Math.floor( diff / 3600 ) + " hours ago"
-  else
-    if day_diff is 1 then tAgo = 'Yesterday'
-    else if day_diff < 7 then tAgo = "#{day_diff} days ago"
-    else if day_diff < 31 then tAgo = Math.ceil( day_diff / 7 ) + " weeks ago"
-
-  return tAgo
+  getMediaByWidth: (sizes, width)->
+    smallest = false
+    if sizes.length > 0 && width
+      _.each sizes, (media, key, list)->
+        if not smallest and media.width >= width
+          smallest = media
+        else if media.width < smallest.width and media.width >= width
+          smallest = media
+      if not smallest
+        smallest = _.max sizes, (size)->
+          return size.width
+    return smallest

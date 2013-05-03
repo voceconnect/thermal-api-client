@@ -2,13 +2,15 @@
     "coffee" : {
        "all": {
             "files": {
-                "./_build/js/wisp.specs.js": [
+                "./_build/js/wisp-app.js": [
                 "./app/coffee/wisp.coffee",
+                "./app/coffee/prototypes.coffee",
                 "./app/coffee/controller.coffee",
                 "./app/coffee/router.coffee",
                 "./app/coffee/models/*.coffee",
                 "./app/coffee/collections/*.coffee",
-                "./app/coffee/views/*.coffee"
+                "./app/coffee/views/*.coffee",
+                "./app/coffee/embed.coffee"
                 ]
             }
         }
@@ -50,7 +52,8 @@
               "./_build/js/lodash.min.js",
               "./_build/js/backbone.min.js",
               "./_build/js/bootstrap.min.js",
-              "./_build/js/wisp.specs.js",
+              "./_build/js/masonry.js",
+              "./_build/js/wisp-app.js",
               "./_build/js/templates.js"
           ],
           "dest" : "./_build/js/wisp.js"

@@ -1,29 +1,61 @@
 #{$name}-loop {
 	font-size: 100%;
+	@include breakpoint(phone){ text-align: center;}
+	@include breakpoint(kindle){ text-align: center;}
+	
 }
 #{$name}-item {
-	max-width: 300px;
+	word-break: break-word;
+	width: 100%;
+	vertical-align: top;
+	max-width: 280px;
+	display: inline-block;
 	background: #fff;
-	margin-bottom: 25px;
+	margin-left: 20px;
+	margin-top: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
-	outline: 1px solid $grayLight;
+	border-top: 1px solid $grayLight;
+	border-bottom: 1px solid $grayLight;
 	position: relative;
 	&.new-item {
 		&:after {
 			@include ribbon('New', 143px, -1px);
 		}
 	}
+	@include breakpoint(phone) {
+		position: relative !important;
+		margin: 20px auto 0 auto !important;
+		top: 0 !important;
+		left: 0 !important;
+		text-align: left;
+	}
+	@include breakpoint(kindle) {
+		max-width: 500px;
+		position: relative !important;
+		margin: 20px auto 0 auto !important;
+		top: 0 !important;
+		left: 0 !important;
+		text-align: left;
+	}
 }
 #{$name}-img {
+	@include box-sizing(border-box);
+	text-align: center;
 	position: relative;
+	overflow: hidden;
+	background: $gray;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	border-bottom: 4px solid $grayLighter;
 	img {
-		border-bottom: 4px solid $grayLighter;
+		margin: 0 auto;
 	}
-	margin-bottom: 1em;
 }
 #{$name}-text {
 	@include box-sizing(border-box);
-	padding: 0 6.25% 1em 6.25%;
+	padding: .5em 6.25% 1em 6.25%;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
 	h4 {
 		text-transform: uppercase;
 		font-family: $fancyFont;
@@ -39,6 +71,11 @@
 }
 #{$name}-meta {
 	background: $grayLighter;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	@include clearfix();
+	@include box-sizing(border-box);
+	padding: .5em 5%;
 	p {
 		font-size: 1.1428571429em;
 		line-height: 1.25;
@@ -46,6 +83,7 @@
 		font-family: $fancyFont;
 		overflow: hidden;
 		padding-top: .5em;
+		word-break: break-word;
 		span {
 			font-size: 0.8125em;
 			text-transform: none;
@@ -61,9 +99,6 @@
 			padding: 0 .25em;
 		}
 	}
-	@include clearfix();
-	@include box-sizing(border-box);
-	padding: .5em 5%;
 	img {
 		margin-right: .5em;
 		border: 3px solid #fff;

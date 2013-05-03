@@ -6,12 +6,11 @@ Main App Controller
 WisP.Controller =
 
   showCategoriesMenu: (opts)->
-    WisP.categories = new WisP.Terms [], opts
+    WisP.categories = new WisP.Terms([], opts)
+    WisP.categories.fetch()
     categoryMenuView = new WisP.CategoryMenuView
       collection: WisP.categories
       el: WisP.config.html.categorySelect
-
-    WisP.categories.fetch()
 
   ###
   Does a post query and displays the posts
@@ -21,6 +20,7 @@ WisP.Controller =
   @param {Number} Query page number
   ###
   showPosts: (category, paged)->
+    WisP.Controller.showCategoriesMenu()
     opts =
       category : null
       paged : 1
@@ -43,6 +43,10 @@ WisP.Controller =
           WisP.currentPosts.push($.extend(true, {}, m))
       WisP.loadingPosts = false
     )
+    if opts and opts.category and WisP.categories
+      WisP.categories.on 'add', (model)->
+        if model.id is Number(opts.category)
+          WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
@@ -53,20 +57,24 @@ WisP.Controller =
   @param {Number} Post ID
   @param {Boolean} popup
   ###
-  showPost: (id, popup = true)->
+  showPost: (id)->
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.render()
     else
       WisP.currentPost = new WisP.Post(id: id)
-      WisP.currentPost.fetch()
       postView = new WisP.PostView(model:WisP.currentPost)
-    if popup is true
-      WisP.config.html.popup.html(postView.el)
-    else
-      WisP.config.html.main.html(postView.el)
-
+      postView.listenTo(WisP.currentPost, 'change', postView.render)
+      postView.listenTo WisP.currentPost, 'error', ()->
+        WisP.currentPost.set({
+          title: 'Error Fetching Post'
+          author:false
+          date:false
+          permalink:false
+        })
+      WisP.currentPost.fetch()
+    WisP.config.html.main.html(postView.el)
 
   showError: ()->
     WisP.config.html.main.append(WisP.Templates['404.html'])
