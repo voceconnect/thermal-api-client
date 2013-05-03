@@ -1,5 +1,7 @@
 @import "compass/css3/";
 @import "fonts";
+@import "lib/variables"; // Modify this for custom colors, font-sizes, etc
+@import "lib/mixins";
 .wisp {
 	@import "lib/bootstrap";
 	@import "lib/responsive";
@@ -42,7 +44,6 @@
 	}
 
 	@import "cards";
-	@import "modal";
 	@import "galleries";
 	@import "single-gallery";
 	.scroll-to-top {
@@ -76,9 +77,9 @@
 		}
 		
 	}
+	.img-circle {
+		max-height: 48px;
+		max-width: 48px;
+	}
 }
-
-.img-circle {
-	max-height: 48px;
-	max-width: 48px;
-}
+@import "modal";
