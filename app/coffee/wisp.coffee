@@ -86,6 +86,7 @@ window.WisP =
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
+      WisP.config.html.main.empty()
       WisP.Controller.showPosts(catID)
     )
 
