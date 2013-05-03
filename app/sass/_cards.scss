@@ -2,17 +2,16 @@
 	font-size: 100%;
 	@include breakpoint(phone){ text-align: center;}
 	@include breakpoint(kindle){ text-align: center;}
-	
 }
 #{$name}-item {
+	text-align: left;
 	word-break: break-word;
 	width: 100%;
 	vertical-align: top;
 	max-width: 280px;
 	display: inline-block;
 	background: #fff;
-	margin-left: 20px;
-	margin-top: 25px;
+	margin: 20px 0 0 20px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
 	border-top: 1px solid $grayLight;
 	border-bottom: 1px solid $grayLight;
@@ -27,7 +26,7 @@
 		margin: 20px auto 0 auto !important;
 		top: 0 !important;
 		left: 0 !important;
-		text-align: left;
+		max-width: 300px;
 	}
 	@include breakpoint(kindle) {
 		max-width: 500px;
@@ -35,7 +34,6 @@
 		margin: 20px auto 0 auto !important;
 		top: 0 !important;
 		left: 0 !important;
-		text-align: left;
 	}
 }
 #{$name}-img {
@@ -52,6 +50,7 @@
 	}
 }
 #{$name}-text {
+	text-align: left;
 	@include box-sizing(border-box);
 	padding: .5em 6.25% 1em 6.25%;
 	border-left: 1px solid $grayLight;
@@ -70,6 +69,7 @@
 	}
 }
 #{$name}-meta {
+	text-align: left;
 	background: $grayLighter;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;

@@ -1,4 +1,4 @@
-<a href="#" class="button show-posts">Show Posts</a>
+<a href="#" class="btn pull-left show-posts">Show Posts</a>
 <div class="post-full" id="<%= id %>">
   <div class="post-title">
 	    <h3><%= title %></h3>
@@ -38,12 +38,12 @@
   <% } %>
   <div class="content-scroll">
     <% var featuredImage = WisP.getMediaByID(meta.featured_image, media) %>
-    <% if(media.length > 0 && featuredImage){ %>
-  	<div class="post-image">
-  	    <img alt="<%= featuredImage.altText %>" src="<%= WisP.getMediaByWidth(featuredImage.sizes, 320).url %>"/>
-  	</div>
-    <% } %>
   	<div class="post-content">
+	    <% if(media.length > 0 && featuredImage){ %>
+	  	<div class="post-image">
+	  	    <img alt="<%= featuredImage.altText %>" src="<%= WisP.getMediaByWidth(featuredImage.sizes, 320).url %>"/>
+	  	</div>
+	    <% } %>
   	    <p><%= content %></p>
   	</div>
   </div>
