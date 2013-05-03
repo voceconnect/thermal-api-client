@@ -24,6 +24,7 @@ WisP.Router = new (Backbone.Router.extend
 
   showModal: (id)->
     @showPosts()
+    @navigate('#posts/', {replace: true})
     WisP.Controller.showPost(id)
 
   ###
