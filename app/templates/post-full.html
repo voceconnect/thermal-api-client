@@ -47,8 +47,10 @@
   	    <p><%= content %></p>
   	</div>
   </div>
+  <% if(WisP.currentPosts.length > 1){ %>
 	<div class="post-paging">
 		<a href="#" id="prev-post" class="btn btn-success btn-large pull-left"><span class="triangle-left"></span>Previous</a>
 		<a href="#" id="next-post" class="btn btn-success btn-large pull-right">Next<span class="triangle-right"></span></a>
 	</div>
+  <% } %>
 </div>
