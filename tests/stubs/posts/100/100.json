@@ -41,8 +41,20 @@
                     "name": "thumbnail",
                     "width": 100,
                     "height": 80,
-                    "url": "http://lorempixel.com/560/200/"
-                }
+                    "url": "http://lorempixel.com/100/80/"
+                },
+                {
+                    "name": "thumbnail",
+                    "width": 300,
+                    "height": 240,
+                    "url": "http://lorempixel.com/300/240/"
+                },
+                {
+                    "name": "thumbnail",
+                    "width": 600,
+                    "height": 480,
+                    "url": "http://lorempixel.com/600/480/"
+                }                                
             ]
         }
     ],
