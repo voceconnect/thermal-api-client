@@ -53,7 +53,7 @@ window.WisP =
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
     WisP.config.html.main.find('.dropdown-toggle').dropdown()
-    WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
+    WisP.config.html.main.on('click', '.thermal-item a', (e)->
       e.preventDefault()
       id = $(@).attr('href')
         .substr($(@).attr('href')
