@@ -27,12 +27,11 @@ WisP.Embed = class
     )
 
   embedHTMLels: ()->
+    dd = WisP.Templates['category-dropdown.html']()
     htmlEls = """
     <div class="wisp">
-    <div class="container">
-    <div id="category-dropdown"></div>
+    #{dd}
     <div class="thermal-loop" id="main"></div>
-    </div>
     </div>
     """
     @settings.$el.append($(htmlEls))
@@ -45,8 +44,9 @@ WisP.Embed = class
   embedStyles: ()->
     wispLibURL = $('#wispLib').attr('src').split('/js/wisp.js')
     if wispLibURL and wispLibURL[0]
+      if wispLibURL is wispLibURL[0] then wispLibURL = ''
       styleEl = """
                 <link type='text/css' rel='stylesheet'
                 href='#{wispLibURL[0]}/css/wisp.css'>
                 """
-      @settings.$el.append($(styleEl))
+      $('body').append($(styleEl))

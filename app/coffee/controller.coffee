@@ -20,6 +20,7 @@ WisP.Controller =
   @param {Number} Query page number
   ###
   showPosts: (category, paged)->
+    WisP.Controller.showCategoriesMenu()
     opts =
       category : null
       paged : 1
@@ -56,7 +57,7 @@ WisP.Controller =
   @param {Number} Post ID
   @param {Boolean} popup
   ###
-  showPost: (id, popup = true)->
+  showPost: (id)->
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)
@@ -66,15 +67,7 @@ WisP.Controller =
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.listenTo(WisP.currentPost, 'change', postView.render)
       WisP.currentPost.fetch()
-    if popup is true
-      WisP.config.html.popup.html(postView.el)
-      hash = window.location.hash
-      WisP.config.urlBeforeModal = hash.replace('#', '')
-      WisP.config.html.popup.modal('show').on 'hide', (e)->
-        WisP.Router.navigate(WisP.config.urlBeforeModal, {replace: true})
-      WisP.Router.navigate('#posts/modal/' + id, {replace: true})
-    else
-      WisP.config.html.main.html(postView.el)
+    WisP.config.html.main.html(postView.el)
 
   showError: ()->
     WisP.config.html.main.append(WisP.Templates['404.html'])

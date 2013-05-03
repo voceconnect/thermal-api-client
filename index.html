@@ -1,73 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" class="wisp-modal">
+<!doctype html>
+<html class="wisp-modal">
 <head>
+    <meta charset="utf-8">
     <title>WisP</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width">
-
-    <!-- favicon -->
-    <link rel="icon" href="img/apple-icons/apple-touch-icon-57x57.png"/>
-
-    <!-- iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <!-- app styles -->
-    <link rel="stylesheet" href="css/wisp.css">
-
 </head>
 <body>
-<!-- pre app content end -->
-<!-- app main start -->
-<div id="app" class="wisp">
-    <p class="loading">The application is loading...</p>
-	<!-- Hard coding this for now -->
-	<div class="container">
-        <div id="category-dropdown" class="pull-right">
-		<div class="btn-group">
-		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-		        <span class="text">Categories</span> &nbsp;<span class="caret"></span>
-		    </a>
-		    <ul class="dropdown-menu">
-		    </ul>
-		</div>
+<div class="container">
+    <h4>WordPress Post Archive</h4>
+
+    <div id="embed_in_me"></div>
+    <div class="wisp">
+        <div class="scroll-to-top hide">
+            <h4><a href="#">Scroll to Top</a></h4>
         </div>
-        <h4>WORDPRESS POST ARCHIVE</h4>
-        <div class="clearfix"></div>
-		<div class="thermal-loop" id="main">
-
-		</div><!-- end row -->
-
-		<div class="row gallery-list">
-
-		</div> <!-- end row -->
-
-		<div class="scroll-to-top">
-	        <h4><a href="#">Scroll to Top</a></h4>
-	    </div>
-	</div> <!-- end container -->
-	<!-- end hard-coded cutup -->
+    </div>
 </div>
-<!-- app main end -->
-<!-- footer start -->
-<footer id="footer">
 
-</footer>
-<!-- footer end -->
-<div class="wisp">
-	<div id="popup" class="modal hide fade"></div>
-</div>
-<!-- Application -->
-<script src="js/wisp.js"></script>
-<!-- init and accessory scripts -->
+<script id='wispLib' src='/_build/js/wisp.js'></script>
 <script>
-    $(document).ready(function () {
-        WisP.config.baseUrl = '/tests/stubs'
-        WisP.init();
-        WisP.Router.start();
-		$thumb_count = $('.carousel-indicators').children('li').length;
-		$thumb_length = ($thumb_count * 106) + 'px';
-		$('.carousel-indicators').css({'width': $thumb_length});
-     });
+    var wispOptions = {
+        elSelector: '#embed_in_me',
+        apiUrl: '/tests/stubs',
+        perPage: 3
+    };
+    var wispEmbed = new WisP.Embed(wispOptions);
 </script>
 </body>
 </html>

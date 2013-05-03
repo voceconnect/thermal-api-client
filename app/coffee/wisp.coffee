@@ -11,7 +11,7 @@ window.WisP =
     html :
       categorySelect: $('#category-dropdown')
       main: $('#main')
-      popup: $('#popup')
+      popup: $('#wisp-popup')
   loadingPosts : false
   currentPost : {}
   currentPosts : []
@@ -31,10 +31,14 @@ window.WisP =
     @config.html.main.masonry( 'reload' )
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
+      if $(@).scrollTop() > 100
+        $scrollToTop.fadeIn()
+      else
+        $scrollToTop.fadeOut()
       $lastItem = $('.thermal-loop').find('.thermal-item').last()
-      itemTop = $lastItem.position().top
+      if $lastItem.length > 0 then iTop = $lastItem.position().top else return
       scrollTop = $(window).scrollTop()
-      if itemTop >= scrollTop or
+      if iTop >= scrollTop or
       (scrollTop + $(window).height()) > ($(document).height() - 100)
         if WisP.loadingPosts is false and
         WisP.currentCollection.found > WisP.currentPosts.length
@@ -43,17 +47,17 @@ window.WisP =
             paged : parseInt(WisP.currentCollection.paged, 10) + 1
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
-      if $(@).scrollTop() > 100
-        $scrollToTop.fadeIn()
-      else
-        $scrollToTop.fadeOut()
     )
 
     $scrollToTop.click((e)->
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
-    $('.dropdown-toggle').dropdown()
+    WisP.config.html.main.find('.dropdown-toggle').dropdown()
+    WisP.config.html.popup.on('click', '.modal-close', (e)->
+      e.preventDefault()
+      WisP.config.html.popup.hide()
+    )
     WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
       e.preventDefault()
       id = $(@).attr('href')
@@ -62,11 +66,12 @@ window.WisP =
         .replace('/', '')
       WisP.Controller.showPost(id)
     )
-    WisP.config.html.popup.on('click', '.modal-close', (e)->
+    WisP.config.html.main.on('click', '.show-posts', (e)->
       e.preventDefault()
-      WisP.config.html.popup.modal('hide')
+      WisP.config.html.main.empty()
+      WisP.Controller.showPosts()
     )
-    WisP.config.html.popup.on('click', '.post-paging a', (e)->
+    WisP.config.html.main.on('click', '.post-paging a', (e)->
       e.preventDefault()
       post = WisP.currentPost
       postID = post.get('id')
@@ -78,7 +83,6 @@ window.WisP =
       if postID is post.get('id') then return
       WisP.Controller.showPost(post.get('id'))
     )
-    WisP.Controller.showCategoriesMenu()
 
   ###
   Get a single image from an array given a specific ID
