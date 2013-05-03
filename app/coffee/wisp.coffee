@@ -80,6 +80,14 @@ window.WisP =
       if postID is post.get('id') then return
       WisP.Controller.showPost(post.get('id'))
     )
+    WisP.config.html.categorySelect.on('click', '.category-menu-item a', (e)->
+      e.preventDefault()
+      catID = $(@).attr('href')
+        .substr($(@).attr('href')
+        .lastIndexOf('/'))
+        .replace('/', '')
+      WisP.Controller.showPosts(catID)
+    )
 
   ###
   Get a single image from an array given a specific ID
