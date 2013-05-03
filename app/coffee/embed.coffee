@@ -17,7 +17,7 @@ WisP.Embed = class
       WisP.config.html =
         categorySelect: @settings.$el.find('#category-dropdown')
         main: @settings.$el.find('#main')
-        popup: @settings.$el.find('#popup')
+        popup: $('#wisp-popup')
       WisP.init()
       try
         eval("WisP.Controller.#{@settings.method}")
@@ -32,11 +32,16 @@ WisP.Embed = class
     <div class="container">
     <div id="category-dropdown"></div>
     <div class="thermal-loop" id="main"></div>
-    <div id="popup" class="modal hide fade"></div>
     </div>
     </div>
     """
     @settings.$el.append($(htmlEls))
+    popup = """
+            <div class="wisp">
+            <div id="wisp-popup" class="modal hide fade"></div>
+            </div>
+            """
+    $('body').append($(popup))
 
   embedStyles: ()->
     wispLibURL = $('#wispLib').attr('src').split('/js/wisp.js')

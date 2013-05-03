@@ -59,10 +59,12 @@ WisP.Controller =
       postView.render()
     else
       WisP.currentPost = new WisP.Post(id: id)
-      WisP.currentPost.fetch()
       postView = new WisP.PostView(model:WisP.currentPost)
+      postView.listenTo(WisP.currentPost, 'change', postView.render)
+      WisP.currentPost.fetch()
     if popup is true
       WisP.config.html.popup.html(postView.el)
+      WisP.config.html.popup.modal('show')
     else
       WisP.config.html.main.html(postView.el)
 
