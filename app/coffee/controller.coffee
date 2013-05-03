@@ -20,7 +20,6 @@ WisP.Controller =
   @param {Number} Query page number
   ###
   showPosts: (category, paged)->
-    WisP.Controller.showCategoriesMenu()
     opts =
       category : null
       paged : 1
