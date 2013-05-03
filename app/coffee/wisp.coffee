@@ -54,16 +54,13 @@ window.WisP =
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
     WisP.config.html.main.find('.dropdown-toggle').dropdown()
-    WisP.config.html.popup.on('click', '.modal-close', (e)->
-      e.preventDefault()
-      WisP.config.html.popup.hide()
-    )
     WisP.config.html.main.on('click', '.thermal-item h4 a', (e)->
       e.preventDefault()
       id = $(@).attr('href')
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
+      $("html, body").animate({ scrollTop: 0 }, 600)
       WisP.Controller.showPost(id)
     )
     WisP.config.html.main.on('click', '.show-posts', (e)->
