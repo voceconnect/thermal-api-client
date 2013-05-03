@@ -37,11 +37,10 @@ WisP.Embed = class
     """
     @settings.$el.append($(htmlEls))
     popup = """
-            <div class="wisp">
             <div id="wisp-popup" class="modal hide fade"></div>
-            </div>
             """
     $('body').append($(popup))
+    $('html').addClass('wisp-modal')
 
   embedStyles: ()->
     wispLibURL = $('#wispLib').attr('src').split('/js/wisp.js')
