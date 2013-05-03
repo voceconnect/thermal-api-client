@@ -42,6 +42,10 @@ WisP.Controller =
           WisP.currentPosts.push($.extend(true, {}, m))
       WisP.loadingPosts = false
     )
+    if opts.category
+      WisP.categories.on 'add', (model)->
+        if model.id is Number(opts.category)
+          WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
     postsView.el
 
