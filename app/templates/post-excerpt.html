@@ -2,7 +2,7 @@
     <% var featured_image = WisP.getMediaByID(meta.featured_image, media) %>
     <% if(media.length > 0 && featured_image){ %>
     <div class="thermal-img">
-        <img alt="<%= featured_image.alt_text %>" src="<%= WisP.getMediaByWidth(featured_image.sizes, 280).url %>"/>
+        <a href="#posts/show/<%= id %>"><img alt="<%= featured_image.alt_text %>" src="<%= WisP.getMediaByWidth(featured_image.sizes, 280).url %>"/></a>
     </div>
     <% } %>
     <div class="thermal-text">

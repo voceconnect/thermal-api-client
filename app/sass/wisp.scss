@@ -5,6 +5,13 @@
 .wisp {
 	@import "lib/bootstrap";
 	@import "lib/responsive";
+	#category-dropdown {
+		@include clearfix();
+		.btn-group {
+			margin-bottom: 0;
+		}
+		margin-bottom: -10px;
+	}
 	.btn {
 		font-family: $fancyFont;
 		@include text-shadow(#000, .4);
@@ -18,6 +25,13 @@
 				outline: none;
 			}
 		}
+		&.show-posts {
+			margin-top: -20px;
+			margin-bottom: 25px;
+		}
+	}
+	.dropdown-menu {
+		font-family: Helvetica Neue, Helvetica, sans-serif;
 	}
 	.btn-group {
 		margin-bottom: 15px;
@@ -55,7 +69,7 @@
 		color: $grayDark;
 		position: fixed;
 		right: 0;
-		bottom: 0;
+		bottom: 20%;
 		h4 {
 			padding: 0;
 			margin: 0;
@@ -81,5 +95,5 @@
 		max-height: 48px;
 		max-width: 48px;
 	}
+	@import "full-post";
 }
-@import "modal";
