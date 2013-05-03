@@ -2,7 +2,7 @@
     <% var featured_image = WisP.getMediaByID(meta.featured_image, media) %>
     <% if(media.length > 0 && featured_image){ %>
     <div class="thermal-img">
-        <a class="post-link" href="<%= WisP.config.baseUrl + '/#posts/' + id %>">
+        <a class="post-link" href="#posts/show/<%= id %>">
             <img alt="<%= featured_image.alt_text %>" src="<%= WisP.getMediaByWidth(featured_image.sizes, 280).url %>"/>
         </a>
     </div>
@@ -13,7 +13,7 @@
     </div>
     <div class="thermal-meta">
         <% if(author.avatar && author.avatar.length > 0 && author.avatar[0].url){ %>
-        <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
+            <img src="<%= author.avatar[0].url %>" alt="" class="img-circle pull-left" />
         <% } %>
         <p><span><% var d = new Date(date).timeAgo() %><%= d %></span><%= author.display_name %></p>
     </div>

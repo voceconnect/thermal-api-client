@@ -20,7 +20,6 @@ WisP.Controller =
   @param {Number} Query page number
   ###
   showPosts: (category, paged)->
-    WisP.Controller.showCategoriesMenu()
     opts =
       category : null
       paged : 1
@@ -48,6 +47,7 @@ WisP.Controller =
         if model.id is Number(opts.category)
           WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
+    WisP.config.html.main.masonry( 'reload' )
     postsView.el
 
   ###
@@ -66,13 +66,6 @@ WisP.Controller =
       WisP.currentPost = new WisP.Post(id: id)
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.listenTo(WisP.currentPost, 'change', postView.render)
-      postView.listenTo WisP.currentPost, 'error', ()->
-        WisP.currentPost.set({
-          title: 'Error Fetching Post'
-          author:false
-          date:false
-          permalink:false
-        })
       WisP.currentPost.fetch()
     WisP.config.html.main.html(postView.el)
 

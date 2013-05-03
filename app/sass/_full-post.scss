@@ -1,0 +1,134 @@
+.post-full {
+	clear: both;
+	text-align: left;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	padding-bottom: 2em;
+	#{$name}-meta {
+		border-bottom: 4px solid $grayLight;
+		img {
+			margin-right: .5em;
+			border: 3px solid #fff;
+			@include box-shadow(0 1px 0 rgba(#000, .4));
+		}
+		@include breakpoint(phone){
+			padding: .25em 2%; 
+			@include clearfix();
+			.span5 {
+				border-bottom: 1px solid $grayLight;
+				padding-bottom: .25em;
+			}
+			.span4 {
+				width: 55%;
+				float: left;
+			}
+			.span3 {
+				width: 40%;
+				float: right;
+			}
+			img {
+				display: none;
+			}
+			p {
+				padding-top: .25em;
+				margin-bottom: 0;
+				font-size: 1.0769230769em;
+			}
+		}
+		@include breakpoint(kindle){
+			#{$name}-meta {
+			  .row-fluid .span3 {
+			  	float: left;
+			    width: 22.92818%;
+			  }
+			  .row-fluid .span4 {
+			  	float: left;
+			    width: 31.49171%;
+			  }
+			  .row-fluid .span5 {
+			  	float: left;
+			    width: 40.05525%;
+			  }			
+			}
+		}
+	}
+}
+.post-title {
+	padding: 0 2.85% .5em 2.85%;
+	h3 {
+		margin-top: 0;
+		line-height: 1.25em;
+		font-size: 2em;
+		font-family: $fancyFont;
+		@include breakpoint(phone){line-height: 1; font-size: 1.75em;}
+	}
+}
+.post-image {
+	float: left;
+	margin: .75em 1em .75em 0;
+	@include breakpoint(kindle){
+		float: none;
+		margin: .75em 0;
+	}
+	@include breakpoint(phone){
+		float: none;
+		margin: .75em 0;
+	}
+}
+.post-content {
+	@include clearfix();
+	padding: 1.25em 2.85% .5em 2.85%;
+	font-size: 0.9285714286em;
+	line-height: 1.2307692308;
+	position: relative;
+	p {
+		@include breakpoint(phone){
+			font-size: 1.25em;
+			line-height: 1.4;
+		}
+	}
+	dl, dt, dd {
+		text-align: left;
+	}
+}
+.post-paging {
+	@include clearfix();
+	padding: 1em 1% 0 1%;
+	.btn {
+		@include box-shadow(0 0 0 4px $grayLight);
+		@include box-sizing(border-box);
+		text-transform: uppercase;
+		font-size: 0.875em;
+		line-height: 1.666667;
+		text-align: center;
+		width: 9em;
+		.triangle-left {
+			margin-left: -10px;
+			margin-right: 15px;
+		}
+		.triangle-right {
+			margin-right: -30px;
+			margin-left: 20px;
+		}
+	}
+}
+.share-buttons{
+	small, .facebook, .twitter{
+		float: left;
+		height: 25px;
+		line-height: 25px;
+		margin-top: 3px;
+	}
+	.facebook {
+		max-width: 75px;
+		margin-right: 5px;
+		iframe {
+			max-width: 75px;
+		}
+	}
+	.twitter {
+		max-width: 80px;
+		iframe{
+			max-width: 80px;
+		}
+	}
+}		
