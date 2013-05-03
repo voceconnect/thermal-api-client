@@ -5,3 +5,4 @@ WisP.PostView = Backbone.View.extend
 
   render: () ->
     @$el.html(@template(@model.attributes))
+    $("html, body").animate({ scrollTop: 0 }, 600)
