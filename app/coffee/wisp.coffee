@@ -24,6 +24,11 @@ window.WisP =
   @method init
   ###
   init:()->
+    @config.html.main.masonry(
+      itemSelector: '.thermal-item'
+      columnWidth: 300
+    )
+    @config.html.main.masonry( 'reload' )
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       $lastItem = $('.thermal-loop').find('.thermal-item').last()

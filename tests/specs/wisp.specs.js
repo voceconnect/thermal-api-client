@@ -92,11 +92,11 @@ describe('WisP', function () {
         });
         it('The url should use variables', function () {
             posts = new WisP.Posts([], {paged: 100});
-            expect(posts.url).toBe('stubs/posts/?per_page=3&paged=100');
+            expect(posts.url).toBe('stubs/posts/?per_page=3&paged=100&include_found=1');
         });
         it('Should add option category', function () {
             posts = new WisP.Posts([], {category: 5});
-            expect(posts.url).toBe('stubs/posts/?per_page=3&paged=1&cat=5');
+            expect(posts.url).toBe('stubs/posts/?per_page=3&paged=1&include_found=1&cat=5');
         });
         it('Should add models from remote', function () {
             var result;

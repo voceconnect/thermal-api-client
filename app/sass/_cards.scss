@@ -1,19 +1,14 @@
 #{$name}-loop {
 	font-size: 100%;
-	@include transition(column-count .5s);
-	@include column-count(4);
-	@include column-gap(20px);
-	@include breakpoint(desktop){ @include column-count(3) }
-	@include breakpoint(tablet){ @include column-count(2) }
-	@include breakpoint(kindle){ @include column-count(2) }
 	@include breakpoint(phone){ text-align: center; @include column-count(1) }
 }
-#{$name}-item {  
+#{$name}-item {
 	width: 100%;
 	vertical-align: top;
-	max-width: 300px;
+	max-width: 280px;
 	display: inline-block;
 	background: #fff;
+	margin-left: 20px;
 	margin-bottom: 25px;
 	@include box-shadow(0 0 3px rgba(#000, .2));
 	border-top: 1px solid $grayLight;
@@ -24,7 +19,6 @@
 			@include ribbon('New', 143px, -1px);
 		}
 	}
-	@include breakpoint(phone){ margin: 0 auto 15px auto; text-align: left;}
 }
 #{$name}-img {
 	@include box-sizing(border-box);

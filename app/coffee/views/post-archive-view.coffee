@@ -6,3 +6,4 @@ WisP.PostArchiveView = Backbone.View.extend
   renderOne: (model) ->
     template = WisP.Templates['post-excerpt.html']
     @$el.append(template(model.attributes))
+    WisP.config.html.main.masonry('reload')
