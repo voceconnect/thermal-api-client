@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="wisp">
+<head>
+    <meta charset="utf-8">
+    <title>WisP</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="http://thermal-api.com/css/main.css"/>
+</head>
+<body>
+<div class="navbar navbar-fixed-top part-header">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="http://voceplatforms.com"
+               class="brand"><strong>Voce</strong>Platforms</a>
+        </div>
+    </div>
+</div>
+<div id="section-intro" class="part-intro">
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <h1>WisP</h1>
+                <strong>A demo application using the Thermal WordPress API</strong>
+                <hr>
+                <p>
+                    The below posts are being fetched and rendered from the
+                    Thermal API sandbox site, <a href="http://sandbox.thermal-api.com">http://sandbox.thermal-api.com</a>
+                    You can embed this application in any webpage and set it to retrieve posts
+                    from any Thermal-powered WordPress install with <a href="http://thermal-api.com/docs/#samples">a few easy steps</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="embed_in_me"></div>
+<div class="wisp">
+    <div class="scroll-to-top hide">
+        <h4><a href="#">Scroll to Top</a></h4>
+    </div>
+</div>
+
+<script id='wispLib' src='/_build/js/wisp.js'></script>
+<script>
+    var wispOptions = {
+        elSelector: '#embed_in_me',
+        apiUrl: '/tests/stubs',
+        perPage: 3
+    };
+    var wispEmbed = new WisP.Embed(wispOptions);
+</script>
+</body>
+</html>
