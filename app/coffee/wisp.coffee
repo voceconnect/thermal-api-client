@@ -40,7 +40,7 @@ window.WisP =
         .lastIndexOf('/'))
         .replace('/', '')
       container.empty()
-      controller.showPosts(catID)
+      WisP.Controller.showPosts(catID)
     )
 
   setupMasonry: ()->
