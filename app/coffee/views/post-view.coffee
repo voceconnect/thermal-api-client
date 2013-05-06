@@ -6,6 +6,7 @@ WisP.PostView = Backbone.View.extend
   render: () ->
     @parseGalleries() if @model.get('meta').gallery?
     @$el.html @template(@model.attributes)
+    @replaceGalleries()
     $("html, body").animate({ scrollTop: 0 }, 600)
     @
 
@@ -18,14 +19,21 @@ WisP.PostView = Backbone.View.extend
       if @galleryViews.length < matchIndex
         return
 
-      gallery = @galleryViews[matchIndex].render().el
-      galleryHTML = $('<div>').append($(gallery).clone(true)).html()
+      galleryID = 'replace-gallery-' + @model.get('id') + '-' + matchIndex
+      galleryHTML = '<div id="' + galleryID + '"></div>'
 
       content = content.replace matches[0], galleryHTML
       matchIndex++
     if content isnt @model.get 'content'
       @model.set 'content', content
 
+  replaceGalleries: () ->
+    _.each @galleryViews, (view, idx) ->
+      replace = 'div#replace-gallery-' + @model.get('id') + '-' + idx
+      if @$el.find( replace ).is '*'
+        gallery = view.render().el
+        @$el.find( replace ).replaceWith gallery
+    , @
 
   addGallery: (galleryData, idx) ->
     @galleryViews ?= []

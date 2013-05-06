@@ -37,7 +37,18 @@
                         "ids" : [
                             123,
                             124,
-                            125
+                            125,
+                            126,
+                            127,
+                            128,
+                            129,
+                            130,
+                            131,
+                            132,
+                            133,
+                            134,
+                            135,
+                            136
                         ],
                         "order" : "ASC",
                         "orderby" : [
@@ -70,7 +81,7 @@
                 {
                     "type": "string",
                     "id": 123,
-                    "id_str": "123445",
+                    "id_str": "123",
                     "altText": "Lorem ipsum doler set amut.",
                     "mime_type": "image/jpg",
                     "sizes": [
@@ -79,6 +90,12 @@
                             "width": 700,
                             "height": 480,
                             "url": "http://lorempixel.com/700/480/city/1"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/1"
                         }
                     ]
                 },
@@ -94,6 +111,12 @@
                             "width": 700,
                             "height": 480,
                             "url": "http://lorempixel.com/700/480/city/2"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/2"
                         }
                     ]
                 },
@@ -109,8 +132,16 @@
                             "width": 700,
                             "height": 480,
                             "url": "http://lorempixel.com/700/480/city/3"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/3"
                         }
-                    ],
+                    ]
+                },
+                {
                     "type": "string",
                     "id": 126,
                     "id_str": "126",
@@ -122,6 +153,12 @@
                             "width": 700,
                             "height": 480,
                             "url": "http://lorempixel.com/700/480/city/4"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/4"
                         }
                     ]
                 },
@@ -137,6 +174,201 @@
                             "width": 700,
                             "height": 480,
                             "url": "http://lorempixel.com/700/480/city/5"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/5"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 128,
+                    "id_str": "128",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/6"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/6"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 129,
+                    "id_str": "129",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/7"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/7"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 130,
+                    "id_str": "130",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/8"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/8"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 131,
+                    "id_str": "131",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/city/9"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/city/9"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 132,
+                    "id_str": "132",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/abstract/10"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/abstract/10"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 133,
+                    "id_str": "133",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/abstract/1"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/abstract/1"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 134,
+                    "id_str": "134",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/abstract/2"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/abstract/2"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 135,
+                    "id_str": "135",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/abstract/3"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/abstract/3"
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "id": 136,
+                    "id_str": "136",
+                    "altText": "Lorem ipsum doler set amut.",
+                    "mime_type": "image/jpg",
+                    "sizes": [
+                        {
+                            "name": "large",
+                            "width": 700,
+                            "height": 480,
+                            "url": "http://lorempixel.com/700/480/abstract/4"
+                        },
+                        {
+                            "name": "thumbnail",
+                            "width": 100,
+                            "height": 100,
+                            "url": "http://lorempixel.com/100/100/abstract/4"
                         }
                     ]
                 }

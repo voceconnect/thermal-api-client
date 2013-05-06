@@ -1,0 +1,6 @@
+<% var galleryImage = WisP.getMediaByID(id, postMedia) %>
+<% if(galleryImage){ %>
+	<a>
+	    <img alt="<%= galleryImage.altText %>" src="<%= WisP.getMediaByWidth(galleryImage.sizes, 100).url %>"/>
+	</a>
+<% } %>

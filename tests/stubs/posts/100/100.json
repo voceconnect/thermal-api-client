@@ -54,7 +54,7 @@
                     "width": 600,
                     "height": 480,
                     "url": "http://lorempixel.com/600/480/"
-                }                                
+                }
             ]
         }
     ],
@@ -67,5 +67,5 @@
                 }
             ],
             "display_name": "Test Author"
-        }    
+        }
 }
