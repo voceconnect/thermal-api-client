@@ -1,6 +1,6 @@
 ###
 Global App Object
-Holds the global config options
+Holds the global config options and methods
 ###
 window.WisP =
 
@@ -23,11 +23,51 @@ window.WisP =
   @method init
   ###
   init:()->
-    @config.html.main.masonry(
-      itemSelector: '.thermal-item'
-      columnWidth: 300
+    @setupMasonry()
+    @setupScrolling()
+    @setupClickEvents()
+    @setupDropdown()
+
+  ###
+  Instantiates the bootstrap dropdown and click binding
+
+  @method setupDropdown
+  ###
+  setupDropdown: ()->
+    html = WisP.config.html
+    container = html.main
+    container.find('.dropdown-toggle').dropdown()
+    # Category dropdown list
+    html.categorySelect.on('click', '.category-menu-item a', (e)->
+      e.preventDefault()
+      catID = $(@).attr('href')
+        .substr($(@).attr('href')
+        .lastIndexOf('/'))
+        .replace('/', '')
+      WisP.Controller.showPosts(catID)
     )
-    @config.html.main.masonry( 'reload' )
+
+  ###
+  Instantiates the jQuery Masonry
+
+  @method setupMasonry
+  ###
+  setupMasonry: ()->
+    if @config.html.main.data('masonry')?
+      @config.html.main.masonry( 'reload' )
+    else
+      @config.html.main.masonry(
+        itemSelector: '.thermal-item'
+        columnWidth: 300
+      )
+
+  ###
+  Adds the scroll listener
+  Shows the scroll to top button and infinite scroll
+
+  @method setupScrolling
+  ###
+  setupScrolling: ()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(@).scrollTop() > 100
@@ -47,26 +87,36 @@ window.WisP =
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
     )
-
     $scrollToTop.click((e)->
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
-    WisP.config.html.main.find('.dropdown-toggle').dropdown()
-    WisP.config.html.main.on('click', '.thermal-item a.post-link', (e)->
+
+  ###
+  Creates misc click listeners for the app
+
+  @method setupClickEvents
+  ###
+  setupClickEvents: ()->
+    html = WisP.config.html
+    container = html.main
+    controller = WisP.Controller
+    # Post card links for post view
+    container.on('click', '.thermal-item a.post-link', (e)->
       e.preventDefault()
       id = $(@).attr('href')
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
-      WisP.Controller.showPost(id)
+      controller.showPost(id)
     )
-    WisP.config.html.main.on('click', '.show-posts', (e)->
+    # Show posts button on single post view
+    container.on('click', '.show-posts', (e)->
       e.preventDefault()
-      WisP.config.html.main.empty()
-      WisP.Controller.showPosts()
+      controller.showPosts()
     )
-    WisP.config.html.main.on('click', '.post-paging a', (e)->
+    # Next and prev buttons on single post view
+    container.on('click', '.post-paging a', (e)->
       e.preventDefault()
       post = WisP.currentPost
       postID = post.get('id')
@@ -76,16 +126,7 @@ window.WisP =
       else if elID is 'next-post'
         post = WisP.stepPost(postID)
       if postID is post.get('id') then return
-      WisP.Controller.showPost(post.get('id'))
-    )
-    WisP.config.html.categorySelect.on('click', '.category-menu-item a', (e)->
-      e.preventDefault()
-      catID = $(@).attr('href')
-        .substr($(@).attr('href')
-        .lastIndexOf('/'))
-        .replace('/', '')
-      WisP.config.html.main.empty()
-      WisP.Controller.showPosts(catID)
+      controller.showPost(post.get('id'))
     )
 
   ###
@@ -107,6 +148,13 @@ window.WisP =
           return q[0]
     false
 
+  ###
+  Get a single post from currentPosts by id
+
+  @method getPostByID
+  @param {Number} The ID of the post being retrieved
+  @return {Array} Array containing the post or empty if not found
+  ###
   getPostByID: (id)->
     id = parseInt(id, 10)
     r = []
@@ -114,6 +162,14 @@ window.WisP =
       if post.get('id') is id then r.push(post)
     r
 
+  ###
+  Find the next or previous post in currentPosts
+
+  @method stepPost
+  @param {Number} ID of the current post
+  @param {Boolean} Whether or not to get previous post
+  @return {Object} Post found, defaults to current post
+  ###
   stepPost: (id, prev = false)->
     id = parseInt(id, 10)
     rPost = WisP.currentPost
@@ -124,6 +180,13 @@ window.WisP =
         rPost = WisP.currentPosts[idx]
     rPost
 
+  ###
+  Get the pretty url for the single post view
+
+  @method getPrettyURL
+  @param {String} Original Url to parse
+  @return {Mixed} Pretty URL String or false
+  ###
   getPrettyURL: (url)->
     regex = /((https?:\/\/)(www\.)?)(\S*?)(\/)/ig
     result = regex.exec(url)
@@ -131,6 +194,14 @@ window.WisP =
       return result[4]
     false
 
+  ###
+  Find closes size from an array of sizes
+
+  @method getMediaByWidth
+  @param {Array} Array of sizes for a media object
+  @param {Number} The target width to look for
+  @return {Mixed} Single size or false
+  ###
   getMediaByWidth: (sizes, width)->
     smallest = false
     if sizes.length > 0 && width
