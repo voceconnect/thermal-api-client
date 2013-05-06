@@ -50,7 +50,6 @@ WisP.Router = new (Backbone.Router.extend
     WisP.Controller.showPosts(category, paged)
 
   showPost: (id)->
-    WisP.config.html.main.empty()
     WisP.Controller.showPost(id, false)
 
   ###
@@ -59,7 +58,6 @@ WisP.Router = new (Backbone.Router.extend
   @method showError
   ###
   showError: ()->
-    WisP.config.html.main.empty()
     WisP.Controller.showError()
 
   ###

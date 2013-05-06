@@ -61,6 +61,7 @@ WisP.Controller =
   @param {Boolean} popup
   ###
   showPost: (id)->
+    WisP.config.html.main.empty()
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)
@@ -73,4 +74,5 @@ WisP.Controller =
     WisP.config.html.main.html(postView.el)
 
   showError: ()->
+    WisP.config.html.main.empty()
     WisP.config.html.main.append(WisP.Templates['404.html'])
