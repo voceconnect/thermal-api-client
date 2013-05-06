@@ -39,7 +39,6 @@ window.WisP =
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
-      container.empty()
       WisP.Controller.showPosts(catID)
     )
 
@@ -92,7 +91,6 @@ window.WisP =
     # Show posts button on single post view
     container.on('click', '.show-posts', (e)->
       e.preventDefault()
-      container.empty()
       controller.showPosts()
     )
     # Next and prev buttons on single post view

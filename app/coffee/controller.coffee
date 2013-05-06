@@ -21,6 +21,7 @@ WisP.Controller =
   ###
   showPosts: (category, paged)->
     WisP.currentPosts = []
+    WisP.config.html.main.empty()
     opts =
       category : null
       paged : 1

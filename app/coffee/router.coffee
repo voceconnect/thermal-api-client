@@ -37,7 +37,6 @@ WisP.Router = new (Backbone.Router.extend
   @param {Number} Query page number
   ###
   showPosts: (paged)->
-    WisP.config.html.main.empty()
     WisP.Controller.showPosts(null, paged)
 
   ###
