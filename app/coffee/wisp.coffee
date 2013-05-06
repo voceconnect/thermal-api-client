@@ -1,6 +1,6 @@
 ###
 Global App Object
-Holds the global config options
+Holds the global config options and methods
 ###
 window.WisP =
 
@@ -28,6 +28,11 @@ window.WisP =
     @setupClickEvents()
     @setupDropdown()
 
+  ###
+  Instantiates the bootstrap dropdown and click binding
+
+  @method setupDropdown
+  ###
   setupDropdown: ()->
     html = WisP.config.html
     container = html.main
@@ -42,6 +47,11 @@ window.WisP =
       WisP.Controller.showPosts(catID)
     )
 
+  ###
+  Instantiates the jQuery Masonry
+
+  @method setupMasonry
+  ###
   setupMasonry: ()->
     @config.html.main.masonry(
       itemSelector: '.thermal-item'
@@ -49,6 +59,12 @@ window.WisP =
     )
     @config.html.main.masonry( 'reload' )
 
+  ###
+  Adds the scroll listener
+  Shows the scroll to top button and infinite scroll
+
+  @method setupScrolling
+  ###
   setupScrolling: ()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
@@ -69,12 +85,16 @@ window.WisP =
           WisP.config.html.main.append(WisP.Controller.morePosts(opts))
           WisP.loadingPosts = true
     )
-
     $scrollToTop.click((e)->
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
 
+  ###
+  Creates misc click listeners for the app
+
+  @method setupClickEvents
+  ###
   setupClickEvents: ()->
     html = WisP.config.html
     container = html.main
@@ -126,6 +146,13 @@ window.WisP =
           return q[0]
     false
 
+  ###
+  Get a single post from currentPosts by id
+
+  @method getPostByID
+  @param {Number} The ID of the post being retrieved
+  @return {Array} Array containing the post or empty if not found
+  ###
   getPostByID: (id)->
     id = parseInt(id, 10)
     r = []
@@ -133,6 +160,14 @@ window.WisP =
       if post.get('id') is id then r.push(post)
     r
 
+  ###
+  Find the next or previous post in currentPosts
+
+  @method stepPost
+  @param {Number} ID of the current post
+  @param {Boolean} Whether or not to get previous post
+  @return {Object} Post found, defaults to current post
+  ###
   stepPost: (id, prev = false)->
     id = parseInt(id, 10)
     rPost = WisP.currentPost
@@ -143,6 +178,13 @@ window.WisP =
         rPost = WisP.currentPosts[idx]
     rPost
 
+  ###
+  Get the pretty url for the single post view
+
+  @method getPrettyURL
+  @param {String} Original Url to parse
+  @return {Mixed} Pretty URL String or false
+  ###
   getPrettyURL: (url)->
     regex = /((https?:\/\/)(www\.)?)(\S*?)(\/)/ig
     result = regex.exec(url)
@@ -150,6 +192,14 @@ window.WisP =
       return result[4]
     false
 
+  ###
+  Find closes size from an array of sizes
+
+  @method getMediaByWidth
+  @param {Array} Array of sizes for a media object
+  @param {Number} The target width to look for
+  @return {Mixed} Single size or false
+  ###
   getMediaByWidth: (sizes, width)->
     smallest = false
     if sizes.length > 0 && width
