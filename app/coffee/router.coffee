@@ -25,45 +25,49 @@ WisP.Router = new (Backbone.Router.extend
   Hides the loading feedback during route event
 
   @method transition
+  @param {Object} The route being used
+  @param {Object} Args being passed
   ###
   transition: (route, args)->
     $('.loading').hide()
 
   ###
-  Method for getting posts by page
-  Empties the posts container and calls the Controller showPosts method
+  Calls the controller showPosts method
+  Passes the paged parameter from the route
 
   @method showPosts
   @param {Number} Query page number
   ###
   showPosts: (paged)->
-    WisP.currentPosts = []
-    WisP.config.html.main.empty()
     WisP.Controller.showPosts(null, paged)
 
   ###
-  Method for getting posts by category
+  Calls the controller showPosts method
+  Passes the category and paged parameter from the route
 
   @method showPostsByCategory
   @param {Number} Category ID
   @param {Number} Query page number
   ###
   showPostsByCategory: (category, paged)->
-    WisP.currentPosts = []
-    WisP.config.html.main.empty()
     WisP.Controller.showPosts(category, paged)
 
+  ###
+  Calls the controller showPost method
+  Passes the id parameter from the route
+
+  @method showPost
+  @param {Number} The post ID
+  ###
   showPost: (id)->
-    WisP.config.html.main.empty()
-    WisP.Controller.showPost(id, false)
+    WisP.Controller.showPost(id)
 
   ###
-  Displays an error
+  Calls the controller showError method
 
   @method showError
   ###
   showError: ()->
-    WisP.config.html.main.empty()
     WisP.Controller.showError()
 
   ###

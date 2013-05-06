@@ -20,6 +20,8 @@ WisP.Controller =
   @param {Number} Query page number
   ###
   showPosts: (category, paged)->
+    WisP.currentPosts = []
+    WisP.config.html.main.empty()
     opts =
       category : null
       paged : 1
@@ -48,7 +50,7 @@ WisP.Controller =
         if model.id is Number(opts.category)
           WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
-    WisP.config.html.main.masonry( 'reload' )
+    WisP.setupMasonry()
     postsView.el
 
   ###
@@ -56,9 +58,12 @@ WisP.Controller =
 
   @method showPost
   @param {Number} Post ID
-  @param {Boolean} popup
   ###
   showPost: (id)->
+    container = WisP.config.html.main
+    container.empty()
+    if container.data('masonry')?
+      container.masonry('destroy')
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)
@@ -68,7 +73,13 @@ WisP.Controller =
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.listenTo(WisP.currentPost, 'change', postView.render)
       WisP.currentPost.fetch()
-    WisP.config.html.main.html(postView.el)
+    container.html(postView.el)
 
+  ###
+  Display the error template
+
+  @method showError
+  ###
   showError: ()->
+    WisP.config.html.main.empty()
     WisP.config.html.main.append(WisP.Templates['404.html'])
