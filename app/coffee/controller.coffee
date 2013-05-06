@@ -58,7 +58,6 @@ WisP.Controller =
 
   @method showPost
   @param {Number} Post ID
-  @param {Boolean} popup
   ###
   showPost: (id)->
     WisP.config.html.main.empty()
@@ -73,6 +72,11 @@ WisP.Controller =
       WisP.currentPost.fetch()
     WisP.config.html.main.html(postView.el)
 
+  ###
+  Display the error template
+
+  @method showError
+  ###
   showError: ()->
     WisP.config.html.main.empty()
     WisP.config.html.main.append(WisP.Templates['404.html'])
