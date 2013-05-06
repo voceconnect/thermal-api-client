@@ -47,8 +47,6 @@ WisP.Router = new (Backbone.Router.extend
   @param {Number} Query page number
   ###
   showPostsByCategory: (category, paged)->
-    WisP.currentPosts = []
-    WisP.config.html.main.empty()
     WisP.Controller.showPosts(category, paged)
 
   showPost: (id)->
