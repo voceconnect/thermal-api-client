@@ -60,8 +60,10 @@ WisP.Controller =
   @param {Number} Post ID
   ###
   showPost: (id)->
-    WisP.config.html.main.empty()
-    WisP.config.html.main.masonry('destroy')
+    container = WisP.config.html.main
+    container.empty()
+    if container.data('masonry')?
+      container.masonry('destroy')
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)
@@ -71,7 +73,7 @@ WisP.Controller =
       postView = new WisP.PostView(model:WisP.currentPost)
       postView.listenTo(WisP.currentPost, 'change', postView.render)
       WisP.currentPost.fetch()
-    WisP.config.html.main.html(postView.el)
+    container.html(postView.el)
 
   ###
   Display the error template
