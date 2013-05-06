@@ -23,11 +23,34 @@ window.WisP =
   @method init
   ###
   init:()->
+    @setupMasonry()
+    @setupScrolling()
+    @setupClickEvents()
+    @setupDropdown()
+
+  setupDropdown: ()->
+    html = WisP.config.html
+    container = html.main
+    container.find('.dropdown-toggle').dropdown()
+    # Category dropdown list
+    html.categorySelect.on('click', '.category-menu-item a', (e)->
+      e.preventDefault()
+      catID = $(@).attr('href')
+        .substr($(@).attr('href')
+        .lastIndexOf('/'))
+        .replace('/', '')
+      container.empty()
+      controller.showPosts(catID)
+    )
+
+  setupMasonry: ()->
     @config.html.main.masonry(
       itemSelector: '.thermal-item'
       columnWidth: 300
     )
     @config.html.main.masonry( 'reload' )
+
+  setupScrolling: ()->
     $scrollToTop = $('.scroll-to-top')
     $(window).scroll(()->
       if $(@).scrollTop() > 100
@@ -52,21 +75,28 @@ window.WisP =
       e.preventDefault()
       $("html, body").animate({ scrollTop: 0 }, 600)
     )
-    WisP.config.html.main.find('.dropdown-toggle').dropdown()
-    WisP.config.html.main.on('click', '.thermal-item a.post-link', (e)->
+
+  setupClickEvents: ()->
+    html = WisP.config.html
+    container = html.main
+    controller = WisP.Controller
+    # Post card links for post view
+    container.on('click', '.thermal-item a.post-link', (e)->
       e.preventDefault()
       id = $(@).attr('href')
         .substr($(@).attr('href')
         .lastIndexOf('/'))
         .replace('/', '')
-      WisP.Controller.showPost(id)
+      controller.showPost(id)
     )
-    WisP.config.html.main.on('click', '.show-posts', (e)->
+    # Show posts button on single post view
+    container.on('click', '.show-posts', (e)->
       e.preventDefault()
-      WisP.config.html.main.empty()
-      WisP.Controller.showPosts()
+      container.empty()
+      controller.showPosts()
     )
-    WisP.config.html.main.on('click', '.post-paging a', (e)->
+    # Next and prev buttons on single post view
+    container.on('click', '.post-paging a', (e)->
       e.preventDefault()
       post = WisP.currentPost
       postID = post.get('id')
@@ -76,16 +106,7 @@ window.WisP =
       else if elID is 'next-post'
         post = WisP.stepPost(postID)
       if postID is post.get('id') then return
-      WisP.Controller.showPost(post.get('id'))
-    )
-    WisP.config.html.categorySelect.on('click', '.category-menu-item a', (e)->
-      e.preventDefault()
-      catID = $(@).attr('href')
-        .substr($(@).attr('href')
-        .lastIndexOf('/'))
-        .replace('/', '')
-      WisP.config.html.main.empty()
-      WisP.Controller.showPosts(catID)
+      controller.showPost(post.get('id'))
     )
 
   ###
