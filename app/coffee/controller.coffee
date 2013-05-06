@@ -50,7 +50,7 @@ WisP.Controller =
         if model.id is Number(opts.category)
           WisP.config.html.categorySelect.trigger('selectedCategory', [model])
     postsView.listenTo(WisP.currentCollection, 'add', postsView.renderOne)
-    WisP.config.html.main.masonry( 'reload' )
+    WisP.setupMasonry()
     postsView.el
 
   ###
@@ -61,6 +61,7 @@ WisP.Controller =
   ###
   showPost: (id)->
     WisP.config.html.main.empty()
+    WisP.config.html.main.masonry('destroy')
     if WisP.getPostByID(id).length > 0
       WisP.currentPost = WisP.getPostByID(id)[0]
       postView = new WisP.PostView(model:WisP.currentPost)

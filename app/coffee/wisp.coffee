@@ -53,11 +53,13 @@ window.WisP =
   @method setupMasonry
   ###
   setupMasonry: ()->
-    @config.html.main.masonry(
-      itemSelector: '.thermal-item'
-      columnWidth: 300
-    )
-    @config.html.main.masonry( 'reload' )
+    if @config.html.main.data('masonry')?
+      @config.html.main.masonry( 'reload' )
+    else
+      @config.html.main.masonry(
+        itemSelector: '.thermal-item'
+        columnWidth: 300
+      )
 
   ###
   Adds the scroll listener
