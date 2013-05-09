@@ -7,8 +7,8 @@ WisP.PostView = Backbone.View.extend
     @parseGalleries() if @model.get('meta').gallery?
     @$el.html @template(@model.attributes)
     @replaceGalleries()
-    headerPos = WisP.config.html.main.parent().offset().top
-    $("html, body").animate({ scrollTop: headerPos }, 600)
+    if WisP.config.html.main.position()
+      $(window).scrollTop(WisP.config.html.main.position().top)
     @
 
   parseGalleries: () ->
@@ -45,5 +45,5 @@ WisP.PostView = Backbone.View.extend
       gallery.add mediaItem
     , @
     @galleryViews.push new WisP.GalleryView
-      collection: gallery,
+      collection: gallery
       postMedia: this.model.get('media')

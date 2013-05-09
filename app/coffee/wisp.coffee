@@ -89,7 +89,7 @@ window.WisP =
     )
     $scrollToTop.click((e)->
       e.preventDefault()
-      $("html, body").animate({ scrollTop: 0 }, 600)
+      $(window).scrollTop(WisP.config.html.main.position().top)
     )
 
   ###
