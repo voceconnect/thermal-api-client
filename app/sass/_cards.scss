@@ -55,6 +55,7 @@
 	padding: .5em 6.25% 1em 6.25%;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
+	@include force-wrap();
 	h4 {
 		text-transform: uppercase;
 		font-family: $fancyFont;
