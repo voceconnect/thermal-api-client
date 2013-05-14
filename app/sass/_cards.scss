@@ -16,11 +16,12 @@
 	border-top: 1px solid $grayLight;
 	border-bottom: 1px solid $grayLight;
 	position: relative;
-	&.new-item {
+	&.new-item #{$name}-text {
 		&:after {
-			@include ribbon('New', 143px, -1px);
+			@include ribbon('New', -6px, -1px);
 		}
 	}
+	
 	@include breakpoint(phone) {
 		position: relative !important;
 		margin: 20px auto 0 auto !important;
@@ -55,6 +56,7 @@
 	padding: .5em 6.25% 1em 6.25%;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
+	position: relative;
 	h4 {
 		text-transform: uppercase;
 		font-family: $fancyFont;

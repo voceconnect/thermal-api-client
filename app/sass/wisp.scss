@@ -96,4 +96,9 @@
 		max-width: 48px;
 	}
 	@import "full-post";
+	.part-sample-intro {
+		background-color: #73509E;
+		padding-top: 42px;
+		@include gradient-vertical(#4E3290, #7B56A4);
+	}
 }
