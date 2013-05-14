@@ -16,10 +16,8 @@
 	border-top: 1px solid $grayLight;
 	border-bottom: 1px solid $grayLight;
 	position: relative;
-	&.new-item {
-		&:after {
-			@include ribbon('New', 143px, -1px);
-		}
+	&.new-item #{$name}-meta:after {
+		@include ribbon('New', 2px, -1px);
 	}
 	@include breakpoint(phone) {
 		position: relative !important;
@@ -77,6 +75,7 @@
 	@include clearfix();
 	@include box-sizing(border-box);
 	padding: .5em 5%;
+	position: relative;
 	p {
 		font-size: 1.1428571429em;
 		line-height: 1.25;
