@@ -96,9 +96,28 @@
 		max-width: 48px;
 	}
 	@import "full-post";
-	.part-sample-intro {
+	.part-intro {
 		background-color: #73509E;
-		padding-top: 42px;
 		@include gradient-vertical(#4E3290, #7B56A4);
+		margin-bottom: 10px;
+		color: #fff;
+		a {color: $orange;}
+		.row {
+			margin-left: 0;
+		}
+		@include breakpoint(phone){
+			margin: 0 -20px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		@include breakpoint(kindle){
+			margin: 0 -20px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.wrapper {
+			background-image: image_url('whitediamond.png');
+			padding: 62px 0 20px 0;
+		}			
 	}
 }
