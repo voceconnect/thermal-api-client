@@ -193,9 +193,9 @@ blockquote {
   padding: 0 0 0 15px;
   margin: 0 0 $baseLineHeight;
   border-left: 5px solid $grayLighter;
+  font-size: $baseFontSize * 1.25;
   p {
     margin-bottom: 0;
-    font-size: $baseFontSize * 1.25;
     font-weight: 300;
     line-height: 1.25;
   }
