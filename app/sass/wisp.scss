@@ -6,12 +6,28 @@
 .wisp {
 	@import "lib/bootstrap";
 	@import "lib/responsive";
+	body {
+		@include breakpoint(phone){
+			padding: 0;
+		}
+	}
+	.hero-unit {
+		padding: 1.25em;
+		font: Helvetica Neue, Helvetica, sans-serif;
+		@include breakpoint(kindle){
+			padding: .75em;
+		}
+		@include breakpoint(phone){
+			padding: 0 .5em .5em .5em;
+		}
+	}
 	#category-dropdown {
 		@include clearfix();
 		.btn-group {
 			margin-bottom: 0;
 		}
 		margin-bottom: -10px;
+		margin-right: 1.25em;
 	}
 	.btn {
 		font-family: $fancyFont;
@@ -27,12 +43,12 @@
 			}
 		}
 		&.show-posts {
-			margin-top: -20px;
-			margin-bottom: 25px;
+			margin: -20px 0 25px 1.25em;
 		}
 	}
 	.dropdown-menu {
 		font-family: Helvetica Neue, Helvetica, sans-serif;
+		@include breakpoint(phone){left: auto; right: 0;}
 	}
 	.btn-group {
 		margin-bottom: 15px;
