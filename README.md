@@ -6,10 +6,13 @@ _A Backbone JS powered client for viewing WordPress posts served by the [Thermal
 
 The application has a namespace of `WisP`. All classes are bound to it.
 e.g.
+
 * `WisP.Post` for a post model
-* `WisP.Templates['post-excerpt.html']` for the Underscore template to render a post excerpt
+* `WisP.Templates['post-excerpt.html']` for the Underscore template to render
+a post excerpt
 
 ## Application Structure
+
 ```
  |-/app
  |---coffee # Classes and helper methods to power the app
@@ -34,9 +37,13 @@ e.g.
 
 ## Build Process
 
-There is a custom `peon-config.jst` which is properly configured for this application structure.
-There are also custom tasks in the /tasks directory for the build.
-Run `peon make` from the root of the project to produce functional standalone and WP implementations of this application.
+We are porting the build process into grunt, but in the meantime there is a
+`build-v*.zip` file of the `_build` directory you can extract. Once you do
+that, open `index.html` in a browser to see sample posts from
+[http://sandbox.thermal-api.com](http://sandbox.thermal-api.com). 
+
+If you are running the [http://thermal-api.com](Thermal plugin) on your
+WordPress site you can edit `index.html` and change the `apiUrl` to your site.
 
 ## Testing
 
