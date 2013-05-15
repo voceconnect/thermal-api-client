@@ -1,6 +1,6 @@
-# wpJsonApiClient
+# WisP
 
-_A Backbone JS powered webapp for viewing WordPress posts_
+_A Backbone JS powered client for viewing WordPress posts served by the [Thermal WordPress API plugin](http://thermal-api.com_)._
 
 ## Application Description
 
@@ -40,17 +40,18 @@ Run `peon make` from the root of the project to produce functional standalone an
 
 ## Testing
 
-Open domain/tests/index.html to run the tests
+Open domain/tests/index.html to run the tests.
 
 
 ## Embedding
 
-The application can be run inside another site using the WisP.Embed class
+The application can be run inside another site using the WisP.Embed class:
 
 * Include the `PATHTOWISP/js/wisp.js` file into your site
 * Create a HTML element to contain the app
 * Instantiate a WisP.Embed object with your options
-```
+
+```javascript
 <script>
 jQuery(document).ready(function($){
     var wispOptions = {
@@ -66,3 +67,5 @@ jQuery(document).ready(function($){
 
 
 ## Changelog
+
+* 1.0 - Initial release
