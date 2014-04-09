@@ -1,6 +1,6 @@
 # WisP
 
-_A Backbone JS powered client for viewing WordPress posts served by the [Thermal WordPress API plugin](http://thermal-api.com_)._
+_A Backbone JS powered client for viewing WordPress posts served by the [Thermal WordPress API plugin](http://thermal-api.com)._
 
 ## Application Description
 
